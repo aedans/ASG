@@ -24,14 +24,6 @@ public abstract class MoveableEntity extends Entity {
         super(textureID, x, y, width, height);
     }
 
-    public MoveableEntity(int textureID, Point2D.Float position, int width, int height) {
-        super(textureID, position, width, height);
-    }
-
-    public MoveableEntity(Point2D.Float position, TexturedModel texturedModel) {
-        super(position, texturedModel);
-    }
-
     public void translate(){
         float m = (float)(System.currentTimeMillis()-lastTranslated)/1000;
         getOpenGLPosition().x += xVel*m;

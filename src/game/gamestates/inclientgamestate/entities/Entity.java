@@ -20,14 +20,6 @@ public abstract class Entity extends Sprite {
         super(textureID, x, y, width, height);
     }
 
-    public Entity(int textureID, Point2D.Float position, int width, int height){
-        super(textureID, position, width, height);
-    }
-
-    public Entity(Point2D.Float onScreenPosition, TexturedModel texturedModel){
-        super(onScreenPosition, texturedModel);
-    }
-
     public int getGridX(){
         return (int) ((32+ getPixelPosition().getX())/64);
     }

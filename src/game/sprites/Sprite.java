@@ -69,28 +69,28 @@ public abstract class Sprite implements Renderable {
      * @param height: The height of the sprite in pixels.
      */
     public Sprite(int textureID, float x, float y, int width, int height){
-        this(textureID, new Point2D.Float(DisplayManager.ppX*x*2, DisplayManager.ppY*y*2), width, height);
+        this(textureID, new Point2D.Float(DisplayManager.ppX*x*2, DisplayManager.ppY*y*2), width*DisplayManager.xRes/900, height*DisplayManager.yRes/900);
     }
 
     /**
-     * Default Sprite constructor.
+     * Private Sprite constructor.
      *
      * @param textureID: The ID of the texture (See game.sprites.Textures).
      * @param openGLPosition: The position of the Sprite on the OpenGL Coordinate Plane.
      * @param width: The width of the sprite in pixels.
      * @param height: The height of the sprite in pixels.
      */
-    public Sprite(int textureID, Point2D.Float openGLPosition, int width, int height){
+    private Sprite(int textureID, Point2D.Float openGLPosition, int width, int height){
         this(openGLPosition, TexturedModel.getTexturedModel(width, height, textureID));
     }
 
     /**
-     * Default Sprite constructor.
+     * Private Sprite constructor.
      *
      * @param openGLPosition: The position of the Sprite on the OpenGL Coordinate Plane.
      * @param texturedModel: The TexturedModel of the Sprite.
      */
-    public Sprite(Point2D.Float openGLPosition, TexturedModel texturedModel){
+    private Sprite(Point2D.Float openGLPosition, TexturedModel texturedModel){
         this.texturedModel = texturedModel;
         this.openGLPosition = openGLPosition;
         this.pixelPosition = new Point2D.Float((openGLPosition.x/DisplayManager.ppX)/2, (openGLPosition.y/DisplayManager.ppY)/2);
