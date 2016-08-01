@@ -19,6 +19,6 @@ public class Vector2d <T extends Number> implements Vector {
      */
     @Override
     public double getLength() {
-        return Vector.getLength(this.x.doubleValue(), this.y.doubleValue()
+        return Vector.getLength(this.x.doubleValue(), this.y.doubleValue());
     }
 }

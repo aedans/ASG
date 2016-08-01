@@ -44,7 +44,10 @@ public final class DisplayManager {
      *             TODO: Remove Display Title.
      * @throws LWJGLException: If LWJGL could not initialize the Display.
      */
-    public static void createDisplay(int xRes, int yRes, boolean fullscreen, String title) throws LWJGLException {
+    public static void createDisplay(int xRes, int yRes, boolean fullscreen, String title) throws Exception {
+        if (xRes != yRes){
+            throw new Exception("Game is currently locked to 1:1 resolutions.");
+        }
         DisplayManager.xRes = xRes;
         DisplayManager.yRes = yRes;
         ppX = 1.0f/(float)DisplayManager.xRes;
