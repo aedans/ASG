@@ -16,32 +16,103 @@ import java.awt.geom.Point2D;
 
 public abstract class Sprite implements Renderable {
 
-    // TODO Fix Coord System
-    // TODO Fix scale
-    // TODO Add elapsed time to update()
+    // TODO: Fix Coord System.
+    // TODO: Fix scale.
+    // TODO: Add elapsed time to update().
 
+    /**
+     * TODO: Fix Scale.
+     */
+    @SuppressWarnings("WeakerAccess")
     public float scale = 1;
-    protected TexturedModel texturedModel;
-    public boolean isLight = false;
-    private Point2D.Float openGLPosition, pixelPosition;
 
+    /**
+     * True if the Sprite is a light source. False unless assigned by subclass.
+     */
+    protected boolean isLight = false;
+
+    /**
+     * The Sprite's TexturedModel.
+     */
+    private TexturedModel texturedModel;
+
+    /**
+     * The position of the Sprite on the OpenGL Coordinate plane.
+     */
+    private Point2D.Float openGLPosition;
+
+    /**
+     * The position of the Sprite in pixels from the bottom right.
+     */
+    private Point2D.Float pixelPosition;
+
+    /**
+     * Creates a Sprite at (0, 0).
+     *
+     * @param textureID: The ID of the texture (See game.sprites.Textures).
+     * @param width: The width of the sprite in pixels.
+     * @param height: The height of the sprite in pixels.
+     */
     public Sprite(int textureID, int width, int height){
         this(textureID, new Point2D.Float(0, 0), width, height);
     }
 
+    /**
+     * Default Sprite constructor.
+     *
+     * @param textureID: The ID of the texture (See game.sprites.Textures).
+     * @param x: The x-position of the Sprite on the Pixel Coordinate Plane.
+     * @param y: The y-position of the Sprite on the Pixel Coordinate Plane.
+     * @param width: The width of the sprite in pixels.
+     * @param height: The height of the sprite in pixels.
+     */
     public Sprite(int textureID, float x, float y, int width, int height){
         this(textureID, new Point2D.Float(DisplayManager.ppX*x*2, DisplayManager.ppY*y*2), width, height);
     }
 
-    public Sprite(int textureID, Point2D.Float position, int width, int height){
-        this(position, TexturedModel.getTexturedModel(width, height, textureID));
+    /**
+     * Default Sprite constructor.
+     *
+     * @param textureID: The ID of the texture (See game.sprites.Textures).
+     * @param openGLPosition: The position of the Sprite on the OpenGL Coordinate Plane.
+     * @param width: The width of the sprite in pixels.
+     * @param height: The height of the sprite in pixels.
+     */
+    public Sprite(int textureID, Point2D.Float openGLPosition, int width, int height){
+        this(openGLPosition, TexturedModel.getTexturedModel(width, height, textureID));
     }
 
-    public Sprite(Point2D.Float getOpenGLPosition, TexturedModel texturedModel){
+    /**
+     * Default Sprite constructor.
+     *
+     * @param openGLPosition: The position of the Sprite on the OpenGL Coordinate Plane.
+     * @param texturedModel: The TexturedModel of the Sprite.
+     */
+    public Sprite(Point2D.Float openGLPosition, TexturedModel texturedModel){
         this.texturedModel = texturedModel;
-        this.openGLPosition = getOpenGLPosition;
-        this.pixelPosition = new Point2D.Float((getOpenGLPosition.x/DisplayManager.ppX)/2, (getOpenGLPosition.y/DisplayManager.ppY)/2);
+        this.openGLPosition = openGLPosition;
+        this.pixelPosition = new Point2D.Float((openGLPosition.x/DisplayManager.ppX)/2, (openGLPosition.y/DisplayManager.ppY)/2);
     }
+
+    /**
+     * Removes the Sprite from the game.
+     *
+     * TODO: Add support for other GameStates.
+     */
+    @SuppressWarnings("WeakerAccess")
+    public void destroy() {
+        Game.inClientGameState.sprites.remove(this);
+    }
+
+    /**
+     * Abstract function called every frame if the Sprite is in a SpriteList.
+     */
+    public abstract void update();
+
+    /**
+     * Abstract function called before the Sprite is rendered.
+     */
+    public abstract void onRender();
 
     public TexturedModel getTexturedModel() {
         return texturedModel;
@@ -63,21 +134,16 @@ public abstract class Sprite implements Renderable {
         return (int) pixelPosition.getY();
     }
 
+    @SuppressWarnings("WeakerAccess")
     public float getScale() {
         return scale;
     }
 
-    public void destroy() {
-        Game.inClientGameState.sprites.remove(this);
-    }
-
     @Override
     public Matrix4f getTransformationMatrix(){
-        return MatrixMath.createTransformationMatrix(Viewport.getRelativePosition(getOpenGLPosition()), getScale());
+        return MatrixMath.createTransformationMatrix(
+                Viewport.getRelativePosition(getOpenGLPosition()), getScale()
+        );
     }
-
-    public abstract void update();
-
-    public abstract void onRender();
 
 }
