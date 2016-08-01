@@ -5,6 +5,8 @@ import com.sun.istack.internal.NotNull;
 import java.util.List;
 
 /**
+ * Created by Aedan Smith.
+ *
  * An abstract AI class that uses decision trees to find the best possible action.
  */
 

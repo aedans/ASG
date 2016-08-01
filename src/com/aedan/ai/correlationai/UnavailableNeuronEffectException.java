@@ -1,6 +1,8 @@
 package com.aedan.ai.correlationai;
 
 /**
+ * Created by Aedan Smith.
+ *
  * The exception thrown when an error occurs while calculating a Neuron's effect.
  */
 

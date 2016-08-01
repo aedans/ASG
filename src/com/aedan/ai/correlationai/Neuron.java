@@ -5,6 +5,8 @@ import com.sun.istack.internal.NotNull;
 import java.util.ArrayList;
 
 /**
+ * Created by Aedan Smith.
+ *
  * An abstract class used to represent decisions in a Correlation AI. A Neuron can be a
  * parent or child node to other Neurons. A group of Neurons is treated like a tree.
  */
