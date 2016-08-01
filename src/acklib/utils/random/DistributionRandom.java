@@ -1,5 +1,7 @@
 package acklib.utils.random;
 
+import acklib.utils.random.SmartRandom;
+
 /**
  * Created by Aedan Smith on 5/15/2016.
  *
@@ -18,7 +20,7 @@ public class DistributionRandom {
      */
     public static int[] randomize1dDistribution(int[] randoms, int variance) {
         for (int i = 0; i < randoms.length; i++) {
-            randoms[i] = SmartRandom.nextInt(randoms[i] - variance, randoms[i] + variance);
+            randoms[i] = SmartRandom.nextInt(randoms[i] + variance);
         }
         return randoms;
     }
@@ -33,7 +35,7 @@ public class DistributionRandom {
     public static int[][] randomize2dDistribution(int[][] randoms, int variance) {
         for (int i = 0; i < randoms.length; i++) {
             for (int j = 0; j < randoms[i].length; j++) {
-                randoms[i][j] = SmartRandom.nextInt(randoms[i][j] - variance, randoms[i][j] + variance);
+                randoms[i][j] = SmartRandom.nextInt(randoms[i][j] + variance);
             }
         }
         return randoms;
@@ -50,7 +52,7 @@ public class DistributionRandom {
         for (int i = 0; i < randoms.length; i++) {
             for (int j = 0; j < randoms[i].length; j++) {
                 for (int k = 0; k < randoms[i][j].length; k++) {
-                    randoms[i][j][k] = SmartRandom.nextInt(randoms[i][j][k] - variance,randoms[i][j][k] + variance);
+                    randoms[i][j][k] = SmartRandom.nextInt(randoms[i][j][k] + variance);
                 }
             }
         }

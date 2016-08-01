@@ -51,7 +51,7 @@ public class WeightedRandom {
      * int is (int/intsTotal). Ex: getWeightedRandom(new int[]{4, 5, 10}) will return
      * 1 4/19 times, 2 5/19 times, and 3 10/19 times.
      *
-     * @param weights: An int[] of any numTextures.
+     * @param weights: An int[] of any size.
      * @return int: Returns the selected element.
      */
     public static int getWeightedRandom(int[] weights){
@@ -82,8 +82,8 @@ public class WeightedRandom {
      *
      * Runs faster than getWeightedRandom(new int[]{trueWeight, falseWeight}).
      *
-     * @param trueWeight: Integer weight of any numTextures.
-     * @param falseWeight: Integer weight of any numTextures.
+     * @param trueWeight: Integer weight of any size.
+     * @param falseWeight: Integer weight of any size.
      * @return boolean: Returns a random boolean given the true and false weights.
      */
     public static boolean getWeightedBoolean(int trueWeight, int falseWeight){
