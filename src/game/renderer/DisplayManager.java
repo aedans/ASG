@@ -5,15 +5,45 @@ import org.lwjgl.opengl.*;
 
 /**
  * Created by Aedan Smith on 5/3/2016.
+ *
+ * The Display manager for the Game.
  */
 
 public final class DisplayManager {
 
-    public static int fpscap = Display.getDesktopDisplayMode().getFrequency()*2;
+    /**
+     * The Display's maximum fps.
+     */
+    private static int fpscap = Display.getDesktopDisplayMode().getFrequency()*2;
+
+    /**
+     * The x and y resolution of the Display.
+     */
     public static int xRes, yRes;
+
+    /**
+     * The factor to translate between OpenGL and Pixel Coordinate Systems.
+     */
     public static float ppX, ppY;
+
+    /**
+     * The width of black bars on the top and side of the screen.
+     *
+     * TODO: Implement Black Bars.
+     */
+    @SuppressWarnings("WeakerAccess")
     public static int blackBarWidth, blackBarHeight;
 
+    /**
+     * Creates a display.
+     *
+     * @param xRes: The x resolution of the Display.
+     * @param yRes: The y resolution of the Display.
+     * @param fullscreen: True if the Display should initialize in fullscreen.
+     * @param title: The title of the display (as seen at the top)
+     *             TODO: Remove Display Title.
+     * @throws LWJGLException: If LWJGL could not initialize the Display.
+     */
     public static void createDisplay(int xRes, int yRes, boolean fullscreen, String title) throws LWJGLException {
         DisplayManager.xRes = xRes;
         DisplayManager.yRes = yRes;
@@ -22,10 +52,11 @@ public final class DisplayManager {
         if (xRes > yRes){
             blackBarWidth = (xRes-yRes)/2;
             blackBarHeight = 0;
-            System.out.println(blackBarWidth);
         } else {
-
+            blackBarHeight = yRes-xRes/2;
+            blackBarWidth = 0;
         }
+
         ContextAttribs attributes = new ContextAttribs(3, 2)
                 .withForwardCompatible(true)
                 .withProfileCore(true);
@@ -37,19 +68,29 @@ public final class DisplayManager {
         GL11.glViewport(0, 0, xRes, yRes);
     }
 
+    /**
+     * @return boolean: True if the user has requested to close the Display.
+     */
     public static boolean isCloseRequested(){
         return Display.isCloseRequested();
     }
 
+    /**
+     * Updates the Display.
+     */
     public static void updateDisplay(){
         Display.sync(fpscap);
         Display.update();
     }
 
+    /**
+     * Closes the Display.
+     */
     public static void closeDisplay(){
         Display.destroy();
     }
 
+    // Do not construct DisplayManager.
     private DisplayManager(){}
 
 }
