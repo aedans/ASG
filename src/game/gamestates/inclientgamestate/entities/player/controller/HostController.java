@@ -1,7 +1,6 @@
 package game.gamestates.inclientgamestate.entities.player.controller;
 
 import game.renderer.DisplayManager;
-import math.VectorMath;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
 import org.lwjgl.util.vector.Vector2f;
@@ -44,7 +43,7 @@ public class HostController implements Controller {
 
     @Override
     public Vector2f getShotDirection() {
-        return VectorMath.getVector(Mouse.getX()-DisplayManager.xRes/2, Mouse.getY()-DisplayManager.yRes/2);
+        return new Vector2f(Mouse.getX()-DisplayManager.xRes/2, Mouse.getY()-DisplayManager.yRes/2).normalise(new Vector2f(1, 1));
     }
 
 }
