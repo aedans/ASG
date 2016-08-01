@@ -1,0 +1,106 @@
+package game.gamestates.inclientgamestate.entities.player;
+
+import game.Game;
+import game.gamestates.inclientgamestate.entities.MoveableEntity;
+import game.sprites.Textures;
+import game.gamestates.inclientgamestate.entities.structures.Base;
+import game.gamestates.inclientgamestate.entities.player.controller.Controller;
+import game.gamestates.inclientgamestate.entities.projectiles.Fireball;
+import game.gamestates.inclientgamestate.entities.terrain.Mud;
+import game.gamestates.inclientgamestate.entities.terrain.Water;
+import org.lwjgl.util.vector.Vector2f;
+
+/**
+ * Created by Aedan Smith on 7/6/2016.
+ */
+
+@SuppressWarnings("Duplicates")
+public class Player extends MoveableEntity {
+
+    public float speed = 1f;
+    public boolean red;
+    private int lastShot = 0;
+    private Controller controller;
+
+    public Player(Controller controller, boolean red, int x, int y) {
+        super(red ? Textures.redPlayerTextureID : Textures.bluePlayerTextureID, x, y, 64, 64);
+        this.red = red;
+        this.controller = controller;
+    }
+
+    @Override
+    public void update() {
+        this.controller.update();
+        this.xVel = 0;
+        this.yVel = 0;
+        lastShot++;
+
+        if (Game.inClientGameState.map.getTileAt(getGridX(), getGridY()).getClass() == Mud.class || Game.inClientGameState.map.getTileAt(getGridX(), getGridY()).getClass() == Water.class)
+            this.speed = .68f;
+        else
+            this.speed = 1.0f;
+
+        if (controller.wantsToMoveLeft() && canMoveLeft())
+            this.xVel = -speed;
+        if (controller.wantsToMoveRight() && canMoveRight())
+            this.xVel = speed;
+        if (controller.wantsToMoveUp() && canMoveUp())
+            this.yVel = speed;
+        if (controller.wantsToMoveDown() && canMoveDown())
+            this.yVel = -speed;
+
+        if (controller.wantsToShoot() && canShoot()) {
+            Game.inClientGameState.sprites.add(new Fireball(controller.getShotDirection(), getPixelX(), getPixelY()));
+            lastShot = 0;
+        }
+
+        if (xVel != 0 && yVel != 0) {
+            xVel /= 1.5;
+            yVel /= 1.5;
+        }
+
+        translate();
+    }
+
+    private boolean canShoot() {
+        return lastShot > 15;
+    }
+
+    public boolean canMoveLeft(){
+        if (getPixelX() <= 0)
+            return false;
+        return !Game.inClientGameState.map.getTileAt((getPixelX() / 64), (32 + getPixelY()) / 64).isGroundCollidable();
+    }
+
+    public boolean canMoveRight(){
+        if (getPixelX()+64 >= Game.inClientGameState.map.getPixelWidth())
+            return false;
+        return !Game.inClientGameState.map.getTileAt((getPixelX() / 64) + 1, (32 + getPixelY()) / 64).isGroundCollidable();
+    }
+
+    public boolean canMoveUp(){
+        if (getPixelY()+64 >= Game.inClientGameState.map.getPixelHeight())
+            return false;
+        return !Game.inClientGameState.map.getTileAt((32 + getPixelX()) / 64, ((getPixelY()) / 64) + 1).isGroundCollidable();
+    }
+
+    public boolean canMoveDown(){
+        if (getPixelY() <= 0)
+            return false;
+        return !Game.inClientGameState.map.getTileAt((32 + getPixelX()) / 64, ((getPixelY()) / 64)).isGroundCollidable();
+    }
+
+    @Override
+    public void onRender() {
+
+    }
+
+    public Base getOpponentBase(){
+        return red ? Game.inClientGameState.blueBase : Game.inClientGameState.redBase;
+    }
+
+    public Controller getController() {
+        return controller;
+    }
+
+}
