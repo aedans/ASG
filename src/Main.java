@@ -21,7 +21,6 @@ public class Main {
                 DisplayManager.updateDisplay();
                 Game.currentGameState().update();
                 Game.currentGameState().render();
-                System.out.println(1000000/((System.nanoTime() - time)/1000));
                 time = System.nanoTime();
             }
             Loader.cleanUp();

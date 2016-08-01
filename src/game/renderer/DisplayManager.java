@@ -42,7 +42,7 @@ public final class DisplayManager {
     }
 
     public static void updateDisplay(){
-//        Display.sync(fpscap);
+        Display.sync(fpscap);
         Display.update();
     }
 
