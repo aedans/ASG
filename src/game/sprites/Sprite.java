@@ -73,7 +73,7 @@ public abstract class Sprite implements Renderable {
 
     @Override
     public Matrix4f getTransformationMatrix(){
-        return MatrixMath.createTransformationMatrix(Viewport.getRelativePosition(getOpenGLPosition()), 0, 0, getScale());
+        return MatrixMath.createTransformationMatrix(Viewport.getRelativePosition(getOpenGLPosition()), getScale());
     }
 
     public abstract void update();
