@@ -114,6 +114,13 @@ public abstract class Sprite implements Renderable {
      */
     public abstract void onRender();
 
+    @Override
+    public Matrix4f getTransformationMatrix(){
+        return MatrixMath.createTransformationMatrix(
+                Viewport.getRelativePosition(getOpenGLPosition()), getScale()
+        );
+    }
+
     public TexturedModel getTexturedModel() {
         return texturedModel;
     }
@@ -137,13 +144,6 @@ public abstract class Sprite implements Renderable {
     @SuppressWarnings("WeakerAccess")
     public float getScale() {
         return scale;
-    }
-
-    @Override
-    public Matrix4f getTransformationMatrix(){
-        return MatrixMath.createTransformationMatrix(
-                Viewport.getRelativePosition(getOpenGLPosition()), getScale()
-        );
     }
 
 }
