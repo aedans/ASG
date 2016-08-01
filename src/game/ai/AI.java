@@ -11,6 +11,11 @@ import game.gamestates.inclientgamestate.entities.player.Player;
 
 public class AI extends CorrelationAI {
 
+    // TODO: Finish AI.
+
+    /**
+     * The Player the AI Controls.
+     */
     public Player ai;
 
     private Neuron standStill = new Neuron() {
@@ -90,11 +95,17 @@ public class AI extends CorrelationAI {
         }
     };
 
+    /**
+     * See com.aedan.ai.correlationai.CorrelationAI documentation.
+     */
     @Override
     protected void initialize() {
 
     }
 
+    /**
+     * See com.aedan.ai.correlationai.CorrelationAI documentation.
+     */
     @Override
     public int getBestAction() throws Exception {
         return getBestAction(new Neuron[]{
