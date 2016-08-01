@@ -24,7 +24,7 @@ public class MainMenuGameState extends GameState {
     @Override
     public void render() {
         Renderer.prepare();
-        Renderer.render(spriteList);
+        Renderer.render(spriteList, Renderer.compositeShader);
     }
 
 }

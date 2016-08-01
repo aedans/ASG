@@ -18,18 +18,18 @@ public class GroupTend3D extends Tend3D {
     private int x, y, z;
 
     /**
-     * The depth of the influence of the tend.
+     * The numTextures of the influence of the tend.
      */
     private int size;
 
     /**
-     * Creates a group tend given the x, y, and z positions and the depth of
+     * Creates a group tend given the x, y, and z positions and the numTextures of
      * influence of the tend.
      *
      * @param x: The x position of the tend.
      * @param y: The y position of the tend.
      * @param z: The z position of the tend.
-     * @param size: The depth of the influence of the tend.
+     * @param size: The numTextures of the influence of the tend.
      */
     public GroupTend3D(int x, int y, int z, int size) {
         this.x = x;

@@ -18,16 +18,16 @@ public class GroupTend extends Tend {
     private int x;
 
     /**
-     * The depth of the influence of the tend.
+     * The numTextures of the influence of the tend.
      */
     private int size;
 
     /**
-     * Creates a group tend given the x position and the depth of influence of the
+     * Creates a group tend given the x position and the numTextures of influence of the
      * tend.
      *
      * @param x: The x position of the tend.
-     * @param size: The depth of the influence of the tend.
+     * @param size: The numTextures of the influence of the tend.
      */
     public GroupTend(int x, int size) {
         this.x = x;

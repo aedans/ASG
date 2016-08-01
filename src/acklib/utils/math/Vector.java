@@ -5,9 +5,9 @@ package acklib.utils.math;
  */
 public interface Vector {
     /**
-     * Returns the magnitude of the vector (depth)
+     * Returns the magnitude of the vector (numTextures)
      *
-     * @return depth of the vector
+     * @return numTextures of the vector
      */
     double getLength();
 }

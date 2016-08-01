@@ -18,17 +18,17 @@ public class GroupTend2D extends Tend2D {
     private int x, y;
 
     /**
-     * The depth of the influence of the tend.
+     * The numTextures of the influence of the tend.
      */
     private int size;
 
     /**
-     * Creates a group tend given the x and y positions and the depth of influence
+     * Creates a group tend given the x and y positions and the numTextures of influence
      * of the tend.
      *
      * @param x: The x position of the tend.
      * @param y: The y position of the tend.
-     * @param size: The depth of the influence of the tend.
+     * @param size: The numTextures of the influence of the tend.
      */
     public GroupTend2D(int x, int y, int size) {
         this.x = x;

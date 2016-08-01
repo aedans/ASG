@@ -10,7 +10,7 @@ package acklib.utils.distribution;
 public class Distributions {
 
     /**
-     * Creates a 1-dimensional distribution given a distribution depth, the maximum
+     * Creates a 1-dimensional distribution given a distribution numTextures, the maximum
      * value, and a list of tends.
      *
      * @param size: Size of the distribution.
@@ -26,7 +26,7 @@ public class Distributions {
     }
 
     /**
-     * Creates a 2-dimensional distribution given a distribution depth, the maximum
+     * Creates a 2-dimensional distribution given a distribution numTextures, the maximum
      * value, and a list of tends.
      *
      * @param xSize: Length of the distribution.
@@ -46,7 +46,7 @@ public class Distributions {
     }
 
     /**
-     * Creates a 3-dimensional distribution given a distribution depth, the maximum
+     * Creates a 3-dimensional distribution given a distribution numTextures, the maximum
      * value, and a list of tends.
      *
      * @param xSize: Length of the distribution.

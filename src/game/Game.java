@@ -16,23 +16,23 @@ public class Game {
     /**
      * Currently unused GameState for future loading screen.
      */
-    public static BootGameState bootGameState;
+    public static BootGameState bootGameState = new BootGameState();
 
     /**
      * Currently unused GameState for future menus.
      */
-    public static MainMenuGameState menuGameState;
+    public static MainMenuGameState mainMenuGameState = new MainMenuGameState();
 
     /**
      * The Client-side ingame GameState.
      */
-    public static InClientGameState inClientGameState;
+    public static InClientGameState inClientGameState = new InClientGameState();
 
     /**
      * The list of GameStates
      */
     private static GameState[] gameStates = new GameState[]{
-            bootGameState, menuGameState, inClientGameState
+            bootGameState, mainMenuGameState, inClientGameState
     };
 
     /**
@@ -41,12 +41,10 @@ public class Game {
     private static int activeGameState = 2;
 
     /**
-     * Initializes the game.
+     * Initializes the game (currently unused).
      */
     public static void initialize(){
-        bootGameState = new BootGameState();
-        menuGameState = new MainMenuGameState();
-        inClientGameState = new InClientGameState();
+
     }
 
     /**

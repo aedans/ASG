@@ -19,7 +19,7 @@ public abstract class CorrelationAI {
      *
      * @param possibleActions: The array of possible actions.
      * @return int: The index of the best action.
-     * @throws IllegalArgumentException if possibleActions has depth 0.
+     * @throws IllegalArgumentException if possibleActions has numTextures 0.
      */
     @NotNull
     protected int getBestAction(Neuron[] possibleActions) throws IllegalArgumentException {
@@ -52,7 +52,7 @@ public abstract class CorrelationAI {
      *
      * @param possibleActions: The list of possible actions
      * @return int: The index of the best action.
-     * @throws IllegalArgumentException if possibleActions has depth 0.
+     * @throws IllegalArgumentException if possibleActions has numTextures 0.
      */
     @NotNull
     protected int getBestAction(List<Neuron> possibleActions) throws IllegalArgumentException {

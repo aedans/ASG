@@ -13,9 +13,9 @@ public class Vector2D<T extends Number> implements Vector {
     }
 
     /**
-     * Returns depth (magnitude, depth) of the Vector2D
+     * Returns numTextures (magnitude, numTextures) of the Vector2D
      *
-     * @return depth of the vector
+     * @return numTextures of the vector
      */
     @Override
     public double getLength() {

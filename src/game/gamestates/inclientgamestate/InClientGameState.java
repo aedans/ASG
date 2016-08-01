@@ -2,6 +2,7 @@ package game.gamestates.inclientgamestate;
 
 import game.gamestates.inclientgamestate.guis.PlayerInventory;
 import game.gamestates.inclientgamestate.items.TestItem;
+import game.gui.GUIList;
 import game.item.ItemEntity;
 import game.renderer.Viewport;
 import game.sprites.SpriteList;
@@ -66,15 +67,14 @@ public class InClientGameState extends GameState {
     public void update() {
         sprites.update();
         guis.update();
-        guis.checkClicked();
         Viewport.update();
     }
 
     @Override
     public void render() {
         Renderer.prepare();
-        Renderer.render(sprites);
-        Renderer.render(guis);
+        Renderer.render(sprites, Renderer.lightShader);
+        Renderer.render(guis, Renderer.compositeShader);
     }
 
 }

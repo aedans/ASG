@@ -12,6 +12,8 @@ import java.awt.geom.Point2D;
 
 /**
  * Created by Aedan Smith on 7/8/2016.
+ *
+ * An abstract class that contains only the necessary functions for rendering.
  */
 
 public abstract class Sprite implements Renderable {
