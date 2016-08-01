@@ -16,12 +16,10 @@ public class Main {
         try {
             DisplayManager.createDisplay(Integer.parseInt(args[0]), Integer.parseInt(args[1]), false, "Consumables");
             Game.initialize();
-            long time = System.nanoTime();
             while (!DisplayManager.isCloseRequested()) {
                 DisplayManager.updateDisplay();
                 Game.currentGameState().update();
                 Game.currentGameState().render();
-                time = System.nanoTime();
             }
             Loader.cleanUp();
             Renderer.lights.cleanUp();
