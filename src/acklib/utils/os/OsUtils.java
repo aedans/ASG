@@ -2,8 +2,8 @@ package acklib.utils.os;
 
 /**
  * @author hacke
- *
- * Collection 0f operating system utilities
+ *         <p>
+ *         Collection 0f operating system utilities
  */
 public final class OsUtils {
     /*
@@ -14,14 +14,15 @@ public final class OsUtils {
     /*
      * Utility class, cannot be instantiated
      */
-    private OsUtils(){}
+    private OsUtils() {
+    }
 
     /**
      * Returns whether or not the operating system is windows
      *
      * @return if the operating system is windows
      */
-    public static boolean isWindows(){
+    public static boolean isWindows() {
         return OS.contains("windows");
     }
 
@@ -30,7 +31,7 @@ public final class OsUtils {
      *
      * @return if the operating system is unix
      */
-    public static boolean isUnix(){
+    public static boolean isUnix() {
         return OS.contains("nix") || OS.contains("aix") || OS.contains("nux");
     }
 
@@ -39,7 +40,7 @@ public final class OsUtils {
      *
      * @return if the operating system is osx
      */
-    public static boolean isMac(){
+    public static boolean isMac() {
         return OS.contains("mac");
     }
 
@@ -48,7 +49,7 @@ public final class OsUtils {
      *
      * @return if the operating system is solaris
      */
-    public static boolean isSolaris(){
+    public static boolean isSolaris() {
         return OS.contains("sunos");
     }
 
@@ -57,7 +58,7 @@ public final class OsUtils {
      *
      * @return the operating system string
      */
-    public static String getOS(){
+    public static String getOS() {
         return OS;
     }
 }

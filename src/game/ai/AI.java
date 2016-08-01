@@ -73,25 +73,25 @@ public class AI extends CorrelationAI {
     private Neuron moveUpRight = new Neuron() {
         @Override
         public float getEffect() throws UnavailableNeuronEffectException {
-            return (moveUp.getEffect() + moveRight.getEffect())/1.5f;
+            return (moveUp.getEffect() + moveRight.getEffect()) / 1.5f;
         }
     };
     private Neuron moveDownRight = new Neuron() {
         @Override
         public float getEffect() throws UnavailableNeuronEffectException {
-            return (moveDown.getEffect() + moveRight.getEffect())/1.5f;
+            return (moveDown.getEffect() + moveRight.getEffect()) / 1.5f;
         }
     };
     private Neuron moveDownLeft = new Neuron() {
         @Override
         public float getEffect() throws UnavailableNeuronEffectException {
-            return (moveDown.getEffect() + moveLeft.getEffect())/1.5f;
+            return (moveDown.getEffect() + moveLeft.getEffect()) / 1.5f;
         }
     };
     private Neuron moveUpLeft = new Neuron() {
         @Override
         public float getEffect() throws UnavailableNeuronEffectException {
-            return (moveUp.getEffect() + moveLeft.getEffect())/1.5f;
+            return (moveUp.getEffect() + moveLeft.getEffect()) / 1.5f;
         }
     };
 
@@ -109,7 +109,7 @@ public class AI extends CorrelationAI {
     @Override
     public int getBestAction() throws Exception {
         return getBestAction(new Neuron[]{
-                standStill,moveUp,moveDown,moveLeft,moveRight,moveUpRight,moveDownRight,moveDownLeft,moveUpLeft
+                standStill, moveUp, moveDown, moveLeft, moveRight, moveUpRight, moveDownRight, moveDownLeft, moveUpLeft
         });
     }
 

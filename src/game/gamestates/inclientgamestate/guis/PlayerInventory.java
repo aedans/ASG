@@ -9,7 +9,7 @@ import game.gui.OverlaidSprite;
 @OverlaidSprite
 public class PlayerInventory extends Inventory {
 
-    public PlayerInventory(){
+    public PlayerInventory() {
         super(64, 772, 5, 2);
     }
 

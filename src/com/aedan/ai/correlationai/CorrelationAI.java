@@ -6,13 +6,13 @@ import java.util.List;
 
 /**
  * Created by Aedan Smith.
- *
+ * <p>
  * An abstract AI class that uses decision trees to find the best possible action.
  */
 
 public abstract class CorrelationAI {
 
-    public CorrelationAI(){
+    public CorrelationAI() {
         this.initialize();
     }
 
@@ -43,7 +43,7 @@ public abstract class CorrelationAI {
             }
 
             return bestAction;
-        } catch (UnavailableNeuronEffectException e){
+        } catch (UnavailableNeuronEffectException e) {
             throw new IllegalArgumentException(
                     "Could not get Neuron effect: " + e.getMessage());
         }
@@ -75,7 +75,7 @@ public abstract class CorrelationAI {
             }
 
             return bestAction;
-        } catch (UnavailableNeuronEffectException e){
+        } catch (UnavailableNeuronEffectException e) {
             throw new IllegalArgumentException(
                     "Could not get Neuron effect: " + e.getMessage());
         }

@@ -12,8 +12,8 @@ public class Fireball extends Projectile implements Light {
 
     public Fireball(Vector2f velocity, int x, int y) {
         super(Textures.fireballTextureID, x, y, 16, 16);
-        this.xVel = velocity.getX()*1.1f;
-        this.yVel = velocity.getY()*1.1f;
+        this.xVel = velocity.getX() * 1.1f;
+        this.yVel = velocity.getY() * 1.1f;
         this.isLight = true;
     }
 

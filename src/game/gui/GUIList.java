@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 /**
  * Created by Aedan Smith on 7/30/2016.
- *
+ * <p>
  * A list of GUIs to be used by the Renderer
  */
 
@@ -25,7 +25,7 @@ public class GUIList extends RenderList<GUI> {
      *
      * @param guiHub: The GUIHub to add.
      */
-    public void add(GUIHub guiHub){
+    public void add(GUIHub guiHub) {
         for (GUI gui : guiHub.getSubGUIs())
             add(gui);
     }
@@ -42,7 +42,7 @@ public class GUIList extends RenderList<GUI> {
 
     /**
      * See game.sprites.RenderList documentation
-     *
+     * <p>
      * (Currently unused)
      */
     @Override
@@ -52,7 +52,7 @@ public class GUIList extends RenderList<GUI> {
 
     /**
      * See game.sprites.RenderList documentation
-     *
+     * <p>
      * (Currently unused)
      */
     @Override

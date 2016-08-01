@@ -12,7 +12,7 @@ import java.awt.geom.Point2D;
 
 public abstract class GUIHub implements Renderable {
 
-    protected GUIHub(){
+    protected GUIHub() {
 
     }
 
@@ -32,7 +32,7 @@ public abstract class GUIHub implements Renderable {
     }
 
     @Override
-    public Point2D.Float getPixelPosition(){
+    public Point2D.Float getPixelPosition() {
         return null;
     }
 

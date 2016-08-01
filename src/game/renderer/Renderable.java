@@ -6,7 +6,7 @@ import java.awt.geom.Point2D;
 
 /**
  * Created by Aedan Smith on 7/17/2016.
- *
+ * <p>
  * An interface containing the minimal functions for an object to be used by the Renderer.
  */
 

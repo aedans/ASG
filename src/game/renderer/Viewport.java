@@ -7,7 +7,7 @@ import java.util.function.Function;
 
 /**
  * Created by Aedan Smith on 7/6/2016.
- *
+ * <p>
  * The Viewport for the Game.
  */
 
@@ -45,14 +45,14 @@ public class Viewport {
      * @param position: The point to get on-screen in the OpenGL Coordinate System.
      * @return Point2D.Float: The on-screen position in the OpenGL Coordinate System.
      */
-    public static Point2D.Float getRelativePosition(Point2D.Float position){
-        return new Point2D.Float(position.x-Viewport.position.x, position.y-Viewport.position.y);
+    public static Point2D.Float getRelativePosition(Point2D.Float position) {
+        return new Point2D.Float(position.x - Viewport.position.x, position.y - Viewport.position.y);
     }
 
     /**
      * The Function to be executed once every Game loop.
      */
-    public static void update(){
+    public static void update() {
         if (onUpdate.apply(position)) {
             float m = (float) (lastTranslated - System.currentTimeMillis()) / 1000;
             position.x += xVel * m;
@@ -66,7 +66,7 @@ public class Viewport {
      *
      * @param entity: The Entity to follow.
      */
-    public static void focusOn(Entity entity){
+    public static void focusOn(Entity entity) {
         setOnUpdate(vector2f -> {
             position.setLocation(entity.getOpenGLPosition());
             return false;
@@ -77,12 +77,11 @@ public class Viewport {
      * Sets the onUpdate function to a given Function.
      *
      * @param Point2D.Float: The position of the Viewport.
+     * @param onUpdate:      The Function to be executed once every Game loop.
      * @return boolean: If the Viewport should move.
-     *
-     * @param onUpdate: The Function to be executed once every Game loop.
      */
     @SuppressWarnings({"WeakerAccess", "JavadocReference", "JavaDoc"})
-    public static void setOnUpdate(Function<Point2D.Float, Boolean> onUpdate){
+    public static void setOnUpdate(Function<Point2D.Float, Boolean> onUpdate) {
         Viewport.onUpdate = onUpdate;
     }
 

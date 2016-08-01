@@ -3,7 +3,7 @@ package acklib.utils.math;
 /**
  * Created by thomkad18 on 5/16/2016.
  */
-public class Vector2d <T extends Number> implements Vector {
+public class Vector2d<T extends Number> implements Vector {
     private T x;
     private T y;
 

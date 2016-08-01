@@ -12,7 +12,7 @@ public class MainMenuGameState extends GameState {
 
     public SpriteList spriteList = new SpriteList();
 
-    public MainMenuGameState(){
+    public MainMenuGameState() {
 
     }
 

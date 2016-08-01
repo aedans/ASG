@@ -2,15 +2,15 @@ package acklib.utils.misc;
 
 /**
  * @author hacke
- * Holder class to hold a value of generic type.
- * This helps solve problems with lambdas where you cannot modify variables outsid of the
- * function body
+ *         Holder class to hold a value of generic type.
+ *         This helps solve problems with lambdas where you cannot modify variables outsid of the
+ *         function body
  */
-public final class Holder <T> {
+public final class Holder<T> {
 
     private T data;
 
-    public Holder(final T data){
+    public Holder(final T data) {
         this.data = data;
     }
 

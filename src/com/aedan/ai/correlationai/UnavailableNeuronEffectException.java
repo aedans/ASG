@@ -2,13 +2,13 @@ package com.aedan.ai.correlationai;
 
 /**
  * Created by Aedan Smith.
- *
+ * <p>
  * The exception thrown when an error occurs while calculating a Neuron's effect.
  */
 
 public class UnavailableNeuronEffectException extends Exception {
 
-    public UnavailableNeuronEffectException(String message){
+    public UnavailableNeuronEffectException(String message) {
         super(message);
     }
 

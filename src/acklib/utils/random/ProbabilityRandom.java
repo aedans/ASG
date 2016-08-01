@@ -5,9 +5,9 @@ import java.util.stream.Stream;
 
 /**
  * @author hacke
- *
- * class to deal with randoms that have a chance of occuring
- * not a singleton, to discourage singleton usage
+ *         <p>
+ *         class to deal with randoms that have a chance of occuring
+ *         not a singleton, to discourage singleton usage
  */
 public final class ProbabilityRandom {
 
@@ -21,18 +21,19 @@ public final class ProbabilityRandom {
      *
      * @param seed seed to be used in the generator
      */
-    public ProbabilityRandom(final long seed){
+    public ProbabilityRandom(final long seed) {
         random.setSeed(seed);
     }
 
-    public ProbabilityRandom(){}
+    public ProbabilityRandom() {
+    }
 
     /**
      * Sets the seed of the random generator
      *
      * @param seed seed for the random generator
      */
-    public void setSeed(final long seed){
+    public void setSeed(final long seed) {
         random.setSeed(seed);
     }
 
@@ -43,8 +44,9 @@ public final class ProbabilityRandom {
      * @param chance value in range [0, 1.0] to represent chance of being true
      * @return a weighted boolean
      */
-    public boolean nextWeightedBoolean(final double chance){
-        if(chance > 1 || chance < 0) throw new IllegalArgumentException("chance is invalid, must be in range [0, 1.0]");
+    public boolean nextWeightedBoolean(final double chance) {
+        if (chance > 1 || chance < 0)
+            throw new IllegalArgumentException("chance is invalid, must be in range [0, 1.0]");
         return random.nextDouble() <= chance;
     }
 
@@ -55,19 +57,20 @@ public final class ProbabilityRandom {
      * @param chance value in range [0, 1.0] to represent chance of being true
      * @return a weighted boolean
      */
-    public Stream<Boolean> createStream(final double chance){
-        if(chance > 1 || chance < 0) throw new IllegalArgumentException("chance is invalid, must be in range [0, 1.0]");
-        return Stream.generate(()->nextWeightedBoolean(chance));
+    public Stream<Boolean> createStream(final double chance) {
+        if (chance > 1 || chance < 0)
+            throw new IllegalArgumentException("chance is invalid, must be in range [0, 1.0]");
+        return Stream.generate(() -> nextWeightedBoolean(chance));
     }
 
     /**
      * Returns a stream of weighted booleans and limits it to size provided
      *
      * @param chance chance in range [0, 1] that the boolean will be true
-     * @param size resulting size of the stream
+     * @param size   resulting size of the stream
      * @return a stream of weighted booleans of size size
      */
-    public Stream<Boolean> createStream(final double chance, final long size){
+    public Stream<Boolean> createStream(final double chance, final long size) {
         return createStream(chance).limit(size);
     }
 

@@ -4,7 +4,7 @@ import acklib.utils.random.SmartRandom;
 
 /**
  * Created by Aedan Smith on 5/15/2016.
- *
+ * <p>
  * A static random class that has several functions to assist with randomizing
  * distributions.
  */
@@ -14,7 +14,7 @@ public class DistributionRandom {
     /**
      * Randomizes a 1-dimensional distribution.
      *
-     * @param randoms: The 1-dimensional distribution to randomize.
+     * @param randoms:  The 1-dimensional distribution to randomize.
      * @param variance: The amount that a given int will vary from the original.
      * @return int[]: The randomized distribution.
      */
@@ -28,7 +28,7 @@ public class DistributionRandom {
     /**
      * Randomizes a 2-dimensional distribution.
      *
-     * @param randoms: The 2-dimensional distribution to randomize.
+     * @param randoms:  The 2-dimensional distribution to randomize.
      * @param variance: The amount that a given int will vary from the original.
      * @return int[]: The randomized distribution.
      */
@@ -44,7 +44,7 @@ public class DistributionRandom {
     /**
      * Randomizes a 3-dimensional distribution.
      *
-     * @param randoms: The 3-dimensional distribution to randomize.
+     * @param randoms:  The 3-dimensional distribution to randomize.
      * @param variance: The amount that a given int will vary from the original.
      * @return int[]: The randomized distribution.
      */
@@ -62,6 +62,7 @@ public class DistributionRandom {
     /*
         DistributionRandom is a static class. Do not construct it.
      */
-    private DistributionRandom(){}
+    private DistributionRandom() {
+    }
 
 }

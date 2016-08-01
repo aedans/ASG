@@ -66,25 +66,25 @@ public class Player extends MoveableEntity {
         return lastShot > 15;
     }
 
-    public boolean canMoveLeft(){
+    public boolean canMoveLeft() {
         if (getPixelX() <= 0)
             return false;
         return !Game.inClientGameState.map.getTileAt((getPixelX() / 64), (32 + getPixelY()) / 64).isGroundCollidable();
     }
 
-    public boolean canMoveRight(){
-        if (getPixelX()+64 >= Game.inClientGameState.map.getPixelWidth())
+    public boolean canMoveRight() {
+        if (getPixelX() + 64 >= Game.inClientGameState.map.getPixelWidth())
             return false;
         return !Game.inClientGameState.map.getTileAt((getPixelX() / 64) + 1, (32 + getPixelY()) / 64).isGroundCollidable();
     }
 
-    public boolean canMoveUp(){
-        if (getPixelY()+64 >= Game.inClientGameState.map.getPixelHeight())
+    public boolean canMoveUp() {
+        if (getPixelY() + 64 >= Game.inClientGameState.map.getPixelHeight())
             return false;
         return !Game.inClientGameState.map.getTileAt((32 + getPixelX()) / 64, ((getPixelY()) / 64) + 1).isGroundCollidable();
     }
 
-    public boolean canMoveDown(){
+    public boolean canMoveDown() {
         if (getPixelY() <= 0)
             return false;
         return !Game.inClientGameState.map.getTileAt((32 + getPixelX()) / 64, ((getPixelY()) / 64)).isGroundCollidable();
@@ -95,7 +95,7 @@ public class Player extends MoveableEntity {
 
     }
 
-    public Base getOpponentBase(){
+    public Base getOpponentBase() {
         return red ? Game.inClientGameState.blueBase : Game.inClientGameState.redBase;
     }
 

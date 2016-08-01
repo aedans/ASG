@@ -4,7 +4,7 @@ import java.util.Random;
 
 /**
  * Created by Aedan Smith on 5/13/2016.
- * 
+ * <p>
  * A static random class that has several functions to assist with weighted randomness.
  */
 
@@ -15,7 +15,7 @@ public class WeightedRandom {
      *
      * @return random: Returns the Random that random was set to.
      */
-    public static Random resetRandom(){
+    public static Random resetRandom() {
         return SmartRandom.resetRandom();
     }
 
@@ -24,7 +24,7 @@ public class WeightedRandom {
      *
      * @param random: The Random to set the random to.
      */
-    public static void setRandom(Random random){
+    public static void setRandom(Random random) {
         SmartRandom.setRandom(random);
     }
 
@@ -32,7 +32,7 @@ public class WeightedRandom {
      * Sets the random's seed to the System's time in nanoseconds. Used to reduce
      * patterns in random generation.
      */
-    public static void resetSeed(){
+    public static void resetSeed() {
         SmartRandom.resetSeed();
     }
 
@@ -42,7 +42,7 @@ public class WeightedRandom {
      *
      * @param seed: The long to set the random's seed to.
      */
-    public static void setSeed(long seed){
+    public static void setSeed(long seed) {
         SmartRandom.setSeed(seed);
     }
 
@@ -54,7 +54,7 @@ public class WeightedRandom {
      * @param weights: An int[] of any size.
      * @return int: Returns the selected element.
      */
-    public static int getWeightedRandom(int[] weights){
+    public static int getWeightedRandom(int[] weights) {
         // Gets the total value of the weights
         int totalWeight = 0;
         for (int weight : weights)
@@ -79,14 +79,14 @@ public class WeightedRandom {
      * returning true is trueWeight/(trueWeight+falseWeight) and the chance of
      * returning false is falseWeight/(trueWeight+falseWeight).
      * Ex: getWeightedBoolean(9, 1) would return true 9/10 times and false 1/10 times.
-     *
+     * <p>
      * Runs faster than getWeightedRandom(new int[]{trueWeight, falseWeight}).
      *
-     * @param trueWeight: Integer weight of any size.
+     * @param trueWeight:  Integer weight of any size.
      * @param falseWeight: Integer weight of any size.
      * @return boolean: Returns a random boolean given the true and false weights.
      */
-    public static boolean getWeightedBoolean(int trueWeight, int falseWeight){
+    public static boolean getWeightedBoolean(int trueWeight, int falseWeight) {
         // Gets the total value of the weights
         int totalWeight = trueWeight + falseWeight;
 
@@ -100,6 +100,7 @@ public class WeightedRandom {
     /*
        WeightedRandom is a static class. Do not construct it.
      */
-    private WeightedRandom(){}
+    private WeightedRandom() {
+    }
 
 }

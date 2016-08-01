@@ -7,7 +7,7 @@ import game.gamestates.mainmenugamestate.MainMenuGameState;
 
 /**
  * Created by Aedan Smith on 5/23/2016.
- *
+ * <p>
  * The class controlling the updating and rendering of the Game
  */
 
@@ -43,35 +43,35 @@ public class Game {
     /**
      * Initializes the game (currently unused).
      */
-    public static void initialize(){
+    public static void initialize() {
 
     }
 
     /**
      * Updates the active GameState
      */
-    public static void update(){
+    public static void update() {
         getActiveGameState().update();
     }
 
     /**
      * Renders the active GameState
      */
-    public static void render(){
+    public static void render() {
         getActiveGameState().render();
     }
 
     /**
      * @return GameState: Returns the active GameState.
      */
-    public static GameState getActiveGameState(){
+    public static GameState getActiveGameState() {
         return Game.gameStates[Game.activeGameState];
     }
 
     /**
      * @param gameState: The GameState to set as active.
      */
-    public static void setGameState(int gameState){
+    public static void setGameState(int gameState) {
         activeGameState = gameState;
     }
 

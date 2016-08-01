@@ -40,7 +40,7 @@ public class Renderer {
     /**
      * Prepares the Renderer to render a frame.
      */
-    public static void prepare(){
+    public static void prepare() {
         // Clears the Display.
         GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
         GL11.glClearColor(0, 0, 0, 1);
@@ -48,13 +48,13 @@ public class Renderer {
 
     /**
      * Renders a RenderList to the Display.
-     *
+     * <p>
      * TODO: Create Shader Enum.
      *
      * @param toRender: The RenderList to render.
-     * @param shader: The shader to render the RenderList with.
+     * @param shader:   The shader to render the RenderList with.
      */
-    public static void render(RenderList toRender, Shader shader){
+    public static void render(RenderList toRender, Shader shader) {
         if (shader.getClass() == lightShader.getClass())
             renderComposite(toRender);
         else
@@ -66,7 +66,7 @@ public class Renderer {
      *
      * @param toRender: The RenderList to Render
      */
-    private static void renderComposite(RenderList toRender){
+    private static void renderComposite(RenderList toRender) {
         for (int i = toRender.numTextures - 1; i >= 0; i--)
             Renderer.renderLight(toRender.get(i), ((SpriteList) toRender).getLightList());
     }
@@ -76,14 +76,14 @@ public class Renderer {
      *
      * @param toRender: The RenderList to Render
      */
-    private static void renderLight(RenderList toRender){
+    private static void renderLight(RenderList toRender) {
         for (int i = toRender.numTextures - 1; i >= 0; i--)
             Renderer.renderComposite(toRender.get(i));
     }
 
     /**
      * Renders an ArrayList of Renderables to the Display.
-     *
+     * <p>
      * TODO: Comment.
      *
      * @param toRender: The ArrayList of Renderables to Render.
@@ -97,7 +97,7 @@ public class Renderer {
         GL20.glEnableVertexAttribArray(1);
         GL13.glActiveTexture(GL13.GL_TEXTURE0);
         GL11.glBindTexture(GL11.GL_TEXTURE_2D, toRender.get(0).getTexturedModel().getTrueTextureID());
-        for (Renderable r : toRender){
+        for (Renderable r : toRender) {
             if (r.getClass().isAnnotationPresent(Invisible.class) || r.getTexturedModel().getTrueTextureID() == Textures.blankTextureID)
                 continue;
             Point2D.Float relativePos = Viewport.getRelativePosition(r.getOpenGLPosition());
@@ -118,7 +118,7 @@ public class Renderer {
 
     /**
      * Renders an ArrayList of Renderables to the Display with lighting.
-     *
+     * <p>
      * TODO Implement Black Bars.
      * TODO: Comment.
      *
@@ -134,7 +134,7 @@ public class Renderer {
         GL20.glEnableVertexAttribArray(1);
         GL13.glActiveTexture(GL13.GL_TEXTURE0);
         GL11.glBindTexture(GL11.GL_TEXTURE_2D, toRender.get(0).getTexturedModel().getTrueTextureID());
-        for (Renderable r : toRender){
+        for (Renderable r : toRender) {
             Point2D.Float relativePos = Viewport.getRelativePosition(r.getOpenGLPosition());
             if (!(relativePos.x > 1.3) && !(relativePos.x < -1.3) && !(relativePos.y > 1.3) && !(relativePos.y < -1.3)) {
                 r.onRender();

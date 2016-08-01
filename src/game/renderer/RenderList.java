@@ -6,7 +6,7 @@ import java.util.List;
 
 /**
  * Created by Aedan Smith on 7/17/2016.
- *
+ * <p>
  * A List of Renderable objects to be used by the Renderer.
  */
 
@@ -41,7 +41,7 @@ public abstract class RenderList<T extends Renderable> {
      *
      * @param numTextures: The number of textures the RenderList should support.
      */
-    public RenderList(int numTextures){
+    public RenderList(int numTextures) {
         this.numTextures = numTextures;
         this.renderables = new ArrayList[numTextures];
         for (int i = 0; i < numTextures; i++)
@@ -53,7 +53,7 @@ public abstract class RenderList<T extends Renderable> {
      *
      * @param renderables: The List of Renderables to add.
      */
-    public void add(List<T> renderables){
+    public void add(List<T> renderables) {
         toAdd.addAll(renderables);
     }
 
@@ -63,7 +63,7 @@ public abstract class RenderList<T extends Renderable> {
      * @param renderables: The Renderables to add.
      */
     @SafeVarargs
-    public final void add(T... renderables){
+    public final void add(T... renderables) {
         Collections.addAll(toAdd, renderables);
     }
 
@@ -72,7 +72,7 @@ public abstract class RenderList<T extends Renderable> {
      *
      * @param renderables: The List of Renderables to remove.
      */
-    public void remove(List<T> renderables){
+    public void remove(List<T> renderables) {
         toRemove.addAll(renderables);
     }
 
@@ -82,14 +82,14 @@ public abstract class RenderList<T extends Renderable> {
      * @param renderables: The Renderables to remove.
      */
     @SafeVarargs
-    public final void remove(T... renderables){
+    public final void remove(T... renderables) {
         Collections.addAll(toRemove, renderables);
     }
 
     /**
      * A function called once each Game loop.
      */
-    public void update(){
+    public void update() {
         // Adds all Renderables in the toAdd queue.
         for (T t : toAdd) {
             renderables[t.getTexturedModel().getGameTextureID() - 1].add(t);
@@ -113,7 +113,7 @@ public abstract class RenderList<T extends Renderable> {
      * @param textureID: The Texture ID of the requested Renderables.
      * @return ArrayList<T>: The ArrayList of Renderables.
      */
-    public ArrayList<T> get(int textureID){
+    public ArrayList<T> get(int textureID) {
         return renderables[textureID];
     }
 

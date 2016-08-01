@@ -13,7 +13,7 @@ public class AIController implements Controller {
     private int bestAction;
     private int playerID;
 
-    public AIController(int playerID){
+    public AIController(int playerID) {
         this.playerID = playerID;
     }
 

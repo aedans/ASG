@@ -5,7 +5,7 @@ import game.renderer.Renderer;
 
 /**
  * Created by Aedan Smith on 5/23/2016.
- *
+ * <p>
  * The Main class for ASG
  */
 

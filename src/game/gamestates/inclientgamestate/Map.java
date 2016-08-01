@@ -18,20 +18,20 @@ public class Map {
     private int width, height;
     private Terrain[][] terrain;
 
-    public Map(int width, int height){
+    public Map(int width, int height) {
         this.width = width;
         this.height = height;
         this.terrain = new Terrain[width][height];
     }
 
-    public void generate(){
+    public void generate() {
         int[][] terrain = Distributions.get2dDistribution(width, height, 100, new Tend2D[]{
-                new GroupTend2D(width/2, height/2, 80),
+                new GroupTend2D(width / 2, height / 2, 80),
         });
 //        DistributionRandom.randomize2dDistribution(terrain,2);
         for (int i = 0; i < width; i++) {
             for (int j = 0; j < height; j++) {
-                this.terrain[i][j] = Terrain.get(i*64, j*64, terrain[i][j]);
+                this.terrain[i][j] = Terrain.get(i * 64, j * 64, terrain[i][j]);
             }
         }
     }
@@ -58,12 +58,12 @@ public class Map {
         return height;
     }
 
-    public int getPixelHeight(){
-        return height*64;
+    public int getPixelHeight() {
+        return height * 64;
     }
 
-    public int getPixelWidth(){
-        return width*64;
+    public int getPixelWidth() {
+        return width * 64;
     }
 
 }

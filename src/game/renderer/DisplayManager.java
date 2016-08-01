@@ -5,7 +5,7 @@ import org.lwjgl.opengl.*;
 
 /**
  * Created by Aedan Smith on 5/3/2016.
- *
+ * <p>
  * The Display manager for the Game.
  */
 
@@ -14,7 +14,7 @@ public final class DisplayManager {
     /**
      * The Display's maximum fps.
      */
-    private static int fpscap = Display.getDesktopDisplayMode().getFrequency()*2;
+    private static int fpscap = Display.getDesktopDisplayMode().getFrequency() * 2;
 
     /**
      * The x and y resolution of the Display.
@@ -28,7 +28,7 @@ public final class DisplayManager {
 
     /**
      * The width of black bars on the top and side of the screen.
-     *
+     * <p>
      * TODO: Implement Black Bars.
      */
     @SuppressWarnings("WeakerAccess")
@@ -37,26 +37,26 @@ public final class DisplayManager {
     /**
      * Creates a display.
      *
-     * @param xRes: The x resolution of the Display.
-     * @param yRes: The y resolution of the Display.
+     * @param xRes:       The x resolution of the Display.
+     * @param yRes:       The y resolution of the Display.
      * @param fullscreen: True if the Display should initialize in fullscreen.
-     * @param title: The title of the display (as seen at the top)
-     *             TODO: Remove Display Title.
+     * @param title:      The title of the display (as seen at the top)
+     *                    TODO: Remove Display Title.
      * @throws LWJGLException: If LWJGL could not initialize the Display.
      */
     public static void createDisplay(int xRes, int yRes, boolean fullscreen, String title) throws Exception {
-        if (xRes != yRes){
+        if (xRes != yRes) {
             throw new Exception("Game is currently locked to 1:1 resolutions.");
         }
         DisplayManager.xRes = xRes;
         DisplayManager.yRes = yRes;
-        ppX = 1.0f/(float)DisplayManager.xRes;
-        ppY = 1.0f/(float)DisplayManager.yRes;
-        if (xRes > yRes){
-            blackBarWidth = (xRes-yRes)/2;
+        ppX = 1.0f / (float) DisplayManager.xRes;
+        ppY = 1.0f / (float) DisplayManager.yRes;
+        if (xRes > yRes) {
+            blackBarWidth = (xRes - yRes) / 2;
             blackBarHeight = 0;
         } else {
-            blackBarHeight = yRes-xRes/2;
+            blackBarHeight = yRes - xRes / 2;
             blackBarWidth = 0;
         }
 
@@ -74,14 +74,14 @@ public final class DisplayManager {
     /**
      * @return boolean: True if the user has requested to close the Display.
      */
-    public static boolean isCloseRequested(){
+    public static boolean isCloseRequested() {
         return Display.isCloseRequested();
     }
 
     /**
      * Updates the Display.
      */
-    public static void updateDisplay(){
+    public static void updateDisplay() {
         Display.sync(fpscap);
         Display.update();
     }
@@ -89,11 +89,12 @@ public final class DisplayManager {
     /**
      * Closes the Display.
      */
-    public static void closeDisplay(){
+    public static void closeDisplay() {
         Display.destroy();
     }
 
     // Do not construct DisplayManager.
-    private DisplayManager(){}
+    private DisplayManager() {
+    }
 
 }

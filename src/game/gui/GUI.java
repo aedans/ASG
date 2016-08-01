@@ -17,7 +17,7 @@ public abstract class GUI extends Sprite {
     private int timeFastClick = 0;
 
     protected GUI(int textureID, int x, int y, int width, int height) {
-        super(textureID, x-DisplayManager.xRes/2, y-DisplayManager.yRes/2, width, height);
+        super(textureID, x - DisplayManager.xRes / 2, y - DisplayManager.yRes / 2, width, height);
         this.width = width;
         this.height = height;
     }
@@ -46,17 +46,17 @@ public abstract class GUI extends Sprite {
     }
 
     @Override
-    public Point2D.Float getPixelPosition(){
-        return new Point2D.Float(super.getPixelX()+DisplayManager.xRes/2, super.getPixelY()+DisplayManager.yRes/2);
+    public Point2D.Float getPixelPosition() {
+        return new Point2D.Float(super.getPixelX() + DisplayManager.xRes / 2, super.getPixelY() + DisplayManager.yRes / 2);
     }
 
     @Override
-    public int getPixelX(){
+    public int getPixelX() {
         return (int) this.getPixelPosition().getX();
     }
 
     @Override
-    public int getPixelY(){
+    public int getPixelY() {
         return (int) this.getPixelPosition().getY();
     }
 

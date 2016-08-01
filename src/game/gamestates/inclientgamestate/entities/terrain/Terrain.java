@@ -6,7 +6,7 @@ package game.gamestates.inclientgamestate.entities.terrain;
 
 public interface Terrain {
 
-    static Terrain get(int x, int y, int id){
+    static Terrain get(int x, int y, int id) {
         if (id <= 90)
             return new Grass(x, y);
         else if (id <= 93)

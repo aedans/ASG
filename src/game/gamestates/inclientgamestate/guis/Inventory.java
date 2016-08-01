@@ -13,10 +13,10 @@ public class Inventory extends GUIHub {
     private InventorySlot[] inventorySlots;
 
     public Inventory(int x, int y, int width, int height) {
-        inventorySlots = new InventorySlot[width*height];
+        inventorySlots = new InventorySlot[width * height];
         for (int i = 0; i < width; i++) {
             for (int j = 0; j < height; j++) {
-                inventorySlots[i*height+j] = (new InventorySlot(x+i*64, y+j*64, 64, 64));
+                inventorySlots[i * height + j] = (new InventorySlot(x + i * 64, y + j * 64, 64, 64));
             }
         }
     }

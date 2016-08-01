@@ -13,7 +13,7 @@ public abstract class Projectile extends MoveableEntity {
         super(textureID, x, y, width, height);
     }
 
-    public void doCollisions(){
+    public void doCollisions() {
         if (getPixelX() <= 0) {
             destroy();
             return;
@@ -22,11 +22,11 @@ public abstract class Projectile extends MoveableEntity {
             destroy();
             return;
         }
-        if (getGridX() >= Game.inClientGameState.map.getWidth()){
+        if (getGridX() >= Game.inClientGameState.map.getWidth()) {
             destroy();
             return;
         }
-        if (getGridY() >= Game.inClientGameState.map.getHeight()){
+        if (getGridY() >= Game.inClientGameState.map.getHeight()) {
             destroy();
             return;
         }
@@ -35,7 +35,7 @@ public abstract class Projectile extends MoveableEntity {
                 destroy();
                 return;
             }
-        } catch (ArrayIndexOutOfBoundsException e){
+        } catch (ArrayIndexOutOfBoundsException e) {
             e.printStackTrace();
             destroy();
         }

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 /**
  * Created by Aedan Smith.
- *
+ * <p>
  * An abstract class used to represent decisions in a Correlation AI. A Neuron can be a
  * parent or child node to other Neurons. A group of Neurons is treated like a tree.
  */
@@ -66,7 +66,7 @@ public abstract class Neuron {
                 return "Discrete_Neuron[" + String.valueOf(getEffect() + "]");
             else
                 return "Linked_Neuron[" + String.valueOf(getEffect() + "]");
-        } catch (Exception ignored){
+        } catch (Exception ignored) {
             return "Errored_Neuron[Could not get effect]";
         }
     }

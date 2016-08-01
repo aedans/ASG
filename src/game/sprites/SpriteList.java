@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 /**
  * Created by Aedan Smith on 7/4/2016.
- *
+ * <p>
  * A list of Sprites to be used by the Renderer.
  */
 
@@ -22,7 +22,7 @@ public class SpriteList extends RenderList<Sprite> {
     /**
      * Default SpriteList constructor.
      */
-    public SpriteList(){
+    public SpriteList() {
         super(Textures.spriteTextures.size());
     }
 

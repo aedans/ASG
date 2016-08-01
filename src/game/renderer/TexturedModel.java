@@ -4,7 +4,7 @@ import game.sprites.Textures;
 
 /**
  * Created by Aedan Smith on 7/5/2016.
- *
+ * <p>
  * A Model and a Texture to be used by the Renderer.
  */
 
@@ -23,10 +23,10 @@ public class TexturedModel {
     /**
      * Default TexturedModel constructor.
      *
-     * @param modelID: The ID of the Model.
+     * @param modelID:   The ID of the Model.
      * @param textureID: The ID of the Texture. (See game.sprites.Textures).
      */
-    private TexturedModel(int modelID, int textureID){
+    private TexturedModel(int modelID, int textureID) {
         this.modelID = modelID;
         this.textureID = textureID;
     }
@@ -35,11 +35,11 @@ public class TexturedModel {
      * @return The Texture ID to be used by the Game.
      */
     @SuppressWarnings("WeakerAccess")
-    public int getGameTextureID(){
+    public int getGameTextureID() {
         if (textureID <= Textures.spriteTextures.size())
             return textureID;
         else
-            return textureID-Textures.spriteTextures.size();
+            return textureID - Textures.spriteTextures.size();
     }
 
     /**
@@ -61,7 +61,7 @@ public class TexturedModel {
      * @param textureID: The Texture ID.
      * @return TexturedModel: The created TexturedModel.
      */
-    public static TexturedModel getTexturedModel(int textureID){
+    public static TexturedModel getTexturedModel(int textureID) {
         return getTexturedModel(
                 new float[]{
                         -1, 1,
@@ -76,8 +76,8 @@ public class TexturedModel {
     /**
      * Creates a TexturedModel with the given width, height, and Texture ID.
      *
-     * @param width: The width of the TexturedModel.
-     * @param height: The height of the TexturedModel.
+     * @param width:     The width of the TexturedModel.
+     * @param height:    The height of the TexturedModel.
      * @param textureID: The Texture ID.
      * @return TexturedModel: The created TexturedModel.
      */
@@ -96,18 +96,18 @@ public class TexturedModel {
     /**
      * Creates a TexturedModel with the given Vertexes and Texture ID.
      *
-     * @param vps: The Vertexes of the Model.
+     * @param vps:       The Vertexes of the Model.
      * @param textureID: The Texture ID.
      * @return TexturedModel: The created TexturedModel.
      */
     @SuppressWarnings("WeakerAccess")
-    public static TexturedModel getTexturedModel(int[] vps, int textureID){
+    public static TexturedModel getTexturedModel(int[] vps, int textureID) {
         return getTexturedModel(
                 new float[]{
-                        (float)vps[0]*DisplayManager.ppX,(float)vps[1]*DisplayManager.ppY,
-                        (float)vps[2]*DisplayManager.ppX,(float)vps[3]*DisplayManager.ppY,
-                        (float)vps[4]*DisplayManager.ppX,(float)vps[5]*DisplayManager.ppY,
-                        (float)vps[6]*DisplayManager.ppX,(float)vps[7]*DisplayManager.ppY,
+                        (float) vps[0] * DisplayManager.ppX, (float) vps[1] * DisplayManager.ppY,
+                        (float) vps[2] * DisplayManager.ppX, (float) vps[3] * DisplayManager.ppY,
+                        (float) vps[4] * DisplayManager.ppX, (float) vps[5] * DisplayManager.ppY,
+                        (float) vps[6] * DisplayManager.ppX, (float) vps[7] * DisplayManager.ppY,
                 },
                 textureID
         );
@@ -116,25 +116,25 @@ public class TexturedModel {
     /**
      * Creates a TexturedModel with the given Vertexes and Texture ID.
      *
-     * @param vps: The Vertexes of the Model.
+     * @param vps:       The Vertexes of the Model.
      * @param textureID: The Texture ID.
      * @return TexturedModel: The created TexturedModel.
      */
     @SuppressWarnings("WeakerAccess")
-    public static TexturedModel getTexturedModel(float[] vps, int textureID){
+    public static TexturedModel getTexturedModel(float[] vps, int textureID) {
         return new TexturedModel(
-            Loader.loadToVAO(
-                new float[]{
-                        vps[0],vps[1],0,
-                        vps[2],vps[3],0,
-                        vps[4],vps[5],0,
-                        vps[6],vps[7],0
-                },
-                new int[]{
-                    0,1,3,
-                    3,1,2
-                }
-            ), textureID
+                Loader.loadToVAO(
+                        new float[]{
+                                vps[0], vps[1], 0,
+                                vps[2], vps[3], 0,
+                                vps[4], vps[5], 0,
+                                vps[6], vps[7], 0
+                        },
+                        new int[]{
+                                0, 1, 3,
+                                3, 1, 2
+                        }
+                ), textureID
         );
     }
 

@@ -8,7 +8,7 @@ public abstract class Item {
 
     private int textureID;
 
-    public Item(int textureID){
+    public Item(int textureID) {
         this.textureID = textureID;
     }
 

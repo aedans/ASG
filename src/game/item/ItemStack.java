@@ -15,7 +15,7 @@ public class ItemStack extends GUI {
     private Item item;
     private int stackSize;
 
-    public ItemStack(Item item, int stackSize, int x, int y){
+    public ItemStack(Item item, int stackSize, int x, int y) {
         super(item.getTextureID(), x, y, 64, 64);
         this.item = item;
         this.stackSize = stackSize;
@@ -30,12 +30,12 @@ public class ItemStack extends GUI {
     }
 
     public boolean add(Item item, int num) {
-        if (this.item == null || stackSize == 0){
+        if (this.item == null || stackSize == 0) {
             this.item = item;
             this.stackSize = num;
             return true;
         }
-        if (Objects.equals(this.item.getClass().getSimpleName(), item.getClass().getSimpleName())){
+        if (Objects.equals(this.item.getClass().getSimpleName(), item.getClass().getSimpleName())) {
             this.stackSize += num;
             return true;
         }

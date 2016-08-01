@@ -29,7 +29,7 @@ public class InClientGameState extends GameState {
 
     public PlayerInventory playerInventory = new PlayerInventory();
 
-    public InClientGameState(){
+    public InClientGameState() {
         map = new Map(75, 75);
         map.generate();
 

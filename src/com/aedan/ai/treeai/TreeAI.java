@@ -6,11 +6,11 @@ package com.aedan.ai.treeai;
 
 public abstract class TreeAI<T> {
 
-    public TreeAI(){
+    public TreeAI() {
         this.initialize();
     }
 
-    public int getScore(TreeAIObject object, T t){
+    public int getScore(TreeAIObject object, T t) {
         Integer breakValue = getBreakValue(object, t);
         if (breakValue != null)
             return breakValue;
@@ -20,15 +20,15 @@ public abstract class TreeAI<T> {
         }
     }
 
-    protected T modifyParameters(T t){
+    protected T modifyParameters(T t) {
         return t;
     }
 
-    protected int sumSubObjects(TreeAIObject[] subObjects, T t){
+    protected int sumSubObjects(TreeAIObject[] subObjects, T t) {
         int objScoreSum = 0;
         for (TreeAIObject subObject : subObjects)
             objScoreSum += this.getScore(subObject, t);
-        return objScoreSum/subObjects.length;
+        return objScoreSum / subObjects.length;
     }
 
     protected abstract void initialize();

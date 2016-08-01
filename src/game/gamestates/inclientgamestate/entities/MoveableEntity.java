@@ -24,12 +24,12 @@ public abstract class MoveableEntity extends Entity {
         super(textureID, x, y, width, height);
     }
 
-    public void translate(){
-        float m = (float)(System.currentTimeMillis()-lastTranslated)/1000;
-        getOpenGLPosition().x += xVel*m;
-        getOpenGLPosition().y += yVel*m;
-        getPixelPosition().x += xVel*m/DisplayManager.ppX/2;
-        getPixelPosition().y += yVel*m/DisplayManager.ppY/2;
+    public void translate() {
+        float m = (float) (System.currentTimeMillis() - lastTranslated) / 1000;
+        getOpenGLPosition().x += xVel * m;
+        getOpenGLPosition().y += yVel * m;
+        getPixelPosition().x += xVel * m / DisplayManager.ppX / 2;
+        getPixelPosition().y += yVel * m / DisplayManager.ppY / 2;
         this.lastTranslated = System.currentTimeMillis();
     }
 
