@@ -4,18 +4,37 @@ import game.sprites.Textures;
 
 /**
  * Created by Aedan Smith on 7/5/2016.
+ *
+ * A Model and a Texture to be used by the Renderer.
  */
 
 public class TexturedModel {
 
+    /**
+     * The ID of the Model. (Currently unnecessary)
+     */
     private int modelID;
+
+    /**
+     * The ID of the Texture.
+     */
     private int textureID;
 
+    /**
+     * Default TexturedModel constructor.
+     *
+     * @param modelID: The ID of the Model.
+     * @param textureID: The ID of the Texture. (See game.sprites.Textures).
+     */
     private TexturedModel(int modelID, int textureID){
         this.modelID = modelID;
         this.textureID = textureID;
     }
 
+    /**
+     * @return The Texture ID to be used by the Game.
+     */
+    @SuppressWarnings("WeakerAccess")
     public int getGameTextureID(){
         if (textureID <= Textures.spriteTextures.size())
             return textureID;
@@ -23,14 +42,25 @@ public class TexturedModel {
             return textureID-Textures.spriteTextures.size();
     }
 
+    /**
+     * @return The Texture ID to be used by the Renderer.
+     */
+    @SuppressWarnings("WeakerAccess")
     public int getTrueTextureID() {
         return textureID;
     }
 
+    @SuppressWarnings("WeakerAccess")
     public int getModelID() {
         return modelID;
     }
 
+    /**
+     * Creates a TexturedModel that covers the screen with the given Texture ID
+     *
+     * @param textureID: The Texture ID.
+     * @return TexturedModel: The created TexturedModel.
+     */
     public static TexturedModel getTexturedModel(int textureID){
         return getTexturedModel(
                 new float[]{
@@ -43,6 +73,14 @@ public class TexturedModel {
         );
     }
 
+    /**
+     * Creates a TexturedModel with the given width, height, and Texture ID.
+     *
+     * @param width: The width of the TexturedModel.
+     * @param height: The height of the TexturedModel.
+     * @param textureID: The Texture ID.
+     * @return TexturedModel: The created TexturedModel.
+     */
     public static TexturedModel getTexturedModel(int width, int height, int textureID) {
         return getTexturedModel(
                 new int[]{
@@ -55,6 +93,14 @@ public class TexturedModel {
         );
     }
 
+    /**
+     * Creates a TexturedModel with the given Vertexes and Texture ID.
+     *
+     * @param vps: The Vertexes of the Model.
+     * @param textureID: The Texture ID.
+     * @return TexturedModel: The created TexturedModel.
+     */
+    @SuppressWarnings("WeakerAccess")
     public static TexturedModel getTexturedModel(int[] vps, int textureID){
         return getTexturedModel(
                 new float[]{
@@ -67,6 +113,14 @@ public class TexturedModel {
         );
     }
 
+    /**
+     * Creates a TexturedModel with the given Vertexes and Texture ID.
+     *
+     * @param vps: The Vertexes of the Model.
+     * @param textureID: The Texture ID.
+     * @return TexturedModel: The created TexturedModel.
+     */
+    @SuppressWarnings("WeakerAccess")
     public static TexturedModel getTexturedModel(float[] vps, int textureID){
         return new TexturedModel(
             Loader.loadToVAO(
