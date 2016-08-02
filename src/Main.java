@@ -1,6 +1,7 @@
 import game.renderer.DisplayManager;
 import game.renderer.Loader;
 import game.Game;
+import game.renderer.Position;
 import game.renderer.Renderer;
 
 /**

@@ -23,7 +23,7 @@ public abstract class Sprite implements Renderable {
     // TODO: Add elapsed time to update().
 
     /**
-     * TODO: Implement Scale.
+     * TODO: Fix Scale.
      */
     @SuppressWarnings("WeakerAccess")
     public float scale = 1;
