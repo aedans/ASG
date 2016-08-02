@@ -71,8 +71,8 @@ public final class DisplayManager {
             blackBarHeight = yRes - xRes / 2;
             blackBarWidth = 0;
         }
-        targetResXRatio = xRes / targetResolutionX;
-        targetResYRatio = yRes / targetResolutionY;
+        targetResXRatio = (float) xRes / (float) targetResolutionX;
+        targetResYRatio = (float) yRes / (float) targetResolutionY;
 
         ContextAttribs attributes = new ContextAttribs(3, 2)
                 .withForwardCompatible(true)
