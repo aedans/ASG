@@ -56,20 +56,33 @@ public abstract class Sprite implements Renderable {
      * @param height:    The height of the sprite in pixels.
      */
     public Sprite(int textureID, int width, int height) {
-        this(textureID, new Point2D.Float(0, 0), width, height);
+        this(
+                textureID,
+                new Point2D.Float(0, 0),
+                width,
+                height
+        );
     }
 
     /**
      * Default Sprite constructor.
      *
      * @param textureID: The ID of the texture (See game.sprites.Textures).
-     * @param x:         The x-position of the Sprite on the Pixel Coordinate Plane.
-     * @param y:         The y-position of the Sprite on the Pixel Coordinate Plane.
+     * @param x:         The x-position of the Sprite on the OpenGL Coordinate Plane.
+     * @param y:         The y-position of the Sprite on the OpenGL Coordinate Plane.
      * @param width:     The width of the sprite in pixels.
      * @param height:    The height of the sprite in pixels.
      */
     public Sprite(int textureID, float x, float y, int width, int height) {
-        this(textureID, new Point2D.Float(DisplayManager.ppX * x * 2, DisplayManager.ppY * y * 2), width * DisplayManager.xRes / 900, height * DisplayManager.yRes / 900);
+        this(
+                textureID,
+                new Point2D.Float(
+                        (float) (x * DisplayManager.targetResXRatio),
+                        (float) (y * DisplayManager.targetResXRatio)
+                ),
+                (int) (width * DisplayManager.targetResXRatio),
+                (int) (height * DisplayManager.targetResYRatio)
+        );
     }
 
     /**
@@ -81,7 +94,10 @@ public abstract class Sprite implements Renderable {
      * @param height:         The height of the sprite in pixels.
      */
     private Sprite(int textureID, Point2D.Float openGLPosition, int width, int height) {
-        this(openGLPosition, TexturedModel.getTexturedModel(width, height, textureID));
+        this(
+                openGLPosition,
+                TexturedModel.getTexturedModel(width, height, textureID)
+        );
     }
 
     /**
@@ -93,7 +109,10 @@ public abstract class Sprite implements Renderable {
     private Sprite(Point2D.Float openGLPosition, TexturedModel texturedModel) {
         this.texturedModel = texturedModel;
         this.openGLPosition = openGLPosition;
-        this.pixelPosition = new Point2D.Float((openGLPosition.x / DisplayManager.ppX) / 2, (openGLPosition.y / DisplayManager.ppY) / 2);
+        this.pixelPosition = new Point2D.Float(
+                (openGLPosition.x / DisplayManager.ppX) / 2,
+                (openGLPosition.y / DisplayManager.ppY) / 2
+        );
     }
 
     /**
@@ -136,11 +155,11 @@ public abstract class Sprite implements Renderable {
     }
 
     public int getPixelX() {
-        return (int) pixelPosition.getX();
+        return (int) getPixelPosition().getX();
     }
 
     public int getPixelY() {
-        return (int) pixelPosition.getY();
+        return (int) getPixelPosition().getY();
     }
 
     @SuppressWarnings("WeakerAccess")

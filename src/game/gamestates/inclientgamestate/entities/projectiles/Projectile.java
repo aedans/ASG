@@ -14,11 +14,11 @@ public abstract class Projectile extends MoveableEntity {
     }
 
     public void doCollisions() {
-        if (getPixelX() <= 0) {
+        if (getOpenGLPosition().x <= 0) {
             destroy();
             return;
         }
-        if (getPixelY() <= 0) {
+        if (getOpenGLPosition().y <= 0) {
             destroy();
             return;
         }

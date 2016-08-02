@@ -35,7 +35,7 @@ public class AI extends CorrelationAI {
         public float getEffect() throws UnavailableNeuronEffectException {
             if (!ai.canMoveRight())
                 return standStill.getEffect();
-            if (ai.getPixelX() < ai.getOpponentBase().getPixelX())
+            if (ai.getOpenGLPosition().x < ai.getOpponentBase().getOpenGLPosition().x)
                 return moveTowardsEnemyBase.getEffect();
             else return 0;
         }
@@ -45,7 +45,7 @@ public class AI extends CorrelationAI {
         public float getEffect() throws UnavailableNeuronEffectException {
             if (!ai.canMoveLeft())
                 return standStill.getEffect();
-            if (ai.getPixelX() > ai.getOpponentBase().getPixelX())
+            if (ai.getOpenGLPosition().x > ai.getOpponentBase().getOpenGLPosition().x)
                 return moveTowardsEnemyBase.getEffect();
             else return 0;
         }
@@ -55,7 +55,7 @@ public class AI extends CorrelationAI {
         public float getEffect() throws UnavailableNeuronEffectException {
             if (!ai.canMoveUp())
                 return standStill.getEffect();
-            if (ai.getPixelY() < ai.getOpponentBase().getPixelY())
+            if (ai.getOpenGLPosition().y < ai.getOpponentBase().getOpenGLPosition().y)
                 return moveTowardsEnemyBase.getEffect();
             else return 0;
         }
@@ -65,7 +65,7 @@ public class AI extends CorrelationAI {
         public float getEffect() throws UnavailableNeuronEffectException {
             if (!ai.canMoveDown())
                 return standStill.getEffect();
-            if (ai.getPixelY() > ai.getOpponentBase().getPixelY())
+            if (ai.getOpenGLPosition().y > ai.getOpponentBase().getOpenGLPosition().y)
                 return moveTowardsEnemyBase.getEffect();
             else return 0;
         }

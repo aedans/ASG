@@ -12,6 +12,12 @@ import org.lwjgl.opengl.*;
 public final class DisplayManager {
 
     /**
+     * The target resolution for the game.
+     */
+    private static int targetResolutionX = 900,
+                        targetResolutionY = 900;
+
+    /**
      * The Display's maximum fps.
      */
     private static int fpscap = Display.getDesktopDisplayMode().getFrequency() * 2;
@@ -35,6 +41,11 @@ public final class DisplayManager {
     public static int blackBarWidth, blackBarHeight;
 
     /**
+     * The ratio between the current resolution and the target resolution.
+     */
+    public static double targetResXRatio, targetResYRatio;
+
+    /**
      * Creates a display.
      *
      * @param xRes:       The x resolution of the Display.
@@ -52,6 +63,7 @@ public final class DisplayManager {
         DisplayManager.yRes = yRes;
         ppX = 1.0f / (float) DisplayManager.xRes;
         ppY = 1.0f / (float) DisplayManager.yRes;
+        //noinspection ConstantConditions
         if (xRes > yRes) {
             blackBarWidth = (xRes - yRes) / 2;
             blackBarHeight = 0;
@@ -59,6 +71,8 @@ public final class DisplayManager {
             blackBarHeight = yRes - xRes / 2;
             blackBarWidth = 0;
         }
+        targetResXRatio = xRes / targetResolutionX;
+        targetResYRatio = yRes / targetResolutionY;
 
         ContextAttribs attributes = new ContextAttribs(3, 2)
                 .withForwardCompatible(true)

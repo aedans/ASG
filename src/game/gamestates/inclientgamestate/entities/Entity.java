@@ -1,10 +1,7 @@
 package game.gamestates.inclientgamestate.entities;
 
+import game.renderer.DisplayManager;
 import game.sprites.Sprite;
-import game.renderer.TexturedModel;
-import org.lwjgl.util.vector.Vector2f;
-
-import java.awt.geom.Point2D;
 
 /**
  * Created by Aedan Smith on 7/4/2016.
@@ -13,17 +10,29 @@ import java.awt.geom.Point2D;
 public abstract class Entity extends Sprite {
 
     public Entity(int textureID, int width, int height) {
-        super(textureID, width, height);
+        super(
+                textureID,
+                width,
+                height
+        );
     }
 
     public Entity(int textureID, float x, float y, int width, int height) {
-        super(textureID, x, y, width, height);
+        super(
+                textureID,
+                DisplayManager.ppX * x * 2,
+                DisplayManager.ppY * y * 2,
+                width,
+                height
+        );
     }
 
+    @SuppressWarnings("WeakerAccess")
     public int getGridX() {
         return (int) ((32 + getPixelPosition().getX()) / 64);
     }
 
+    @SuppressWarnings("WeakerAccess")
     public int getGridY() {
         return (int) ((32 + getPixelPosition().getY()) / 64);
     }

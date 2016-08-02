@@ -14,6 +14,8 @@ public class Main {
     /**
      * VM Options: -Djava.library.path=[LWJGL Path here]
      *
+     * TODO: Add fullscreen to args.
+     *
      * @param args: 'xRes yRes'
      */
     public static void main(String[] args) throws Exception {
