@@ -83,10 +83,10 @@ public class Position {
      * @param oy: The amount to translate vetically on the OpenGL coordinate plane.
      */
     public void translate(float ox, float oy) {
-        this.px += (int) (ox / DisplayManager.ppX / 2);
-        this.py += (int) (oy / DisplayManager.ppY / 2);
         this.ox += ox;
         this.oy += oy;
+        this.px = (int) (this.ox / DisplayManager.ppX / 2);
+        this.py = (int) (this.oy / DisplayManager.ppY / 2);
     }
 
     public int getPixelX(){
