@@ -89,6 +89,18 @@ public class Position {
         this.py = (int) (this.oy / DisplayManager.ppY / 2);
     }
 
+    /**
+     * Gets the distance between this and another position.
+     *
+     * @param position: The position to get the distance to.
+     * @return double: The distance to the position.
+     */
+    public double distance(Position position) {
+        double px = position.getOpenGLX() - this.getOpenGLX();
+        double py = position.getOpenGLY() - this.getOpenGLY();
+        return Math.sqrt(px * px + py * py);
+    }
+
     public int getPixelX(){
         return px;
     }
@@ -103,12 +115,6 @@ public class Position {
 
     public float getOpenGLY(){
         return oy;
-    }
-
-    public double distance(Position position) {
-        double px = position.getOpenGLX() - this.getOpenGLX();
-        double py = position.getOpenGLY() - this.getOpenGLY();
-        return Math.sqrt(px * px + py * py);
     }
 
     public Position deepClone(){
