@@ -72,8 +72,8 @@ public class Position {
     public void translate(int px, int py){
         this.px += px;
         this.py += py;
-        this.ox += DisplayManager.ppX * px;
-        this.oy += DisplayManager.ppY * py;
+        this.ox += DisplayManager.ppX * px * 2;
+        this.oy += DisplayManager.ppY * py * 2;
     }
 
     /**
