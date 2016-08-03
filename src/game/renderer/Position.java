@@ -41,8 +41,8 @@ public class Position {
      */
     public Position(float ox, float oy){
         this(
-                (int) (ox / DisplayManager.ppX),
-                (int) (oy / DisplayManager.ppY),
+                (int) (ox / DisplayManager.ppX / 2),
+                (int) (oy / DisplayManager.ppY / 2),
                 ox,
                 oy
         );
@@ -83,8 +83,8 @@ public class Position {
      * @param oy: The amount to translate vetically on the OpenGL coordinate plane.
      */
     public void translate(float ox, float oy) {
-        this.px += (int) (ox / DisplayManager.ppX);
-        this.py += (int) (oy / DisplayManager.ppY);
+        this.px += (int) (ox / DisplayManager.ppX / 2);
+        this.py += (int) (oy / DisplayManager.ppY / 2);
         this.ox += ox;
         this.oy += oy;
     }
