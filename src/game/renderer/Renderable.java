@@ -2,8 +2,6 @@ package game.renderer;
 
 import org.lwjgl.util.vector.Matrix4f;
 
-import java.awt.geom.Point2D;
-
 /**
  * Created by Aedan Smith on 7/17/2016.
  * <p>
@@ -16,9 +14,7 @@ public interface Renderable {
 
     Matrix4f getTransformationMatrix();
 
-    Point2D.Float getOpenGLPosition();
-
-    Point2D.Float getPixelPosition();
+    Position getPosition();
 
     void onRender();
 

@@ -23,7 +23,7 @@ public class Viewport {
     /**
      * The position of the Viewport on the OpenGL Coordinate System
      */
-    public static Point2D.Float position = new Point2D.Float(0, 0);
+    public static Position position = new Position(0f, 0f);
 
     /**
      * The x and y velocity of the Viewport.
@@ -34,10 +34,10 @@ public class Viewport {
     /**
      * The Function to be executed once every Game loop.
      *
-     * @param Point2D.Float: The position of the Viewport.
+     * @param Position: The position of the Viewport.
      * @return boolean: If the Viewport should move.
      */
-    private static Function<Point2D.Float, Boolean> onUpdate = vector2f -> false;
+    private static Function<Position, Boolean> onUpdate = vector2f -> false;
 
     /**
      * Gets the position of a given position as seen through the Viewport.
@@ -45,8 +45,8 @@ public class Viewport {
      * @param position: The point to get on-screen in the OpenGL Coordinate System.
      * @return Point2D.Float: The on-screen position in the OpenGL Coordinate System.
      */
-    public static Point2D.Float getRelativePosition(Point2D.Float position) {
-        return new Point2D.Float(position.x - Viewport.position.x, position.y - Viewport.position.y);
+    public static Position getRelativePosition(Position position) {
+        return new Position(position.getOpenGLX() - Viewport.position.getOpenGLX(), position.getOpenGLY() - Viewport.position.getOpenGLY());
     }
 
     /**
@@ -55,8 +55,7 @@ public class Viewport {
     public static void update() {
         if (onUpdate.apply(position)) {
             float m = (float) (lastTranslated - System.currentTimeMillis()) / 1000;
-            position.x += xVel * m;
-            position.y += yVel * m;
+            position.translate(xVel * m, yVel * m);
         }
         lastTranslated = System.currentTimeMillis();
     }
@@ -68,7 +67,7 @@ public class Viewport {
      */
     public static void focusOn(Entity entity) {
         setOnUpdate(vector2f -> {
-            position.setLocation(entity.getOpenGLPosition());
+            position = entity.getPosition();
             return false;
         });
     }
@@ -81,7 +80,7 @@ public class Viewport {
      * @return boolean: If the Viewport should move.
      */
     @SuppressWarnings({"WeakerAccess", "JavadocReference", "JavaDoc"})
-    public static void setOnUpdate(Function<Point2D.Float, Boolean> onUpdate) {
+    public static void setOnUpdate(Function<Position, Boolean> onUpdate) {
         Viewport.onUpdate = onUpdate;
     }
 

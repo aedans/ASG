@@ -37,7 +37,7 @@ public class LightShader extends game.renderer.shaders.Shader {
     }
 
     public void loadLightDistance(Light l, Entity e) {
-        float brightness = (float) (1 / (l.getOpenGLPosition().distance(e.getOpenGLPosition()) + .2f)) * l.getStrength() / 10 - .1f;
+        float brightness = (float) (1 / (l.getPosition().distance(e.getPosition()) + .2f)) * l.getStrength() / 10 - .1f;
         loadLightDistance(brightness);
     }
 

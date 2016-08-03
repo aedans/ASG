@@ -36,7 +36,7 @@ public class InClientGameState extends GameState {
         redBase = new Base(true, 288, 288);
         blueBase = new Base(false, 4448, 4448);
         players = new Player[]{
-                new Player(new HostController(), true, redBase.getPixelX(), redBase.getPixelY()),
+                new Player(new HostController(), true, redBase.getPosition().getPixelX(), redBase.getPosition().getPixelX()),
 //                new Player(new AIController(1), true, redBase.getPixelX(), redBase.getPixelY()),
 //                new Player(new AIController(2), true, redBase.getPixelX(), redBase.getPixelY()),
 //                new Player(new AIController(3), true, redBase.getPixelX(), redBase.getPixelY()),

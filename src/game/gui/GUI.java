@@ -1,6 +1,7 @@
 package game.gui;
 
 import game.renderer.DisplayManager;
+import game.renderer.Position;
 import game.sprites.Sprite;
 import org.lwjgl.input.Mouse;
 
@@ -17,7 +18,15 @@ public abstract class GUI extends Sprite {
     private int timeFastClick = 0;
 
     protected GUI(int textureID, int x, int y, int width, int height) {
-        super(textureID, DisplayManager.ppX * x * 2 - DisplayManager.xRes / 2, DisplayManager.ppY * y * 2 - DisplayManager.yRes / 2, width, height);
+        super(
+                new Position(
+                    DisplayManager.ppX * x * 2 - DisplayManager.xRes / 2,
+                    DisplayManager.ppY * y * 2 - DisplayManager.yRes / 2
+                ),
+                textureID,
+                width,
+                height
+        );
         this.width = width;
         this.height = height;
     }
@@ -26,10 +35,10 @@ public abstract class GUI extends Sprite {
     @SuppressWarnings("WeakerAccess")
     public void checkClicked() {
         if (Mouse.isButtonDown(0)) {
-            if (Mouse.getX() > this.getPixelX() - width / 2)
-                if (Mouse.getX() < this.getPixelX() + width / 2)
-                    if (Mouse.getY() > this.getPixelX() - height / 2)
-                        if (Mouse.getY() < this.getPixelX() + height / 2) {
+            if (Mouse.getX() > this.getPosition().getPixelX() - width / 2)
+                if (Mouse.getX() < this.getPosition().getPixelX() + width / 2)
+                    if (Mouse.getY() > this.getPosition().getPixelY() - height / 2)
+                        if (Mouse.getY() < this.getPosition().getPixelY() + height / 2) {
                             this.onPressed();
                             if (timeFastClick > 2 || System.currentTimeMillis() - lastClicked > 300) {
                                 this.onClick();
@@ -45,14 +54,6 @@ public abstract class GUI extends Sprite {
     @Override
     public void onRender() {
 
-    }
-
-    @Override
-    public Point2D.Float getPixelPosition() {
-        return new Point2D.Float(
-                super.getPixelX() + DisplayManager.xRes / 2,
-                super.getPixelY() + DisplayManager.yRes / 2
-        );
     }
 
     public int getWidth() {

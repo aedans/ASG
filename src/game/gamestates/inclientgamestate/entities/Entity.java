@@ -1,6 +1,7 @@
 package game.gamestates.inclientgamestate.entities;
 
-import game.renderer.DisplayManager;
+import game.renderer.Position;
+import game.renderer.TexturedModel;
 import game.sprites.Sprite;
 
 /**
@@ -9,32 +10,22 @@ import game.sprites.Sprite;
 
 public abstract class Entity extends Sprite {
 
-    public Entity(int textureID, int width, int height) {
-        super(
-                textureID,
-                width,
-                height
-        );
+    public Entity(Position position, int texture, int width, int height) {
+        super(position, texture, width, height);
     }
 
-    public Entity(int textureID, float x, float y, int width, int height) {
-        super(
-                textureID,
-                DisplayManager.ppX * x * 2,
-                DisplayManager.ppY * y * 2,
-                width,
-                height
-        );
+    public Entity(Position position, TexturedModel texturedModel) {
+        super(position, texturedModel);
     }
 
     @SuppressWarnings("WeakerAccess")
     public int getGridX() {
-        return (int) ((32 + getPixelPosition().getX()) / 64);
+        return ((32 + getPosition().getPixelX()) / 64);
     }
 
     @SuppressWarnings("WeakerAccess")
     public int getGridY() {
-        return (int) ((32 + getPixelPosition().getY()) / 64);
+        return ((32 + getPosition().getPixelY()) / 64);
     }
 
 }
