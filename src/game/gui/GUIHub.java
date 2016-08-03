@@ -1,5 +1,6 @@
 package game.gui;
 
+import game.renderer.Position;
 import game.renderer.Renderable;
 import game.renderer.TexturedModel;
 import org.lwjgl.util.vector.Matrix4f;
@@ -27,12 +28,7 @@ public abstract class GUIHub implements Renderable {
     }
 
     @Override
-    public Point2D.Float getOpenGLPosition() {
-        return null;
-    }
-
-    @Override
-    public Point2D.Float getPixelPosition() {
+    public Position getPosition(){
         return null;
     }
 

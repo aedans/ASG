@@ -121,4 +121,10 @@ public class Position {
         return oy;
     }
 
+    public double distance(Position position) {
+        double px = position.getOpenGLX() - this.getOpenGLX();
+        double py = position.getOpenGLY() - this.getOpenGLY();
+        return Math.sqrt(px * px + py * py);
+    }
+
 }

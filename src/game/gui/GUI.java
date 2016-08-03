@@ -26,10 +26,10 @@ public abstract class GUI extends Sprite {
     @SuppressWarnings("WeakerAccess")
     public void checkClicked() {
         if (Mouse.isButtonDown(0)) {
-            if (Mouse.getX() > this.getPixelX() - width / 2)
-                if (Mouse.getX() < this.getPixelX() + width / 2)
-                    if (Mouse.getY() > this.getPixelX() - height / 2)
-                        if (Mouse.getY() < this.getPixelX() + height / 2) {
+            if (Mouse.getX() > this.getPosition().getPixelX() - width / 2)
+                if (Mouse.getX() < this.getPosition().getPixelX() + width / 2)
+                    if (Mouse.getY() > this.getPosition().getPixelY() - height / 2)
+                        if (Mouse.getY() < this.getPosition().getPixelY() + height / 2) {
                             this.onPressed();
                             if (timeFastClick > 2 || System.currentTimeMillis() - lastClicked > 300) {
                                 this.onClick();
@@ -45,14 +45,6 @@ public abstract class GUI extends Sprite {
     @Override
     public void onRender() {
 
-    }
-
-    @Override
-    public Point2D.Float getPixelPosition() {
-        return new Point2D.Float(
-                super.getPixelX() + DisplayManager.xRes / 2,
-                super.getPixelY() + DisplayManager.yRes / 2
-        );
     }
 
     public int getWidth() {

@@ -29,12 +29,12 @@ public abstract class Entity extends Sprite {
 
     @SuppressWarnings("WeakerAccess")
     public int getGridX() {
-        return (int) ((32 + getPixelPosition().getX()) / 64);
+        return (int) ((32 + getPosition().getPixelX()) / 64);
     }
 
     @SuppressWarnings("WeakerAccess")
     public int getGridY() {
-        return (int) ((32 + getPixelPosition().getY()) / 64);
+        return (int) ((32 + getPosition().getPixelY()) / 64);
     }
 
 }

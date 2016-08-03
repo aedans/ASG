@@ -100,13 +100,15 @@ public class Renderer {
         for (Renderable r : toRender) {
             if (r.getClass().isAnnotationPresent(Invisible.class) || r.getTexturedModel().getTrueTextureID() == Textures.blankTextureID)
                 continue;
-            Point2D.Float relativePos = Viewport.getRelativePosition(r.getOpenGLPosition());
-            if (r.getClass().isAnnotationPresent(OverlaidSprite.class) || (!(relativePos.x > 1.3) && !(relativePos.x < -1.3) && !(relativePos.y > 1.3) && !(relativePos.y < -1.3))) {
+            Position relativePos = Viewport.getRelativePosition(r.getPosition());
+            if (r.getClass().isAnnotationPresent(OverlaidSprite.class) ||
+                    (!(relativePos.getPixelX() > 1.3) && !(relativePos.getOpenGLX() < -1.3)
+                            && !(relativePos.getOpenGLY() > 1.3) && !(relativePos.getOpenGLY() < -1.3))) {
                 r.onRender();
                 if (!r.getClass().isAnnotationPresent(OverlaidSprite.class))
                     compositeShader.loadTransformationMatrix(r.getTransformationMatrix());
                 else
-                    compositeShader.loadTransformationMatrix(MatrixMath.createTransformationMatrix(r.getOpenGLPosition(), 1));
+                    compositeShader.loadTransformationMatrix(MatrixMath.createTransformationMatrix(r.getPosition(), 1));
                 GL11.glDrawElements(GL11.GL_TRIANGLES, 8, GL11.GL_UNSIGNED_INT, 0);
             }
         }
@@ -135,8 +137,9 @@ public class Renderer {
         GL13.glActiveTexture(GL13.GL_TEXTURE0);
         GL11.glBindTexture(GL11.GL_TEXTURE_2D, toRender.get(0).getTexturedModel().getTrueTextureID());
         for (Renderable r : toRender) {
-            Point2D.Float relativePos = Viewport.getRelativePosition(r.getOpenGLPosition());
-            if (!(relativePos.x > 1.3) && !(relativePos.x < -1.3) && !(relativePos.y > 1.3) && !(relativePos.y < -1.3)) {
+            Position relativePos = Viewport.getRelativePosition(r.getPosition());
+            if (!(relativePos.getOpenGLX() > 1.3) && !(relativePos.getOpenGLX() < -1.3)
+                    && !(relativePos.getOpenGLY() > 1.3) && !(relativePos.getOpenGLY() < -1.3)) {
                 r.onRender();
                 if (r.getClass().isAnnotationPresent(Invisible.class))
                     continue;

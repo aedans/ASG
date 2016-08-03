@@ -45,8 +45,8 @@ public class Viewport {
      * @param position: The point to get on-screen in the OpenGL Coordinate System.
      * @return Point2D.Float: The on-screen position in the OpenGL Coordinate System.
      */
-    public static Point2D.Float getRelativePosition(Point2D.Float position) {
-        return new Point2D.Float(position.x - Viewport.position.getOpenGLX(), position.y - Viewport.position.getOpenGLY());
+    public static Position getRelativePosition(Position position) {
+        return new Position(position.getOpenGLX() - Viewport.position.getOpenGLX(), position.getOpenGLY() - Viewport.position.getOpenGLY());
     }
 
     /**
@@ -67,7 +67,7 @@ public class Viewport {
      */
     public static void focusOn(Entity entity) {
         setOnUpdate(vector2f -> {
-            position = new Position(entity.getOpenGLPosition());
+            position = entity.getPosition();
             return false;
         });
     }

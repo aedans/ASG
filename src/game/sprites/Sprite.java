@@ -1,11 +1,8 @@
 package game.sprites;
 
 import game.Game;
+import game.renderer.*;
 import math.MatrixMath;
-import game.renderer.DisplayManager;
-import game.renderer.Renderable;
-import game.renderer.TexturedModel;
-import game.renderer.Viewport;
 import org.lwjgl.util.vector.Matrix4f;
 
 import java.awt.geom.Point2D;
@@ -38,15 +35,7 @@ public abstract class Sprite implements Renderable {
      */
     private TexturedModel texturedModel;
 
-    /**
-     * The position of the Sprite on the OpenGL Coordinate plane.
-     */
-    private Point2D.Float openGLPosition;
-
-    /**
-     * The position of the Sprite in pixels from the bottom right.
-     */
-    private Point2D.Float pixelPosition;
+    private Position position;
 
     /**
      * Creates a Sprite at (0, 0).
@@ -108,11 +97,7 @@ public abstract class Sprite implements Renderable {
      */
     private Sprite(Point2D.Float openGLPosition, TexturedModel texturedModel) {
         this.texturedModel = texturedModel;
-        this.openGLPosition = openGLPosition;
-        this.pixelPosition = new Point2D.Float(
-                (openGLPosition.x / DisplayManager.ppX) / 2,
-                (openGLPosition.y / DisplayManager.ppY) / 2
-        );
+        this.position = new Position(openGLPosition);
     }
 
     /**
@@ -138,7 +123,7 @@ public abstract class Sprite implements Renderable {
     @Override
     public Matrix4f getTransformationMatrix() {
         return MatrixMath.createTransformationMatrix(
-                Viewport.getRelativePosition(getOpenGLPosition()), getScale()
+                Viewport.getRelativePosition(getPosition()), getScale()
         );
     }
 
@@ -146,20 +131,8 @@ public abstract class Sprite implements Renderable {
         return texturedModel;
     }
 
-    public Point2D.Float getOpenGLPosition() {
-        return openGLPosition;
-    }
-
-    public Point2D.Float getPixelPosition() {
-        return pixelPosition;
-    }
-
-    public int getPixelX() {
-        return (int) getPixelPosition().getX();
-    }
-
-    public int getPixelY() {
-        return (int) getPixelPosition().getY();
+    public Position getPosition() {
+        return position;
     }
 
     @SuppressWarnings("WeakerAccess")

@@ -20,7 +20,7 @@ public class ItemEntity extends Entity {
 
     @Override
     public void update() {
-        if (Game.inClientGameState.players[0].getPixelPosition().distance(this.getPixelPosition()) < 50) {
+        if (Game.inClientGameState.players[0].getPosition().distance(this.getPosition()) < 50) {
             Game.inClientGameState.playerInventory.add(item, 1);
             destroy();
         }
