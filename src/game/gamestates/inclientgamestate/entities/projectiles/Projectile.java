@@ -10,6 +10,8 @@ import game.renderer.Position;
 
 public abstract class Projectile extends MoveableEntity {
 
+    // TODO: Fix Projectile's map-edge destruction.
+
     public Projectile(Position position, int texture, int width, int height) {
         super(position, texture, width, height);
     }
