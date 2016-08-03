@@ -127,4 +127,9 @@ public class Position {
         return Math.sqrt(px * px + py * py);
     }
 
+    @Override
+    public String toString() {
+        return "Position(" + px + ", " + py + ", " + ox + ", " + oy + ")";
+    }
+
 }
