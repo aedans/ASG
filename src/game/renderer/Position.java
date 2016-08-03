@@ -28,8 +28,8 @@ public class Position {
         this(
                 px,
                 py,
-                DisplayManager.ppX * px,
-                DisplayManager.ppY * py
+                DisplayManager.ppX * px * 2,
+                DisplayManager.ppY * py * 2
         );
     }
 
