@@ -108,7 +108,7 @@ public class Renderer {
                 if (!r.getClass().isAnnotationPresent(OverlaidSprite.class))
                     compositeShader.loadTransformationMatrix(r.getTransformationMatrix());
                 else
-                    compositeShader.loadTransformationMatrix(MatrixMath.createTransformationMatrix(r.getPosition(), 1));
+                    compositeShader.loadTransformationMatrix(MatrixMath.createTransformationMatrix(r.getPosition()));
                 GL11.glDrawElements(GL11.GL_TRIANGLES, 8, GL11.GL_UNSIGNED_INT, 0);
             }
         }

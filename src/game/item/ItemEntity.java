@@ -2,6 +2,7 @@ package game.item;
 
 import game.Game;
 import game.gamestates.inclientgamestate.entities.Entity;
+import game.renderer.Position;
 
 /**
  * Created by Aedan Smith on 7/30/2016.
@@ -14,7 +15,7 @@ public class ItemEntity extends Entity {
     private Item item;
 
     public ItemEntity(Item item, int x, int y) {
-        super(item.getTextureID(), x, y, 64, 64);
+        super(new Position(x, y), item.getTextureID(), 64, 64);
         this.item = item;
     }
 

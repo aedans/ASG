@@ -14,10 +14,9 @@ public final class MatrixMath {
      * Creates a Transformation Matrix for an image at (0, 0).
      *
      * @param translation: The amount to translate the image using the OpenGL Coordinate System.
-     * @param scale:       TODO: Fix Scale.
      * @return Matrix4f: The matrix that translates an image at (0, 0) to the correct position.
      */
-    public static Matrix4f createTransformationMatrix(Position translation, float scale) {
+    public static Matrix4f createTransformationMatrix(Position translation) {
         Matrix4f matrix4f = new Matrix4f();
         matrix4f.setIdentity();
         Matrix4f.translate(new Vector2f(translation.getOpenGLX(), translation.getOpenGLY()), matrix4f, matrix4f);

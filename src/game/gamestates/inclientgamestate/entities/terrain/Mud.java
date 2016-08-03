@@ -1,6 +1,7 @@
 package game.gamestates.inclientgamestate.entities.terrain;
 
 import game.gamestates.inclientgamestate.entities.Entity;
+import game.renderer.Position;
 import game.sprites.Textures;
 
 /**
@@ -10,7 +11,7 @@ import game.sprites.Textures;
 public class Mud extends Entity implements Terrain {
 
     public Mud(int x, int y) {
-        super(Textures.mudTextureID, x, y, 64, 64);
+        super(new Position(x, y), Textures.mudTextureID, 64, 64);
     }
 
     @Override

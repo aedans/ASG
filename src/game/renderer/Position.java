@@ -1,9 +1,5 @@
 package game.renderer;
 
-import org.lwjgl.opengl.Display;
-
-import java.awt.geom.Point2D;
-
 /**
  * Created by Aedan Smith on 8/2/2016.
  *
@@ -34,18 +30,6 @@ public class Position {
                 py,
                 DisplayManager.ppX * px,
                 DisplayManager.ppY * py
-        );
-    }
-
-    /**
-     * Default Position constructor.
-     *
-     * @param openGLPosition: The position on the OpenGL coordinate plane.
-     */
-    public Position(Point2D.Float openGLPosition) {
-        this(
-                openGLPosition.x,
-                openGLPosition.y
         );
     }
 
@@ -100,7 +84,7 @@ public class Position {
      */
     public void translate(float ox, float oy) {
         this.px += (int) (ox / DisplayManager.ppX);
-        this.px += (int) (oy / DisplayManager.ppY);
+        this.py += (int) (oy / DisplayManager.ppY);
         this.ox += ox;
         this.oy += oy;
     }
@@ -125,6 +109,10 @@ public class Position {
         double px = position.getOpenGLX() - this.getOpenGLX();
         double py = position.getOpenGLY() - this.getOpenGLY();
         return Math.sqrt(px * px + py * py);
+    }
+
+    public Position deepClone(){
+        return new Position(px, py, ox, oy);
     }
 
     @Override

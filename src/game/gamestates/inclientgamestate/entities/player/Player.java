@@ -2,6 +2,7 @@ package game.gamestates.inclientgamestate.entities.player;
 
 import game.Game;
 import game.gamestates.inclientgamestate.entities.MoveableEntity;
+import game.renderer.Position;
 import game.sprites.Textures;
 import game.gamestates.inclientgamestate.entities.structures.Base;
 import game.gamestates.inclientgamestate.entities.player.controller.Controller;
@@ -23,13 +24,14 @@ public class Player extends MoveableEntity {
     private Controller controller;
 
     public Player(Controller controller, boolean red, int x, int y) {
-        super(red ? Textures.redPlayerTextureID : Textures.bluePlayerTextureID, x, y, 64, 64);
+        super(new Position(x, y), red ? Textures.redPlayerTextureID : Textures.bluePlayerTextureID, 64, 64);
         this.red = red;
         this.controller = controller;
     }
 
     @Override
     public void update() {
+        System.out.println(getPosition());
         this.controller.update();
         this.xVel = 0;
         this.yVel = 0;
@@ -50,7 +52,7 @@ public class Player extends MoveableEntity {
             this.yVel = -speed;
 
         if (controller.wantsToShoot() && canShoot()) {
-            Game.inClientGameState.sprites.add(new Fireball(controller.getShotDirection(), getPosition().getPixelX(), getPosition().getPixelY()));
+            Game.inClientGameState.sprites.add(new Fireball(controller.getShotDirection(), getPosition().deepClone()));
             lastShot = 0;
         }
 

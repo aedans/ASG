@@ -1,6 +1,7 @@
 package game.gamestates.inclientgamestate.entities.projectiles;
 
 import game.gamestates.inclientgamestate.entities.lights.Light;
+import game.renderer.Position;
 import game.sprites.Textures;
 import org.lwjgl.util.vector.Vector2f;
 
@@ -10,8 +11,8 @@ import org.lwjgl.util.vector.Vector2f;
 
 public class Fireball extends Projectile implements Light {
 
-    public Fireball(Vector2f velocity, int x, int y) {
-        super(Textures.fireballTextureID, x, y, 16, 16);
+    public Fireball(Vector2f velocity, Position position) {
+        super(position, Textures.fireballTextureID, 16, 16);
         this.xVel = velocity.getX() * 1.1f;
         this.yVel = velocity.getY() * 1.1f;
         this.isLight = true;

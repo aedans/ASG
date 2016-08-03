@@ -5,8 +5,6 @@ import game.renderer.*;
 import math.MatrixMath;
 import org.lwjgl.util.vector.Matrix4f;
 
-import java.awt.geom.Point2D;
-
 /**
  * Created by Aedan Smith on 7/8/2016.
  * <p>
@@ -15,15 +13,7 @@ import java.awt.geom.Point2D;
 
 public abstract class Sprite implements Renderable {
 
-    // TODO: Fix Coord System.
-    // TODO: Fix scale.
     // TODO: Add elapsed time to update().
-
-    /**
-     * TODO: Fix Scale.
-     */
-    @SuppressWarnings("WeakerAccess")
-    public float scale = 1;
 
     /**
      * True if the Sprite is a light source. False unless assigned by subclass.
@@ -38,66 +28,29 @@ public abstract class Sprite implements Renderable {
     private Position position;
 
     /**
-     * Creates a Sprite at (0, 0).
+     * Default Sprite constructor
      *
-     * @param textureID: The ID of the texture (See game.sprites.Textures).
-     * @param width:     The width of the sprite in pixels.
-     * @param height:    The height of the sprite in pixels.
+     * @param position: The position of the Sprite.
+     * @param texture: The Texture of the Sprite.
+     * @param width: The width of the Sprite.
+     * @param height: The height of the Sprite.
      */
-    public Sprite(int textureID, int width, int height) {
+    public Sprite(Position position, int texture, int width, int height){
         this(
-                textureID,
-                new Point2D.Float(0, 0),
-                width,
-                height
+                position,
+                TexturedModel.getTexturedModel(width, height, texture)
         );
     }
 
     /**
      * Default Sprite constructor.
      *
-     * @param textureID: The ID of the texture (See game.sprites.Textures).
-     * @param x:         The x-position of the Sprite on the OpenGL Coordinate Plane.
-     * @param y:         The y-position of the Sprite on the OpenGL Coordinate Plane.
-     * @param width:     The width of the sprite in pixels.
-     * @param height:    The height of the sprite in pixels.
-     */
-    public Sprite(int textureID, float x, float y, int width, int height) {
-        this(
-                textureID,
-                new Point2D.Float(
-                        (float) (x * DisplayManager.targetResXRatio),
-                        (float) (y * DisplayManager.targetResXRatio)
-                ),
-                (int) (width * DisplayManager.targetResXRatio),
-                (int) (height * DisplayManager.targetResYRatio)
-        );
-    }
-
-    /**
-     * Private Sprite constructor.
-     *
-     * @param textureID:      The ID of the texture (See game.sprites.Textures).
-     * @param openGLPosition: The position of the Sprite on the OpenGL Coordinate Plane.
-     * @param width:          The width of the sprite in pixels.
-     * @param height:         The height of the sprite in pixels.
-     */
-    private Sprite(int textureID, Point2D.Float openGLPosition, int width, int height) {
-        this(
-                openGLPosition,
-                TexturedModel.getTexturedModel(width, height, textureID)
-        );
-    }
-
-    /**
-     * Private Sprite constructor.
-     *
-     * @param openGLPosition: The position of the Sprite on the OpenGL Coordinate Plane.
+     * @param position: The position of the Sprite.
      * @param texturedModel:  The TexturedModel of the Sprite.
      */
-    private Sprite(Point2D.Float openGLPosition, TexturedModel texturedModel) {
+    public Sprite(Position position, TexturedModel texturedModel) {
+        this.position = position;
         this.texturedModel = texturedModel;
-        this.position = new Position(openGLPosition);
     }
 
     /**
@@ -123,7 +76,7 @@ public abstract class Sprite implements Renderable {
     @Override
     public Matrix4f getTransformationMatrix() {
         return MatrixMath.createTransformationMatrix(
-                Viewport.getRelativePosition(getPosition()), getScale()
+                Viewport.getRelativePosition(getPosition())
         );
     }
 
@@ -133,11 +86,6 @@ public abstract class Sprite implements Renderable {
 
     public Position getPosition() {
         return position;
-    }
-
-    @SuppressWarnings("WeakerAccess")
-    public float getScale() {
-        return scale;
     }
 
 }

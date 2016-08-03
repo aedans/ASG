@@ -1,6 +1,7 @@
 package game.gui;
 
 import game.renderer.DisplayManager;
+import game.renderer.Position;
 import game.sprites.Sprite;
 import org.lwjgl.input.Mouse;
 
@@ -17,7 +18,15 @@ public abstract class GUI extends Sprite {
     private int timeFastClick = 0;
 
     protected GUI(int textureID, int x, int y, int width, int height) {
-        super(textureID, DisplayManager.ppX * x * 2 - DisplayManager.xRes / 2, DisplayManager.ppY * y * 2 - DisplayManager.yRes / 2, width, height);
+        super(
+                new Position(
+                    DisplayManager.ppX * x * 2 - DisplayManager.xRes / 2,
+                    DisplayManager.ppY * y * 2 - DisplayManager.yRes / 2
+                ),
+                textureID,
+                width,
+                height
+        );
         this.width = width;
         this.height = height;
     }
