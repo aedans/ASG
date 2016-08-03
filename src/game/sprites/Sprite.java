@@ -14,6 +14,7 @@ import org.lwjgl.util.vector.Matrix4f;
 public abstract class Sprite implements Renderable {
 
     // TODO: Add elapsed time to update().
+    // TODO: Resize to fit all 1:1 Display sizes
 
     /**
      * True if the Sprite is a light source. False unless assigned by subclass.

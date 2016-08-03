@@ -31,7 +31,6 @@ public class Player extends MoveableEntity {
 
     @Override
     public void update() {
-        System.out.println(getPosition());
         this.controller.update();
         this.xVel = 0;
         this.yVel = 0;
