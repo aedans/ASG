@@ -15,6 +15,7 @@ public class Main {
      * VM Options: -Djava.library.path=[LWJGL Path here]
      *
      * TODO: Add fullscreen to args.
+     * TODO: .info files.
      *
      * Current 'best' resolution, 1540x900.
      *
