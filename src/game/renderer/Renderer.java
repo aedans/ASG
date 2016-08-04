@@ -55,10 +55,14 @@ public class Renderer {
      * @param shader:   The shader to render the RenderList with.
      */
     public static void render(RenderList toRender, Shader shader) {
-        if (shader == Shader.COMPOSITE)
-            renderComposite(toRender);
-        else
-            renderLight(toRender);
+        switch (shader){
+            case COMPOSITE:
+                renderComposite(toRender);
+                return;
+            case LIGHT:
+                renderLight(toRender);
+                return;
+        }
     }
 
     /**
@@ -68,7 +72,7 @@ public class Renderer {
      */
     private static void renderComposite(RenderList toRender) {
         for (int i = toRender.numTextures - 1; i >= 0; i--)
-            Renderer.renderLight(toRender.get(i), ((SpriteList) toRender).getLightList());
+            Renderer.renderComposite(toRender.get(i));
     }
 
     /**
@@ -78,7 +82,7 @@ public class Renderer {
      */
     private static void renderLight(RenderList toRender) {
         for (int i = toRender.numTextures - 1; i >= 0; i--)
-            Renderer.renderComposite(toRender.get(i));
+            Renderer.renderLight(toRender.get(i), ((SpriteList) toRender).getLightList());
     }
 
     /**
@@ -156,6 +160,9 @@ public class Renderer {
         lightShader.stop();
     }
 
+    /**
+     * Enum containing valid Shaders.
+     */
     public enum Shader {
 
         COMPOSITE, LIGHT
