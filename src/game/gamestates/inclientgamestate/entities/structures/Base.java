@@ -27,6 +27,11 @@ public class Base extends Entity implements Light {
     }
 
     @Override
+    protected void onDestruction() {
+
+    }
+
+    @Override
     public float getStrength() {
         return 5;
     }

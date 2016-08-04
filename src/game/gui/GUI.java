@@ -54,6 +54,11 @@ public abstract class GUI extends Sprite {
 
     }
 
+    @Override
+    protected void onDestruction() {
+
+    }
+
     public int getWidth() {
         return width;
     }

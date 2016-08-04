@@ -1,6 +1,5 @@
 package game.gamestates.inclientgamestate.entities.terrain;
 
-import game.gamestates.inclientgamestate.entities.Entity;
 import game.renderer.Position;
 import game.sprites.Textures;
 
@@ -8,7 +7,7 @@ import game.sprites.Textures;
  * Created by Aedan Smith on 7/7/2016.
  */
 
-public class Mud extends Entity implements Terrain {
+public class Mud extends Terrain {
 
     public Mud(int x, int y) {
         super(new Position(x, y), Textures.mudTextureID, 64, 64);

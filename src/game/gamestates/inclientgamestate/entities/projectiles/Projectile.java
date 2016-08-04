@@ -17,11 +17,11 @@ public abstract class Projectile extends MoveableEntity {
     }
 
     public void doCollisions() {
-        if (getPosition().getOpenGLX() <= 0) {
+        if (getPosition().getOpenGLX() < 0) {
             destroy();
             return;
         }
-        if (getPosition().getOpenGLY() <= 0) {
+        if (getPosition().getOpenGLY() < 0) {
             destroy();
             return;
         }
@@ -36,7 +36,6 @@ public abstract class Projectile extends MoveableEntity {
         try {
             if (Game.inClientGameState.map.getTileAt(getGridX(), getGridY()).isAirCollidable()) {
                 destroy();
-                return;
             }
         } catch (ArrayIndexOutOfBoundsException e) {
             e.printStackTrace();

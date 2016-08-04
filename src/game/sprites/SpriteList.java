@@ -42,6 +42,7 @@ public class SpriteList extends RenderList<Sprite> {
     protected void onRemove(Sprite sprite) {
         if (sprite.isLight)
             lightList.removeLight((Light) sprite);
+        sprite.onDestruction();
     }
 
     /**

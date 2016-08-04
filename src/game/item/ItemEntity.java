@@ -32,4 +32,9 @@ public class ItemEntity extends Entity {
 
     }
 
+    @Override
+    protected void onDestruction() {
+
+    }
+
 }

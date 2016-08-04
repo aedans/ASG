@@ -8,7 +8,7 @@ import game.sprites.Textures;
  * Created by Aedan Smith on 7/7/2016.
  */
 
-public class Water extends Entity implements Terrain {
+public class Water extends Terrain {
 
     public Water(int x, int y) {
         super(new Position(x, y), Textures.waterTextureID, 64, 64);

@@ -96,6 +96,11 @@ public class Player extends MoveableEntity {
 
     }
 
+    @Override
+    protected void onDestruction() {
+
+    }
+
     public Base getOpponentBase() {
         return red ? Game.inClientGameState.blueBase : Game.inClientGameState.redBase;
     }

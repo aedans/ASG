@@ -77,6 +77,12 @@ public abstract class Sprite implements Renderable {
      */
     public abstract void onRender();
 
+    /**
+     * Abstract function called on Sprite's destruction.
+     */
+    @SuppressWarnings("WeakerAccess")
+    protected abstract void onDestruction();
+
     @Override
     public Matrix4f getTransformationMatrix() {
         return MatrixMath.createTransformationMatrix(

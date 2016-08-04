@@ -13,8 +13,8 @@ public class Fireball extends Projectile implements Light {
 
     public Fireball(Vector2f velocity, Position position) {
         super(position, Textures.fireballTextureID, 16, 16);
-        this.xVel = velocity.getX() * 1.1f;
-        this.yVel = velocity.getY() * 1.1f;
+        this.xVel = velocity.getX() * 1.5f;
+        this.yVel = velocity.getY() * 1.5f;
         this.isLight = true;
     }
 
@@ -30,8 +30,13 @@ public class Fireball extends Projectile implements Light {
     }
 
     @Override
+    protected void onDestruction() {
+
+    }
+
+    @Override
     public float getStrength() {
-        return .7f;
+        return .75f;
     }
 
 }

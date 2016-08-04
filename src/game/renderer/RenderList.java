@@ -97,7 +97,7 @@ public abstract class RenderList<T extends Renderable> {
         }
         toAdd = new ArrayList<>();
 
-        // Adds all Renderables in the toRemove queue.
+        // Removes all Renderables in the toRemove queue.
         for (T t : toRemove) {
             get(t.getTexturedModel().getGameTextureID() - 1).remove(t);
             onRemove(t);
