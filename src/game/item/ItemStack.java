@@ -1,7 +1,7 @@
 package game.item;
 
 import game.gui.GUI;
-import game.renderer.Position;
+import game.renderer.math.Position;
 
 import java.util.Objects;
 

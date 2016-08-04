@@ -4,7 +4,7 @@ import game.gamestates.inclientgamestate.guis.PlayerInventory;
 import game.gamestates.inclientgamestate.items.TestItem;
 import game.gui.GUIList;
 import game.item.ItemEntity;
-import game.renderer.Viewport;
+import game.renderer.math.Viewport;
 import game.sprites.SpriteList;
 import game.renderer.Renderer;
 import game.gamestates.GameState;

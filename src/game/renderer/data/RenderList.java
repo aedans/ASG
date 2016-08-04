@@ -1,4 +1,4 @@
-package game.renderer;
+package game.renderer.data;
 
 import java.util.ArrayList;
 import java.util.Collections;

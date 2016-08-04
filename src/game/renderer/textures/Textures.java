@@ -1,6 +1,6 @@
-package game.sprites;
+package game.renderer.textures;
 
-import game.renderer.Loader;
+import game.renderer.data.Loader;
 
 import java.util.ArrayList;
 

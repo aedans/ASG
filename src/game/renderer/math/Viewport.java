@@ -1,8 +1,7 @@
-package game.renderer;
+package game.renderer.math;
 
 import game.gamestates.inclientgamestate.entities.Entity;
 
-import java.awt.geom.Point2D;
 import java.util.function.Function;
 
 /**

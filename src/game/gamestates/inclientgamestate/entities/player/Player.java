@@ -2,14 +2,13 @@ package game.gamestates.inclientgamestate.entities.player;
 
 import game.Game;
 import game.gamestates.inclientgamestate.entities.MoveableEntity;
-import game.renderer.Position;
-import game.sprites.Textures;
+import game.renderer.math.Position;
+import game.renderer.textures.Textures;
 import game.gamestates.inclientgamestate.entities.structures.Base;
 import game.gamestates.inclientgamestate.entities.player.controller.Controller;
 import game.gamestates.inclientgamestate.entities.projectiles.Fireball;
 import game.gamestates.inclientgamestate.entities.terrain.Mud;
 import game.gamestates.inclientgamestate.entities.terrain.Water;
-import org.lwjgl.util.vector.Vector2f;
 
 /**
  * Created by Aedan Smith on 7/6/2016.

@@ -1,8 +1,8 @@
 package game.gamestates.inclientgamestate.entities.structures;
 
 import game.gamestates.inclientgamestate.entities.lights.Light;
-import game.renderer.Position;
-import game.sprites.Textures;
+import game.renderer.math.Position;
+import game.renderer.textures.Textures;
 import game.gamestates.inclientgamestate.entities.Entity;
 
 /**

@@ -2,7 +2,8 @@ package game.sprites;
 
 import game.gamestates.inclientgamestate.entities.lights.Light;
 import game.gamestates.inclientgamestate.entities.lights.LightList;
-import game.renderer.RenderList;
+import game.renderer.data.RenderList;
+import game.renderer.textures.Textures;
 
 import java.util.ArrayList;
 

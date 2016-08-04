@@ -1,8 +1,11 @@
 package game.sprites;
 
 import game.Game;
-import game.renderer.*;
-import math.MatrixMath;
+import game.renderer.data.Renderable;
+import game.renderer.textures.TexturedModel;
+import game.renderer.math.Position;
+import game.renderer.math.Viewport;
+import game.renderer.math.MatrixMath;
 import org.lwjgl.util.vector.Matrix4f;
 
 /**

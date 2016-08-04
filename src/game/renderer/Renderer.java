@@ -1,15 +1,19 @@
 package game.renderer;
 
 import game.gamestates.inclientgamestate.entities.Entity;
-import game.gamestates.inclientgamestate.entities.lights.AlwaysLit;
+import game.renderer.annotations.AlwaysLit;
 import game.gamestates.inclientgamestate.entities.lights.LightList;
-import game.gui.Invisible;
-import game.gui.ConstRender;
+import game.renderer.annotations.Invisible;
+import game.renderer.annotations.ConstRender;
+import game.renderer.data.RenderList;
+import game.renderer.data.Renderable;
+import game.renderer.math.Position;
+import game.renderer.math.Viewport;
 import game.renderer.shaders.Shader;
 import game.renderer.shaders.composite.CompositeShader;
 import game.renderer.shaders.lightshader.LightShader;
 import game.sprites.SpriteList;
-import game.sprites.Textures;
+import game.renderer.textures.Textures;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL13;
 import org.lwjgl.opengl.GL20;
@@ -83,6 +87,7 @@ public class Renderer {
      * Renders an ArrayList of Renderables to the Display.
      * <p>
      * TODO: Comment.
+     * TODO: Improve offscreen detection.
      *
      * @param toRender: The ArrayList of Renderables to Render.
      */
@@ -118,6 +123,7 @@ public class Renderer {
      * <p>
      * TODO Implement Black Bars.
      * TODO: Comment.
+     * TODO: Improve offscreen detection.
      *
      * @param toRender: The ArrayList of Renderables to Render.
      */

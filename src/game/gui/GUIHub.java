@@ -1,11 +1,9 @@
 package game.gui;
 
-import game.renderer.Position;
-import game.renderer.Renderable;
-import game.renderer.TexturedModel;
+import game.renderer.math.Position;
+import game.renderer.data.Renderable;
+import game.renderer.textures.TexturedModel;
 import org.lwjgl.util.vector.Matrix4f;
-
-import java.awt.geom.Point2D;
 
 /**
  * Created by Aedan Smith on 7/30/2016.

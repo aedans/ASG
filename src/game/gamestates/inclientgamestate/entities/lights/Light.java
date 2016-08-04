@@ -1,6 +1,6 @@
 package game.gamestates.inclientgamestate.entities.lights;
 
-import game.renderer.Position;
+import game.renderer.math.Position;
 
 /**
  * Created by Aedan Smith on 7/29/2016.

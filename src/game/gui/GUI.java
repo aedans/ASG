@@ -1,10 +1,8 @@
 package game.gui;
 
-import game.renderer.DisplayManager;
-import game.renderer.Position;
-import game.renderer.Viewport;
+import game.renderer.math.Position;
 import game.sprites.Sprite;
-import math.MatrixMath;
+import game.renderer.math.MatrixMath;
 import org.lwjgl.input.Mouse;
 import org.lwjgl.util.vector.Matrix4f;
 

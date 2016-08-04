@@ -1,7 +1,7 @@
 package game.gui;
 
-import game.renderer.RenderList;
-import game.sprites.Textures;
+import game.renderer.data.RenderList;
+import game.renderer.textures.Textures;
 
 import java.util.ArrayList;
 

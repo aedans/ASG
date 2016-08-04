@@ -2,7 +2,7 @@ package game.item;
 
 import game.Game;
 import game.gamestates.inclientgamestate.entities.Entity;
-import game.renderer.Position;
+import game.renderer.math.Position;
 
 /**
  * Created by Aedan Smith on 7/30/2016.

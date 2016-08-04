@@ -1,6 +1,7 @@
-package game.renderer;
+package game.renderer.textures;
 
-import game.sprites.Textures;
+import game.renderer.DisplayManager;
+import game.renderer.data.Loader;
 
 /**
  * Created by Aedan Smith on 7/5/2016.
@@ -24,7 +25,7 @@ public class TexturedModel {
      * Default TexturedModel constructor.
      *
      * @param modelID:   The ID of the Model.
-     * @param textureID: The ID of the Texture. (See game.sprites.Textures).
+     * @param textureID: The ID of the Texture. (See game.renderer.textures.Textures).
      */
     private TexturedModel(int modelID, int textureID) {
         this.modelID = modelID;

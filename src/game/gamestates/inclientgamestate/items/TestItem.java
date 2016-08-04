@@ -1,7 +1,7 @@
 package game.gamestates.inclientgamestate.items;
 
 import game.item.Item;
-import game.sprites.Textures;
+import game.renderer.textures.Textures;
 
 /**
  * Created by Aedan Smith on 7/30/2016.

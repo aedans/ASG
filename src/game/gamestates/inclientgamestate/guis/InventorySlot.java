@@ -1,8 +1,8 @@
 package game.gamestates.inclientgamestate.guis;
 
-import game.gui.ConstRender;
-import game.renderer.Position;
-import game.sprites.Textures;
+import game.renderer.annotations.ConstRender;
+import game.renderer.math.Position;
+import game.renderer.textures.Textures;
 
 /**
  * Created by Aedan Smith on 7/30/2016.

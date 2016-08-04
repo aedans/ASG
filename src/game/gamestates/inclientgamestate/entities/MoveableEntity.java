@@ -1,7 +1,7 @@
 package game.gamestates.inclientgamestate.entities;
 
-import game.renderer.Position;
-import game.renderer.TexturedModel;
+import game.renderer.math.Position;
+import game.renderer.textures.TexturedModel;
 
 /**
  * Created by Aedan Smith on 7/7/2016.

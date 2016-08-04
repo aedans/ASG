@@ -1,4 +1,6 @@
-package game.renderer;
+package game.renderer.math;
+
+import game.renderer.DisplayManager;
 
 /**
  * Created by Aedan Smith on 8/2/2016.
