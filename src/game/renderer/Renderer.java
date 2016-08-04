@@ -9,7 +9,6 @@ import game.renderer.data.RenderList;
 import game.renderer.data.Renderable;
 import game.renderer.math.Position;
 import game.renderer.math.Viewport;
-import game.renderer.shaders.Shader;
 import game.renderer.shaders.composite.CompositeShader;
 import game.renderer.shaders.lightshader.LightShader;
 import game.sprites.SpriteList;
@@ -51,13 +50,12 @@ public class Renderer {
     /**
      * Renders a RenderList to the Display.
      * <p>
-     * TODO: Create Shader Enum.
      *
      * @param toRender: The RenderList to render.
      * @param shader:   The shader to render the RenderList with.
      */
     public static void render(RenderList toRender, Shader shader) {
-        if (shader.getClass() == lightShader.getClass())
+        if (shader == Shader.COMPOSITE)
             renderComposite(toRender);
         else
             renderLight(toRender);
@@ -156,6 +154,12 @@ public class Renderer {
         GL20.glDisableVertexAttribArray(1);
         GL30.glBindVertexArray(0);
         lightShader.stop();
+    }
+
+    public enum Shader {
+
+        COMPOSITE, LIGHT
+
     }
 
 }

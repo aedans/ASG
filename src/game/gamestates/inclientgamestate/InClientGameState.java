@@ -73,8 +73,8 @@ public class InClientGameState extends GameState {
     @Override
     public void render() {
         Renderer.prepare();
-        Renderer.render(sprites, Renderer.lightShader);
-        Renderer.render(guis, Renderer.compositeShader);
+        Renderer.render(sprites, Renderer.Shader.LIGHT);
+        Renderer.render(guis, Renderer.Shader.COMPOSITE);
     }
 
 }
