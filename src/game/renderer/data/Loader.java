@@ -17,6 +17,8 @@ import org.newdawn.slick.opengl.TextureLoader;
 
 public class Loader {
 
+    // TODO: Make Models class.
+
     /**
      * List of Vertex Attribute Objects.
      */
@@ -152,7 +154,7 @@ public class Loader {
      * @param data: The data to store in the IntBuffer.
      * @return IntBuffer: The created IntBuffer.
      */
-    private static IntBuffer storeDataInIntBuffer(int[] data) {
+    public static IntBuffer storeDataInIntBuffer(int[] data) {
         IntBuffer buffer = BufferUtils.createIntBuffer(data.length);
         buffer.put(data);
         buffer.flip();
@@ -165,7 +167,7 @@ public class Loader {
      * @param data: The data to store in the FloatBuffer.
      * @return FloatBuffer: The created FloatBuffer.
      */
-    private static FloatBuffer storeDataInFloatBuffer(float[] data) {
+    public static FloatBuffer storeDataInFloatBuffer(float[] data) {
         FloatBuffer buffer = BufferUtils.createFloatBuffer(data.length);
         buffer.put(data);
         buffer.flip();

@@ -10,6 +10,8 @@ import java.util.ArrayList;
 
 public final class Textures {
 
+    // TODO: Implement TextureList Support.
+
     /**
      * List of Textures for Sprites.
      */
@@ -29,6 +31,7 @@ public final class Textures {
      */
     public static ArrayList<Integer> GUITextures = new ArrayList<>();
 
+    public static int blackTextureID = Loader.loadPNGTexture("black");
     public static int blankTextureID = Loader.loadPNGTexture("blank");
     public static int testTextureID = Loader.loadPNGTexture("test");
     public static int inventorySlotTexture = Loader.loadJPGTexture("grey_square");
@@ -55,6 +58,7 @@ public final class Textures {
         GUITextures.add(blankTextureID);
         GUITextures.add(testTextureID);
         GUITextures.add(inventorySlotTexture);
+        GUITextures.add(blackTextureID);
     }
 
 }

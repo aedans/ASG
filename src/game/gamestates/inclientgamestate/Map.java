@@ -40,7 +40,7 @@ public class Map {
         ArrayList<Sprite> entities = new ArrayList<>();
         for (int i = 0; i < width; i++) {
             for (int j = 0; j < height; j++) {
-                entities.add((Sprite) terrain[i][j]);
+                entities.add(terrain[i][j]);
             }
         }
         return entities;

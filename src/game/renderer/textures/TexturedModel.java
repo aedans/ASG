@@ -28,6 +28,7 @@ public class TexturedModel {
      * @param textureID: The ID of the Texture. (See game.renderer.textures.Textures).
      */
     private TexturedModel(int modelID, int textureID) {
+        System.out.println(modelID);
         this.modelID = modelID;
         this.textureID = textureID;
     }
@@ -54,6 +55,11 @@ public class TexturedModel {
     @SuppressWarnings("WeakerAccess")
     public int getModelID() {
         return modelID;
+    }
+
+    @Override
+    public String toString() {
+        return "TexturedModel(ModelID: " + modelID + ", TexureID: " + textureID + ")";
     }
 
     /**
@@ -95,7 +101,7 @@ public class TexturedModel {
     }
 
     /**
-     * Creates a TexturedModel with the given Vertexes and Texture ID.
+     * Creates a TexturedModel with the given Vertices and Texture ID.
      *
      * @param vps:       The Vertexes of the Model.
      * @param textureID: The Texture ID.
@@ -115,7 +121,7 @@ public class TexturedModel {
     }
 
     /**
-     * Creates a TexturedModel with the given Vertexes and Texture ID.
+     * Creates a TexturedModel with the given Vertices and Texture ID.
      *
      * @param vps:       The Vertexes of the Model.
      * @param textureID: The Texture ID.

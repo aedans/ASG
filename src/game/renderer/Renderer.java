@@ -32,6 +32,11 @@ public class Renderer {
      */
     public static LightShader lightShader = new LightShader();
 
+    /**
+     * The RenderList of BlackBars to be rendered.
+     */
+    private static BlackBars blackBars = new BlackBars();
+
     static {
         // Enables Transparency.
         GL11.glEnable(GL11.GL_BLEND);
@@ -43,8 +48,8 @@ public class Renderer {
      */
     public static void prepare() {
         // Clears the Display.
-        GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
         GL11.glClearColor(0, 0, 0, 1);
+        GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
     }
 
     /**
@@ -123,7 +128,6 @@ public class Renderer {
     /**
      * Renders an ArrayList of Renderables to the Display with lighting.
      * <p>
-     * TODO Implement Black Bars.
      * TODO: Comment.
      * TODO: Improve offscreen detection.
      *
@@ -131,7 +135,6 @@ public class Renderer {
      */
     private static void renderLight(ArrayList<Renderable> toRender, LightList lightList) {
         lightShader.start();
-//        lightShader.loadBlackBars(DisplayManager.blackBarWidth, 0);
         if (toRender.size() == 0)
             return;
         GL30.glBindVertexArray(toRender.get(0).getTexturedModel().getModelID());
@@ -152,12 +155,20 @@ public class Renderer {
                     lightShader.loadLightDistance(lightList.getMostImportantLight((Entity) r), (Entity) r);
                 else
                     lightShader.loadLightDistance(1f);
-                GL11.glDrawElements(GL11.GL_TRIANGLES, 8, GL11.GL_UNSIGNED_INT, 0);
+                GL11.glDrawElements(GL11.GL_TRIANGLES, 6, GL11.GL_UNSIGNED_INT, 0);
             }
         }
+        GL20.glDisableVertexAttribArray(0);
         GL20.glDisableVertexAttribArray(1);
         GL30.glBindVertexArray(0);
         lightShader.stop();
+    }
+
+    /**
+     * Renders BlackBars.
+     */
+    public static void drawBlackBars() {
+        renderComposite(blackBars);
     }
 
     /**

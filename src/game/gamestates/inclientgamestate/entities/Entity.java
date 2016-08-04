@@ -20,18 +20,12 @@ public abstract class Entity extends Sprite {
 
     @SuppressWarnings("WeakerAccess")
     public int getGridX() {
-        if (getPosition().getPixelX() < 0)
-            return -1;
-        else
-            return ((32 + getPosition().getPixelX()) / 64);
+        return ((32 + getPosition().getPixelX()) / 64);
     }
 
     @SuppressWarnings("WeakerAccess")
     public int getGridY() {
-        if (getPosition().getPixelY() < 0)
-            return -1;
-        else
-            return ((32 + getPosition().getPixelY()) / 64);
+        return ((32 + getPosition().getPixelY()) / 64);
     }
 
 }

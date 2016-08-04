@@ -33,14 +33,6 @@ public final class DisplayManager {
     public static float ppX, ppY;
 
     /**
-     * The width of black bars on the top and side of the screen.
-     * <p>
-     * TODO: Implement Black Bars.
-     */
-    @SuppressWarnings("WeakerAccess")
-    public static int blackBarWidth, blackBarHeight;
-
-    /**
      * The ratio between the current resolution and the target resolution.
      */
     public static double targetResXRatio, targetResYRatio;
@@ -56,21 +48,10 @@ public final class DisplayManager {
      * @throws LWJGLException: If LWJGL could not initialize the Display.
      */
     public static void createDisplay(int xRes, int yRes, boolean fullscreen, String title) throws Exception {
-        if (xRes != yRes) {
-            throw new Exception("Game is currently locked to 1:1 resolutions.");
-        }
         DisplayManager.xRes = xRes;
         DisplayManager.yRes = yRes;
         ppX = 1.0f / (float) DisplayManager.xRes;
         ppY = 1.0f / (float) DisplayManager.yRes;
-        //noinspection ConstantConditions
-        if (xRes > yRes) {
-            blackBarWidth = (xRes - yRes) / 2;
-            blackBarHeight = 0;
-        } else {
-            blackBarHeight = yRes - xRes / 2;
-            blackBarWidth = 0;
-        }
         targetResXRatio = (float) xRes / (float) targetResolutionX;
         targetResYRatio = (float) yRes / (float) targetResolutionY;
 

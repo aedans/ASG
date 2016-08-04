@@ -74,6 +74,7 @@ public class InClientGameState extends GameState {
     public void render() {
         Renderer.prepare();
         Renderer.render(sprites, Renderer.Shader.LIGHT);
+        Renderer.drawBlackBars();
         Renderer.render(guis, Renderer.Shader.COMPOSITE);
     }
 
