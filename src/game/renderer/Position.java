@@ -69,11 +69,12 @@ public class Position {
      * @param px: The amount to translate horizontally on the Pixel coordinate plane.
      * @param py: The amount to translate vetically on the Pixel coordinate plane.
      */
-    public void translate(int px, int py){
+    public Position translate(int px, int py){
         this.px += px;
         this.py += py;
         this.ox = DisplayManager.ppX * this.px * 2;
         this.oy = DisplayManager.ppY * this.py * 2;
+        return this;
     }
 
     /**
@@ -82,11 +83,12 @@ public class Position {
      * @param ox: The amount to translate horizontally on the OpenGL coordinate plane.
      * @param oy: The amount to translate vetically on the OpenGL coordinate plane.
      */
-    public void translate(float ox, float oy) {
+    public Position translate(float ox, float oy) {
         this.ox += ox;
         this.oy += oy;
         this.px = (int) (this.ox / DisplayManager.ppX / 2);
         this.py = (int) (this.oy / DisplayManager.ppY / 2);
+        return this;
     }
 
     /**

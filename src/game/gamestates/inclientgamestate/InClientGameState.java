@@ -54,7 +54,7 @@ public class InClientGameState extends GameState {
         sprites.add(players);
         sprites.add(map.getSprites());
 
-//        guis.add(playerInventory);
+        guis.add(playerInventory);
 //        playerInventory.add(new TestItem(), 1);
 //        playerInventory.add(new TestItem(), 1);
 

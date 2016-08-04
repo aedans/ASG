@@ -2,10 +2,11 @@ package game.gui;
 
 import game.renderer.DisplayManager;
 import game.renderer.Position;
+import game.renderer.Viewport;
 import game.sprites.Sprite;
+import math.MatrixMath;
 import org.lwjgl.input.Mouse;
-
-import java.awt.geom.Point2D;
+import org.lwjgl.util.vector.Matrix4f;
 
 /**
  * Created by Aedan Smith on 7/8/2016.
@@ -17,12 +18,9 @@ public abstract class GUI extends Sprite {
     private long lastClicked = 0;
     private int timeFastClick = 0;
 
-    protected GUI(int textureID, int x, int y, int width, int height) {
+    protected GUI(Position position, int textureID, int width, int height) {
         super(
-                new Position(
-                    DisplayManager.ppX * x * 2 - DisplayManager.xRes / 2,
-                    DisplayManager.ppY * y * 2 - DisplayManager.yRes / 2
-                ),
+                position,
                 textureID,
                 width,
                 height
@@ -62,6 +60,13 @@ public abstract class GUI extends Sprite {
 
     public int getHeight() {
         return height;
+    }
+
+    @Override
+    public Matrix4f getTransformationMatrix() {
+        return MatrixMath.createTransformationMatrix(
+                getPosition().deepClone().translate(-1f, -1f)
+        );
     }
 
     public abstract void onPressed();

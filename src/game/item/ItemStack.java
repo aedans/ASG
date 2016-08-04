@@ -1,7 +1,7 @@
 package game.item;
 
 import game.gui.GUI;
-import game.gui.OverlaidSprite;
+import game.renderer.Position;
 
 import java.util.Objects;
 
@@ -9,14 +9,13 @@ import java.util.Objects;
  * Created by Aedan Smith on 7/30/2016.
  */
 
-@OverlaidSprite
 public class ItemStack extends GUI {
 
     private Item item;
     private int stackSize;
 
     public ItemStack(Item item, int stackSize, int x, int y) {
-        super(item.getTextureID(), x, y, 64, 64);
+        super(new Position(x, y), item.getTextureID(), 64, 64);
         this.item = item;
         this.stackSize = stackSize;
     }

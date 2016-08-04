@@ -10,6 +10,9 @@ import java.util.ArrayList;
 
 public final class Textures {
 
+    /**
+     * List of Textures for Sprites.
+     */
     public static ArrayList<Integer> spriteTextures = new ArrayList<>();
 
     public static int redPlayerTextureID = Loader.loadPNGTexture("red_circle");
@@ -21,12 +24,16 @@ public final class Textures {
     public static int mudTextureID = Loader.loadJPGTexture("brown_square");
     public static int waterTextureID = Loader.loadJPGTexture("blue_square");
 
+    /**
+     * List of Textures for GUIs.
+     */
     public static ArrayList<Integer> GUITextures = new ArrayList<>();
 
     public static int blankTextureID = Loader.loadPNGTexture("blank");
     public static int testTextureID = Loader.loadPNGTexture("test");
-    public static int basicGUITextureID = Loader.loadJPGTexture("grey_square");
+    public static int inventorySlotTexture = Loader.loadJPGTexture("grey_square");
 
+    // Loads all Textures.
     static {
         // Players
         spriteTextures.add(redPlayerTextureID);
@@ -47,7 +54,7 @@ public final class Textures {
         //GUI
         GUITextures.add(blankTextureID);
         GUITextures.add(testTextureID);
-        GUITextures.add(basicGUITextureID);
+        GUITextures.add(inventorySlotTexture);
     }
 
 }

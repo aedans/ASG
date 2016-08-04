@@ -4,9 +4,8 @@ import game.gamestates.inclientgamestate.entities.Entity;
 import game.gamestates.inclientgamestate.entities.lights.AlwaysLit;
 import game.gamestates.inclientgamestate.entities.lights.LightList;
 import game.gui.Invisible;
-import game.gui.OverlaidSprite;
+import game.gui.ConstRender;
 import game.renderer.shaders.Shader;
-import math.MatrixMath;
 import game.renderer.shaders.composite.CompositeShader;
 import game.renderer.shaders.lightshader.LightShader;
 import game.sprites.SpriteList;
@@ -16,7 +15,6 @@ import org.lwjgl.opengl.GL13;
 import org.lwjgl.opengl.GL20;
 import org.lwjgl.opengl.GL30;
 
-import java.awt.geom.Point2D;
 import java.util.ArrayList;
 
 public class Renderer {
@@ -101,14 +99,11 @@ public class Renderer {
             if (r.getClass().isAnnotationPresent(Invisible.class) || r.getTexturedModel().getTrueTextureID() == Textures.blankTextureID)
                 continue;
             Position relativePos = Viewport.getRelativePosition(r.getPosition());
-            if (r.getClass().isAnnotationPresent(OverlaidSprite.class) ||
+            if (r.getClass().isAnnotationPresent(ConstRender.class) ||
                     (!(relativePos.getPixelX() > 1.3) && !(relativePos.getOpenGLX() < -1.3)
                             && !(relativePos.getOpenGLY() > 1.3) && !(relativePos.getOpenGLY() < -1.3))) {
                 r.onRender();
-                if (!r.getClass().isAnnotationPresent(OverlaidSprite.class))
-                    compositeShader.loadTransformationMatrix(r.getTransformationMatrix());
-                else
-                    compositeShader.loadTransformationMatrix(MatrixMath.createTransformationMatrix(r.getPosition()));
+                compositeShader.loadTransformationMatrix(r.getTransformationMatrix());
                 GL11.glDrawElements(GL11.GL_TRIANGLES, 8, GL11.GL_UNSIGNED_INT, 0);
             }
         }
@@ -138,8 +133,9 @@ public class Renderer {
         GL11.glBindTexture(GL11.GL_TEXTURE_2D, toRender.get(0).getTexturedModel().getTrueTextureID());
         for (Renderable r : toRender) {
             Position relativePos = Viewport.getRelativePosition(r.getPosition());
-            if (!(relativePos.getOpenGLX() > 1.3) && !(relativePos.getOpenGLX() < -1.3)
-                    && !(relativePos.getOpenGLY() > 1.3) && !(relativePos.getOpenGLY() < -1.3)) {
+            if (r.getClass().isAnnotationPresent(ConstRender.class) ||
+                    !(relativePos.getOpenGLX() > 1.3) && !(relativePos.getOpenGLX() < -1.3)
+                            && !(relativePos.getOpenGLY() > 1.3) && !(relativePos.getOpenGLY() < -1.3)) {
                 r.onRender();
                 if (r.getClass().isAnnotationPresent(Invisible.class))
                     continue;

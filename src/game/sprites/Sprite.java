@@ -26,6 +26,9 @@ public abstract class Sprite implements Renderable {
      */
     private TexturedModel texturedModel;
 
+    /**
+     * The Position of the Sprite.
+     */
     private Position position;
 
     /**
@@ -81,10 +84,12 @@ public abstract class Sprite implements Renderable {
         );
     }
 
+    @Override
     public TexturedModel getTexturedModel() {
         return texturedModel;
     }
 
+    @Override
     public Position getPosition() {
         return position;
     }
