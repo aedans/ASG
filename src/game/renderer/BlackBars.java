@@ -18,6 +18,8 @@ public class BlackBars extends RenderList<Renderable> {
 
     /**
      * Default BlackBars constructor
+     *
+     * TODO: Nicer looking Black Bars. (Holding GUIs)
      */
     public BlackBars() {
         super(Textures.GUITextures.size());

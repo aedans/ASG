@@ -16,6 +16,8 @@ public class Main {
      *
      * TODO: Add fullscreen to args.
      *
+     * Current 'best' resolution, 1540x900.
+     *
      * @param args: 'xRes yRes'
      */
     public static void main(String[] args) throws Exception {
