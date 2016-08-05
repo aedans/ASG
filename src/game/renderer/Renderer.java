@@ -150,14 +150,14 @@ public class Renderer {
     }
 
     /**
-     * Renders BlackBars.
+     * Renders black bars.
      */
     public static void drawBlackBars() {
         render(blackBars, ShaderType.COMPOSITE);
     }
 
     /**
-     * cleans up all the renderers resources
+     * cleans up all the renderer's resources
      */
     public static void cleanUp(){
         compositeShader.cleanUp();
