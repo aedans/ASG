@@ -23,12 +23,12 @@ import java.util.ArrayList;
 public class Renderer {
 
     /**
-     * The Composite Shader to be used with GUIs.
+     * The Composite ShaderType to be used with GUIs.
      */
     public static CompositeShader compositeShader = new CompositeShader();
 
     /**
-     * The Light Shader to be used with in-game Entities.
+     * The Light ShaderType to be used with in-game Entities.
      */
     public static LightShader lightShader = new LightShader();
 
@@ -57,16 +57,19 @@ public class Renderer {
      * <p>
      *
      * @param toRender: The RenderList to render.
-     * @param shader:   The shader to render the RenderList with.
+     * @param type:   The ShaderType to render the RenderList with.
      */
-    public static void render(RenderList toRender, Shader shader) {
-        switch (shader){
+    public static void render(RenderList<? extends Renderable> toRender, ShaderType type) {
+        switch (type){
             case COMPOSITE:
                 renderComposite(toRender);
-                return;
+                break;
             case LIGHT:
                 renderLight(toRender);
-                return;
+                break;
+            default:
+                System.err.println("Unrecognized Shader: " + type);
+                break;
         }
     }
 
@@ -75,7 +78,7 @@ public class Renderer {
      *
      * @param toRender: The RenderList to Render
      */
-    private static void renderComposite(RenderList toRender) {
+    private static void renderComposite(RenderList<? extends Renderable> toRender) {
         for (int i = toRender.numTextures - 1; i >= 0; i--)
             Renderer.renderComposite(toRender.get(i));
     }
@@ -85,7 +88,7 @@ public class Renderer {
      *
      * @param toRender: The RenderList to Render
      */
-    private static void renderLight(RenderList toRender) {
+    private static void renderLight(RenderList<? extends Renderable> toRender) {
         for (int i = toRender.numTextures - 1; i >= 0; i--)
             Renderer.renderLight(toRender.get(i), ((World) toRender).getLightList());
     }
@@ -98,7 +101,7 @@ public class Renderer {
      *
      * @param toRender: The ArrayList of Renderables to Render.
      */
-    private static void renderComposite(ArrayList<Renderable> toRender) {
+    private static void renderComposite(ArrayList<? extends Renderable> toRender) {
         compositeShader.start();
         if (toRender.size() == 0)
             return;
@@ -133,7 +136,7 @@ public class Renderer {
      *
      * @param toRender: The ArrayList of Renderables to Render.
      */
-    private static void renderLight(ArrayList<Renderable> toRender, LightList lightList) {
+    private static void renderLight(ArrayList<? extends Renderable> toRender, LightList lightList) {
         lightShader.start();
         if (toRender.size() == 0)
             return;
@@ -172,9 +175,17 @@ public class Renderer {
     }
 
     /**
+     * Cleans up the Renderer
+     */
+    public static void cleanup(){
+        Renderer.compositeShader.cleanUp();
+        Renderer.lightShader.cleanUp();
+    }
+
+    /**
      * Enum containing valid Shaders.
      */
-    public enum Shader {
+    public enum ShaderType {
 
         COMPOSITE, LIGHT
 

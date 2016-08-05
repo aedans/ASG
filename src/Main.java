@@ -17,6 +17,7 @@ public class Main {
      *
      * TODO: Add fullscreen to args.
      * TODO: .info files.
+     * TODO: Implement better Debugging systems
      *
      * @param args: 'xRes yRes'
      */
@@ -41,8 +42,7 @@ public class Main {
 
             // Cleans up OpenGL stuff
             Loader.cleanUp();
-            Renderer.compositeShader.cleanUp();
-            Renderer.lightShader.cleanUp();
+            Renderer.cleanup();
             DisplayManager.closeDisplay();
         } catch (Exception e) {
             e.printStackTrace();

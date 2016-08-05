@@ -14,17 +14,17 @@ import org.lwjgl.util.vector.Vector3f;
 public abstract class Shader {
 
     /**
-     * The ID of the Shader in OpenGL
+     * The ID of the ShaderType in OpenGL
      */
     private int programID;
 
     /**
-     * The ID of the Vertex Shader in OpenGL.
+     * The ID of the Vertex ShaderType in OpenGL.
      */
     private int vertexShaderID;
 
     /**
-     * The ID of the Fragment Shader
+     * The ID of the Fragment ShaderType
      */
     private int fragmentShaderID;
 
@@ -34,10 +34,10 @@ public abstract class Shader {
     private static FloatBuffer matrixBuffer = BufferUtils.createFloatBuffer(16);
 
     /**
-     * Default Shader constructor.
+     * Default ShaderType constructor.
      *
-     * @param vertexFile:   The path to the Vertex Shader.
-     * @param fragmentFile: The path to the Fragment Shader.
+     * @param vertexFile:   The path to the Vertex ShaderType.
+     * @param fragmentFile: The path to the Fragment ShaderType.
      */
     public Shader(String vertexFile, String fragmentFile) {
         vertexShaderID = loadShader(vertexFile, GL20.GL_VERTEX_SHADER);
@@ -72,21 +72,21 @@ public abstract class Shader {
     }
 
     /**
-     * Starts the Shader.
+     * Starts the ShaderType.
      */
     public void start() {
         GL20.glUseProgram(programID);
     }
 
     /**
-     * Stops the Shader.
+     * Stops the ShaderType.
      */
     public void stop() {
         GL20.glUseProgram(0);
     }
 
     /**
-     * Cleans up the Shader.
+     * Cleans up the ShaderType.
      */
     public void cleanUp() {
         stop();
@@ -98,7 +98,7 @@ public abstract class Shader {
     }
 
     /**
-     * Loads a float into the Shader.
+     * Loads a float into the ShaderType.
      *
      * @param location: The float location (see getUniformLocation).
      * @param value:    The value of the float.
@@ -108,7 +108,7 @@ public abstract class Shader {
     }
 
     /**
-     * Loads a vector into the Shader.
+     * Loads a vector into the ShaderType.
      *
      * @param location: The vector location (see getUniformLocation).
      * @param vector:   The value of the vector.
@@ -118,7 +118,7 @@ public abstract class Shader {
     }
 
     /**
-     * Loads a boolean into the Shader.
+     * Loads a boolean into the ShaderType.
      *
      * @param location: The boolean location (see getUniformLocation).
      * @param b:        The value of the boolean.
@@ -128,7 +128,7 @@ public abstract class Shader {
     }
 
     /**
-     * Loads a Matrix4f into the Shader.
+     * Loads a Matrix4f into the ShaderType.
      *
      * @param location: The Matrix4f location (see getUniformLocation).
      * @param matrix4f: The value of the Matrix4f.
@@ -142,10 +142,10 @@ public abstract class Shader {
     /**
      * Loads a shader into OpenGL.
      *
-     * @param file: The Shader file to load.
-     * @param type: The type of Shader to load
+     * @param file: The ShaderType file to load.
+     * @param type: The type of ShaderType to load
      *              (GL20.GL_VERTEX_SHADER / GL20.GL_FRAGMENT_SHADER).
-     * @return int: The location of the Shader in OpenGL.
+     * @return int: The location of the ShaderType in OpenGL.
      */
     private static int loadShader(String file, int type) {
         StringBuilder shaderSource = new StringBuilder();

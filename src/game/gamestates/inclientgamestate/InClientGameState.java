@@ -92,15 +92,16 @@ public class InClientGameState extends GameState {
     @Override
     public void render() {
         Renderer.prepare();
-        Renderer.render(world, Renderer.Shader.LIGHT);
+        Renderer.render(world, Renderer.ShaderType.LIGHT);
         Renderer.drawBlackBars();
-        Renderer.render(guis, Renderer.Shader.COMPOSITE);
+        Renderer.render(guis, Renderer.ShaderType.COMPOSITE);
     }
 
     /**
      * See game.gamestates.GameState documentation.
      */
     @Override
+    @SuppressWarnings("unchecked")
     public RenderList findContainer(Renderable r){
         if (world.contains(r))
             return world;

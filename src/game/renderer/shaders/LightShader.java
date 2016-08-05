@@ -5,7 +5,7 @@ import game.renderer.lights.Light;
 import game.renderer.DisplayManager;
 import org.lwjgl.util.vector.Matrix4f;
 
-public class LightShader extends game.renderer.shaders.Shader {
+public class LightShader extends Shader {
 
     private static final String SHADER_PATH = "assets/shaders/light/";
     private static final String VERTEX_FILE = SHADER_PATH + "light.vsh";
