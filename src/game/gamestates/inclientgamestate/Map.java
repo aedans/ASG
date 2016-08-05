@@ -14,6 +14,8 @@ import java.util.ArrayList;
 
 /**
  * Created by Aedan Smith on 7/6/2016.
+ *
+ * The Map that the Game is played on.
  */
 
 public class Map extends RenderList<Entity> {

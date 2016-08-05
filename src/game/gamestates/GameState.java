@@ -9,10 +9,22 @@ import game.renderer.data.Renderable;
 
 public abstract class GameState {
 
+    /**
+     * Function called to update the GameState logic.
+     */
     public abstract void update();
 
+    /**
+     * Function called when the Game wants to render the GameState.
+     */
     public abstract void render();
 
-    public abstract RenderList<Renderable> findContainer(Renderable sprite);
+    /**
+     * Returns the RenderList that contains the given Renderable.
+     *
+     * @param r: The Renderable to find.
+     * @return RenderList: The containing Renderable.
+     */
+    public abstract RenderList<Renderable> findContainer(Renderable r);
 
 }

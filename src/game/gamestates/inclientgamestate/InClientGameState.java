@@ -1,6 +1,5 @@
 package game.gamestates.inclientgamestate;
 
-import game.gamestates.inclientgamestate.guis.PlayerInventory;
 import game.gui.GUIList;
 import game.renderer.data.RenderList;
 import game.renderer.data.Renderable;
@@ -14,26 +13,46 @@ import game.gamestates.inclientgamestate.entities.structures.Base;
 
 /**
  * Created by Aedan Smith on 7/6/2016.
+ *
+ * The Client GameState for Player vs. AI Games.
  */
 
-// TODO: Clean up.
 // TODO: Comment.
 public class InClientGameState extends GameState {
 
+    /**
+     * The Map and RenderList for the InClientGameState.
+     */
     public Map map;
+
+    /**
+     * The RenderList for all the GUIs of the InClientGameState.
+     */
     public GUIList guis = new GUIList();
 
+    /**
+     * The Bases for the red and blue team.
+     */
     public Base redBase, blueBase;
+
+    /**
+     * The array of Players in the game. (Player 0 is the human player).
+     */
     public Player[] players = new Player[8];
 
-    public PlayerInventory playerInventory = new PlayerInventory();
-
+    /**
+     * Default InClientGameState constructor
+     */
     public InClientGameState() {
+        // Creates a new Map
         map = new Map(75, 75);
         map.generate();
 
+        // Creates the rad and blue base.
         redBase = new Base(true, 288, 288);
         blueBase = new Base(false, 4448, 4448);
+
+        // Creates the human and AI Players.
         players = new Player[]{
                 new Player(new HostController(), true, redBase.getPosition().getPixelX(), redBase.getPosition().getPixelX()),
 //                new Player(new AIController(1), true, redBase.getPixelX(), redBase.getPixelY()),
@@ -45,18 +64,22 @@ public class InClientGameState extends GameState {
 //                new Player(new AIController(7), false, blueBase.getPixelX(), blueBase.getPixelY())
         };
 
+        // Initializes the AIs.
         for (int i = 1; i < players.length; i++)
             ((AIController) players[i].getController()).getAI().ai = players[i];
 
+        // Adds Bases and Players to the Map.
         map.add(redBase);
         map.add(blueBase);
         map.add(players);
 
-        guis.add(playerInventory);
-
+        // Tells the Viewport to focus on the human player.
         Viewport.focusOn(players[0]);
     }
 
+    /**
+     * See game.gamestates.GameState documentation.
+     */
     @Override
     public void update() {
         map.update();
@@ -64,6 +87,9 @@ public class InClientGameState extends GameState {
         Viewport.update();
     }
 
+    /**
+     * See game.gamestates.GameState documentation.
+     */
     @Override
     public void render() {
         Renderer.prepare();
@@ -73,10 +99,7 @@ public class InClientGameState extends GameState {
     }
 
     /**
-     * Returns the RenderList that contains the given Renderable.
-     *
-     * @param r: The Renderable to find.
-     * @return RenderList: The containing Renderable.
+     * See game.gamestates.GameState documentation.
      */
     @Override
     public RenderList findContainer(Renderable r){
