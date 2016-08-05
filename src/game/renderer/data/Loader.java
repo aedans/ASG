@@ -89,7 +89,7 @@ public class Loader {
      */
     public static int loadPNGTexture(String fileName) {
         try {
-            Texture texture = TextureLoader.getTexture("PNG", new FileInputStream("C:\\Users\\Aedan Smith\\OneDrive\\jg\\iCode\\Consumables\\res\\" + fileName + ".png"));
+            Texture texture = TextureLoader.getTexture("PNG", new FileInputStream(RES_DIR + fileName + ".png"));
             int textureID = texture.getTextureID();
             textures.add(textureID);
             return textureID;
@@ -107,7 +107,7 @@ public class Loader {
      */
     public static int loadJPGTexture(String fileName) {
         try {
-            Texture texture = TextureLoader.getTexture("JPG", new FileInputStream("C:\\Users\\Aedan Smith\\OneDrive\\jg\\iCode\\Consumables\\res\\" + fileName + ".jpg"));
+            Texture texture = TextureLoader.getTexture("JPG", new FileInputStream(RES_DIR + fileName + ".jpg"));
             int textureID = texture.getTextureID();
             textures.add(textureID);
             return textureID;
