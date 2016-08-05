@@ -19,6 +19,8 @@ public class Loader {
 
     // TODO: Make Models class.
 
+    private static String RES_DIR = "imgs/";
+
     /**
      * List of Vertex Attribute Objects.
      */
