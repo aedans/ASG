@@ -30,8 +30,8 @@ public class Main {
             Logger.println("usage: ./asg width height");
             return;
         }
-        int width = 0;
-        int height = 0;
+        int width;
+        int height;
         try{
             width = Integer.parseInt(args[0]);
             height = Integer.parseInt(args[1]);

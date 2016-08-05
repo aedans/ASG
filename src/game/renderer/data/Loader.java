@@ -1,4 +1,4 @@
-package game.renderer;
+package game.renderer.data;
 
 import java.io.FileInputStream;
 import java.io.IOException;
