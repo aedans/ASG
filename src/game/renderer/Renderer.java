@@ -3,7 +3,7 @@ package game.renderer;
 import game.gamestates.inclientgamestate.Map;
 import game.gamestates.inclientgamestate.entities.Entity;
 import game.renderer.annotations.AlwaysLit;
-import game.gamestates.inclientgamestate.entities.lights.LightList;
+import game.renderer.lights.LightList;
 import game.renderer.annotations.Invisible;
 import game.renderer.annotations.ConstRender;
 import game.renderer.data.RenderList;

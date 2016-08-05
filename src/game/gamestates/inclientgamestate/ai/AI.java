@@ -1,4 +1,4 @@
-package game.ai;
+package game.gamestates.inclientgamestate.ai;
 
 import com.aedan.ai.correlationai.CorrelationAI;
 import com.aedan.ai.correlationai.Neuron;
@@ -9,9 +9,8 @@ import game.gamestates.inclientgamestate.entities.player.Player;
  * Created by Aedan Smith on 7/7/2016.
  */
 
+// TODO: Redo and finish AI.
 public class AI extends CorrelationAI {
-
-    // TODO: Finish AI.
 
     /**
      * The Player the AI Controls.

@@ -1,6 +1,6 @@
 package game.gamestates.inclientgamestate.entities.player.controller;
 
-import game.ai.AI;
+import game.gamestates.inclientgamestate.ai.AI;
 import org.lwjgl.util.vector.Vector2f;
 
 /**

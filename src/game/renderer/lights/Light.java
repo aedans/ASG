@@ -1,4 +1,4 @@
-package game.gamestates.inclientgamestate.entities.lights;
+package game.renderer.lights;
 
 import game.renderer.math.Position;
 

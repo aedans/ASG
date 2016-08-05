@@ -1,7 +1,7 @@
 package game.renderer.shaders.lightshader;
 
 import game.gamestates.inclientgamestate.entities.Entity;
-import game.gamestates.inclientgamestate.entities.lights.Light;
+import game.renderer.lights.Light;
 import game.renderer.DisplayManager;
 import org.lwjgl.util.vector.Matrix4f;
 
