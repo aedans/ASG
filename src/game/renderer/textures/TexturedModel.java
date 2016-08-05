@@ -37,10 +37,10 @@ public class TexturedModel {
      */
     @SuppressWarnings("WeakerAccess")
     public int getGameTextureID() {
-        if (textureID <= Textures.spriteTextures.size())
+        if (textureID <= Textures.entityTextures.size())
             return textureID;
         else
-            return textureID - Textures.spriteTextures.size();
+            return textureID - Textures.entityTextures.size();
     }
 
     /**

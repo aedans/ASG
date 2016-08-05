@@ -2,7 +2,6 @@ package game.gamestates.mainmenugamestate;
 
 import game.renderer.data.RenderList;
 import game.renderer.data.Renderable;
-import game.sprites.EntityList;
 import game.renderer.Renderer;
 import game.gamestates.GameState;
 

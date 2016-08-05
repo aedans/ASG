@@ -7,7 +7,7 @@ import game.renderer.math.MatrixMath;
 import game.renderer.math.Position;
 import game.renderer.textures.TexturedModel;
 import game.renderer.textures.Textures;
-import game.sprites.Sprite;
+import game.Sprite;
 import org.lwjgl.util.vector.Matrix4f;
 
 /**
@@ -80,7 +80,7 @@ public class BlackBars extends RenderList<Renderable> {
         }
 
         @Override
-        protected void onDestruction() {
+        public void onDestruction() {
 
         }
 

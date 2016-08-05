@@ -1,7 +1,7 @@
 package game.gui;
 
 import game.renderer.math.Position;
-import game.sprites.Sprite;
+import game.Sprite;
 import game.renderer.math.MatrixMath;
 import org.lwjgl.input.Mouse;
 import org.lwjgl.util.vector.Matrix4f;
@@ -53,7 +53,7 @@ public abstract class GUI extends Sprite {
     }
 
     @Override
-    protected void onDestruction() {
+    public void onDestruction() {
 
     }
 

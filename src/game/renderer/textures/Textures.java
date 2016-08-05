@@ -15,7 +15,7 @@ public final class Textures {
     /**
      * List of Textures for Sprites.
      */
-    public static ArrayList<Integer> spriteTextures = new ArrayList<>();
+    public static ArrayList<Integer> entityTextures = new ArrayList<>();
 
     public static int redPlayerTextureID = Loader.loadPNGTexture("red_circle");
     public static int bluePlayerTextureID = Loader.loadPNGTexture("blue_circle");
@@ -40,21 +40,21 @@ public final class Textures {
     // Loads all Textures.
     static {
         // Players
-        spriteTextures.add(redPlayerTextureID);
-        spriteTextures.add(bluePlayerTextureID);
+        entityTextures.add(redPlayerTextureID);
+        entityTextures.add(bluePlayerTextureID);
 
         // Projectiles
-        spriteTextures.add(fireballTextureID);
-        spriteTextures.add(testTextureID);
+        entityTextures.add(fireballTextureID);
+        entityTextures.add(testTextureID);
 
         // Structures
-        spriteTextures.add(redBaseTextureID);
-        spriteTextures.add(blueBaseTextureID);
+        entityTextures.add(redBaseTextureID);
+        entityTextures.add(blueBaseTextureID);
 
         // Tiles
-        spriteTextures.add(grassTextureID);
-        spriteTextures.add(mudTextureID);
-        spriteTextures.add(waterTextureID);
+        entityTextures.add(grassTextureID);
+        entityTextures.add(mudTextureID);
+        entityTextures.add(waterTextureID);
 
         //GUI
         GUITextures.add(blankTextureID);

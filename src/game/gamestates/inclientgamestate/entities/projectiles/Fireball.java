@@ -30,7 +30,7 @@ public class Fireball extends Projectile implements Light {
     }
 
     @Override
-    protected void onDestruction() {
+    public void onDestruction() {
 
     }
 

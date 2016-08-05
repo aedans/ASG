@@ -9,7 +9,6 @@ import game.gamestates.inclientgamestate.entities.player.controller.Controller;
 import game.gamestates.inclientgamestate.entities.projectiles.Fireball;
 import game.gamestates.inclientgamestate.entities.terrain.Mud;
 import game.gamestates.inclientgamestate.entities.terrain.Water;
-import org.lwjgl.input.Keyboard;
 
 /**
  * Created by Aedan Smith on 7/6/2016.
@@ -51,7 +50,7 @@ public class Player extends MoveableEntity {
             this.yVel = -speed;
 
         if (controller.wantsToShoot() && canShoot()) {
-            Game.inClientGameState.sprites.add(new Fireball(controller.getShotDirection(), getPosition().deepClone()));
+            Game.inClientGameState.map.add(new Fireball(controller.getShotDirection(), getPosition().deepClone()));
             lastShot = 0;
         }
 
@@ -97,7 +96,7 @@ public class Player extends MoveableEntity {
     }
 
     @Override
-    protected void onDestruction() {
+    public void onDestruction() {
 
     }
 

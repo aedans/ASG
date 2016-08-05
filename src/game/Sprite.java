@@ -1,4 +1,4 @@
-package game.sprites;
+package game;
 
 import game.Game;
 import game.renderer.data.Renderable;
@@ -22,7 +22,7 @@ public abstract class Sprite implements Renderable {
     /**
      * True if the Sprite is a light source. False unless assigned by subclass.
      */
-    protected boolean isLight = false;
+    public boolean isLight = false;
 
     /**
      * The Sprite's TexturedModel.
@@ -93,7 +93,7 @@ public abstract class Sprite implements Renderable {
      * Abstract function called on Sprite's destruction.
      */
     @SuppressWarnings("WeakerAccess")
-    protected abstract void onDestruction();
+    public abstract void onDestruction();
 
     @Override
     public Matrix4f getTransformationMatrix() {

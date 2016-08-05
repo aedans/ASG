@@ -27,7 +27,7 @@ public class Base extends Entity implements Light {
     }
 
     @Override
-    protected void onDestruction() {
+    public void onDestruction() {
 
     }
 

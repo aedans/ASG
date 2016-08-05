@@ -2,7 +2,7 @@ package game.gamestates.inclientgamestate.entities;
 
 import game.renderer.math.Position;
 import game.renderer.textures.TexturedModel;
-import game.sprites.Sprite;
+import game.Sprite;
 
 /**
  * Created by Aedan Smith on 7/4/2016.

@@ -41,7 +41,7 @@ public class GUIList extends RenderList<GUI> {
     }
 
     /**
-     * See game.sprites.RenderList documentation
+     * See game.entities.RenderList documentation
      * <p>
      * (Currently unused)
      */
@@ -51,7 +51,7 @@ public class GUIList extends RenderList<GUI> {
     }
 
     /**
-     * See game.sprites.RenderList documentation
+     * See game.entities.RenderList documentation
      * <p>
      * (Currently unused)
      */
@@ -61,7 +61,7 @@ public class GUIList extends RenderList<GUI> {
     }
 
     /**
-     * See game.sprites.RenderList documentation
+     * See game.entities.RenderList documentation
      */
     @Override
     protected void onUpdate() {

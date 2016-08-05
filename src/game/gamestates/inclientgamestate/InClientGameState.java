@@ -5,7 +5,6 @@ import game.gui.GUIList;
 import game.renderer.data.RenderList;
 import game.renderer.data.Renderable;
 import game.renderer.math.Viewport;
-import game.sprites.EntityList;
 import game.renderer.Renderer;
 import game.gamestates.GameState;
 import game.gamestates.inclientgamestate.entities.player.controller.AIController;
@@ -17,11 +16,11 @@ import game.gamestates.inclientgamestate.entities.structures.Base;
  * Created by Aedan Smith on 7/6/2016.
  */
 
+// TODO: Clean up.
+// TODO: Comment.
 public class InClientGameState extends GameState {
 
     public Map map;
-
-    public EntityList sprites = new EntityList();
     public GUIList guis = new GUIList();
 
     public Base redBase, blueBase;
@@ -49,10 +48,10 @@ public class InClientGameState extends GameState {
         for (int i = 1; i < players.length; i++)
             ((AIController) players[i].getController()).getAI().ai = players[i];
 
-        sprites.add(redBase);
-        sprites.add(blueBase);
-        sprites.add(players);
-        sprites.add(map.getEntities());
+        map.add(redBase);
+        map.add(blueBase);
+        map.add(players);
+        map.add(map.getEntities());
 
         guis.add(playerInventory);
 
@@ -61,7 +60,7 @@ public class InClientGameState extends GameState {
 
     @Override
     public void update() {
-        sprites.update();
+        map.update();
         guis.update();
         Viewport.update();
     }
@@ -69,7 +68,7 @@ public class InClientGameState extends GameState {
     @Override
     public void render() {
         Renderer.prepare();
-        Renderer.render(sprites, Renderer.Shader.LIGHT);
+        Renderer.render(map, Renderer.Shader.LIGHT);
         Renderer.drawBlackBars();
         Renderer.render(guis, Renderer.Shader.COMPOSITE);
     }
@@ -82,8 +81,8 @@ public class InClientGameState extends GameState {
      */
     @Override
     public RenderList findContainer(Renderable r){
-        if (sprites.contains(r))
-            return sprites;
+        if (map.contains(r))
+            return map;
         if (guis.contains(r))
             return guis;
         return null;
