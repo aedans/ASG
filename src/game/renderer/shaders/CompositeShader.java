@@ -1,10 +1,10 @@
-package game.renderer.shaders.composite;
+package game.renderer.shaders;
 
 import org.lwjgl.util.vector.Matrix4f;
 
 public class CompositeShader extends game.renderer.shaders.Shader {
 
-    private static final String SHADER_PATH = ".\\src\\game\\renderer\\shaders\\composite\\";
+    private static final String SHADER_PATH = "assets/shaders/composite/";
     private static final String VERTEX_FILE = SHADER_PATH + "composite.vsh";
     private static final String FRAGMENT_FILE = SHADER_PATH + "composite.fsh";
 

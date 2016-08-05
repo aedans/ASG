@@ -1,4 +1,4 @@
-package game.renderer.data;
+package game.renderer;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -19,7 +19,7 @@ public class Loader {
 
     // TODO: Make Models class.
 
-    private static String RES_DIR = "imgs/";
+    private static String RES_DIR = "assets/imgs/";
 
     /**
      * List of Vertex Attribute Objects.
@@ -156,7 +156,7 @@ public class Loader {
      * @param data: The data to store in the IntBuffer.
      * @return IntBuffer: The created IntBuffer.
      */
-    public static IntBuffer storeDataInIntBuffer(int[] data) {
+    private static IntBuffer storeDataInIntBuffer(int[] data) {
         IntBuffer buffer = BufferUtils.createIntBuffer(data.length);
         buffer.put(data);
         buffer.flip();
@@ -169,7 +169,7 @@ public class Loader {
      * @param data: The data to store in the FloatBuffer.
      * @return FloatBuffer: The created FloatBuffer.
      */
-    public static FloatBuffer storeDataInFloatBuffer(float[] data) {
+    private static FloatBuffer storeDataInFloatBuffer(float[] data) {
         FloatBuffer buffer = BufferUtils.createFloatBuffer(data.length);
         buffer.put(data);
         buffer.flip();
