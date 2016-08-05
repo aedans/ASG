@@ -5,6 +5,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.nio.FloatBuffer;
 
+import game.util.Logger;
 import org.lwjgl.BufferUtils;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL20;
@@ -164,9 +165,9 @@ public abstract class Shader {
         GL20.glShaderSource(shaderID, shaderSource);
         GL20.glCompileShader(shaderID);
         if (GL20.glGetShaderi(shaderID, GL20.GL_COMPILE_STATUS) == GL11.GL_FALSE) {
-            System.out.println(GL20.glGetShaderInfoLog(shaderID, 500));
-            System.err.println("Could not compile shader!");
-            System.exit(-1);
+            Logger.println(GL20.glGetShaderInfoLog(shaderID, 500));
+            Logger.println("Could not compile shader!");
+            System.exit(1);
         }
         return shaderID;
     }

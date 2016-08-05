@@ -19,6 +19,8 @@ public class Loader {
 
     // TODO: Make Models class.
 
+    private static String RES_DIR = "assets/imgs/";
+
     /**
      * List of Vertex Attribute Objects.
      */
@@ -87,7 +89,7 @@ public class Loader {
      */
     public static int loadPNGTexture(String fileName) {
         try {
-            Texture texture = TextureLoader.getTexture("PNG", new FileInputStream("C:\\Users\\Aedan Smith\\OneDrive\\jg\\iCode\\Consumables\\res\\" + fileName + ".png"));
+            Texture texture = TextureLoader.getTexture("PNG", new FileInputStream(RES_DIR + fileName + ".png"));
             int textureID = texture.getTextureID();
             textures.add(textureID);
             return textureID;
@@ -105,7 +107,7 @@ public class Loader {
      */
     public static int loadJPGTexture(String fileName) {
         try {
-            Texture texture = TextureLoader.getTexture("JPG", new FileInputStream("C:\\Users\\Aedan Smith\\OneDrive\\jg\\iCode\\Consumables\\res\\" + fileName + ".jpg"));
+            Texture texture = TextureLoader.getTexture("JPG", new FileInputStream(RES_DIR + fileName + ".jpg"));
             int textureID = texture.getTextureID();
             textures.add(textureID);
             return textureID;
@@ -154,7 +156,7 @@ public class Loader {
      * @param data: The data to store in the IntBuffer.
      * @return IntBuffer: The created IntBuffer.
      */
-    public static IntBuffer storeDataInIntBuffer(int[] data) {
+    private static IntBuffer storeDataInIntBuffer(int[] data) {
         IntBuffer buffer = BufferUtils.createIntBuffer(data.length);
         buffer.put(data);
         buffer.flip();
@@ -167,7 +169,7 @@ public class Loader {
      * @param data: The data to store in the FloatBuffer.
      * @return FloatBuffer: The created FloatBuffer.
      */
-    public static FloatBuffer storeDataInFloatBuffer(float[] data) {
+    private static FloatBuffer storeDataInFloatBuffer(float[] data) {
         FloatBuffer buffer = BufferUtils.createFloatBuffer(data.length);
         buffer.put(data);
         buffer.flip();
