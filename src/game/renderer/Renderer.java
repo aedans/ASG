@@ -63,10 +63,12 @@ public class Renderer {
         switch (shader){
             case COMPOSITE:
                 renderComposite(toRender);
-                return;
+                break;
             case LIGHT:
                 renderLight(toRender);
-                return;
+                break;
+            default:
+                break;
         }
     }
 
