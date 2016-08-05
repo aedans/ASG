@@ -15,21 +15,18 @@ public class Viewport {
     // TODO Migrate to OpenGL Viewport
 
     /**
-     * The time the Viewport was last translated.
-     */
-    private static long lastTranslated = System.currentTimeMillis();
-
-    /**
      * The position of the Viewport on the OpenGL Coordinate System
      */
     public static Position position = new Position(0f, 0f);
-
     /**
      * The x and y velocity of the Viewport.
      */
     @SuppressWarnings("WeakerAccess")
     public static float xVel = 0, yVel = 0;
-
+    /**
+     * The time the Viewport was last translated.
+     */
+    private static long lastTranslated = System.currentTimeMillis();
     /**
      * The Function to be executed once every Game loop.
      *

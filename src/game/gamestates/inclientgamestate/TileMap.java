@@ -24,10 +24,10 @@ public class TileMap {
     /**
      * Default TileMap constructor.
      *
-     * @param width: The width of the TileMap.
+     * @param width:  The width of the TileMap.
      * @param height: The height of the TileMap.
      */
-    public TileMap(int width, int height){
+    public TileMap(int width, int height) {
         this.width = width;
         this.height = height;
         this.tiles = new Tile[width][height];
@@ -36,7 +36,7 @@ public class TileMap {
 
     /**
      * Generates the Tile Map.
-     *
+     * <p>
      * TODO: Implement better World generation.
      */
     public void generate() {

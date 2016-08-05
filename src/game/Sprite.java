@@ -1,11 +1,10 @@
 package game;
 
-import game.Game;
 import game.renderer.data.Renderable;
-import game.renderer.textures.TexturedModel;
+import game.renderer.math.MatrixMath;
 import game.renderer.math.Position;
 import game.renderer.math.Viewport;
-import game.renderer.math.MatrixMath;
+import game.renderer.textures.TexturedModel;
 import org.lwjgl.util.vector.Matrix4f;
 
 /**
@@ -38,11 +37,11 @@ public abstract class Sprite implements Renderable {
      * Default Sprite constructor
      *
      * @param position: The position of the Sprite.
-     * @param texture: The Texture of the Sprite.
-     * @param width: The width of the Sprite.
-     * @param height: The height of the Sprite.
+     * @param texture:  The Texture of the Sprite.
+     * @param width:    The width of the Sprite.
+     * @param height:   The height of the Sprite.
      */
-    public Sprite(Position position, int texture, int width, int height){
+    public Sprite(Position position, int texture, int width, int height) {
         this(
                 position,
                 TexturedModel.getTexturedModel(width, height, texture)
@@ -52,8 +51,8 @@ public abstract class Sprite implements Renderable {
     /**
      * Default Sprite constructor.
      *
-     * @param position: The position of the Sprite.
-     * @param texturedModel:  The TexturedModel of the Sprite.
+     * @param position:      The position of the Sprite.
+     * @param texturedModel: The TexturedModel of the Sprite.
      */
     public Sprite(Position position, TexturedModel texturedModel) {
         this.position = position;
@@ -73,7 +72,7 @@ public abstract class Sprite implements Renderable {
      *
      * @param newTextureID: The ID of the Texture to change to.
      */
-    public void changeTexture(int newTextureID){
+    public void changeTexture(int newTextureID) {
         Game.getActiveGameState().findContainer(this).remove(this);
         texturedModel = new TexturedModel(
                 texturedModel.getWidth(),

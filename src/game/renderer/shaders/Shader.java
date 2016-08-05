@@ -1,37 +1,34 @@
 package game.renderer.shaders;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.nio.FloatBuffer;
-
 import org.lwjgl.BufferUtils;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL20;
 import org.lwjgl.util.vector.Matrix4f;
 import org.lwjgl.util.vector.Vector3f;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.nio.FloatBuffer;
+
 public abstract class Shader {
-
-    /**
-     * The ID of the ShaderType in OpenGL
-     */
-    private int programID;
-
-    /**
-     * The ID of the Vertex ShaderType in OpenGL.
-     */
-    private int vertexShaderID;
-
-    /**
-     * The ID of the Fragment ShaderType
-     */
-    private int fragmentShaderID;
 
     /**
      * The FloatBuffer to be loaded into the TransformationMatrix.
      */
     private static FloatBuffer matrixBuffer = BufferUtils.createFloatBuffer(16);
+    /**
+     * The ID of the ShaderType in OpenGL
+     */
+    private int programID;
+    /**
+     * The ID of the Vertex ShaderType in OpenGL.
+     */
+    private int vertexShaderID;
+    /**
+     * The ID of the Fragment ShaderType
+     */
+    private int fragmentShaderID;
 
     /**
      * Default ShaderType constructor.
@@ -49,6 +46,38 @@ public abstract class Shader {
         GL20.glLinkProgram(programID);
         GL20.glValidateProgram(programID);
         getAllUniformLocations();
+    }
+
+    /**
+     * Loads a shader into OpenGL.
+     *
+     * @param file: The ShaderType file to load.
+     * @param type: The type of ShaderType to load
+     *              (GL20.GL_VERTEX_SHADER / GL20.GL_FRAGMENT_SHADER).
+     * @return int: The location of the ShaderType in OpenGL.
+     */
+    private static int loadShader(String file, int type) {
+        StringBuilder shaderSource = new StringBuilder();
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(file));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                shaderSource.append(line).append("//\n");
+            }
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.exit(-1);
+        }
+        int shaderID = GL20.glCreateShader(type);
+        GL20.glShaderSource(shaderID, shaderSource);
+        GL20.glCompileShader(shaderID);
+        if (GL20.glGetShaderi(shaderID, GL20.GL_COMPILE_STATUS) == GL11.GL_FALSE) {
+            System.err.println(GL20.glGetShaderInfoLog(shaderID, 500));
+            System.err.println("Could not compile shader!");
+            System.exit(1);
+        }
+        return shaderID;
     }
 
     /**
@@ -137,38 +166,6 @@ public abstract class Shader {
         matrix4f.store(matrixBuffer);
         matrixBuffer.flip();
         GL20.glUniformMatrix4(location, false, matrixBuffer);
-    }
-
-    /**
-     * Loads a shader into OpenGL.
-     *
-     * @param file: The ShaderType file to load.
-     * @param type: The type of ShaderType to load
-     *              (GL20.GL_VERTEX_SHADER / GL20.GL_FRAGMENT_SHADER).
-     * @return int: The location of the ShaderType in OpenGL.
-     */
-    private static int loadShader(String file, int type) {
-        StringBuilder shaderSource = new StringBuilder();
-        try {
-            BufferedReader reader = new BufferedReader(new FileReader(file));
-            String line;
-            while ((line = reader.readLine()) != null) {
-                shaderSource.append(line).append("//\n");
-            }
-            reader.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.exit(-1);
-        }
-        int shaderID = GL20.glCreateShader(type);
-        GL20.glShaderSource(shaderID, shaderSource);
-        GL20.glCompileShader(shaderID);
-        if (GL20.glGetShaderi(shaderID, GL20.GL_COMPILE_STATUS) == GL11.GL_FALSE) {
-            System.err.println(GL20.glGetShaderInfoLog(shaderID, 500));
-            System.err.println("Could not compile shader!");
-            System.exit(1);
-        }
-        return shaderID;
     }
 
     /**

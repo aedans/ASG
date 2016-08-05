@@ -18,15 +18,6 @@ public abstract class Tile extends Entity {
         super(position, texturedModel);
     }
 
-    public abstract boolean isGroundCollidable();
-
-    public abstract boolean isAirCollidable();
-
-    @Override
-    public void onDestruction(){
-
-    }
-
     public static Tile get(int x, int y, int id) {
         if (id <= 90)
             return new Grass(x, y);
@@ -34,6 +25,15 @@ public abstract class Tile extends Entity {
             return new Mud(x, y);
         else
             return new Water(x, y);
+    }
+
+    public abstract boolean isGroundCollidable();
+
+    public abstract boolean isAirCollidable();
+
+    @Override
+    public void onDestruction() {
+
     }
 
 }

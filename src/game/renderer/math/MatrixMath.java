@@ -1,6 +1,5 @@
 package game.renderer.math;
 
-import game.renderer.math.Position;
 import org.lwjgl.util.vector.Matrix4f;
 import org.lwjgl.util.vector.Vector2f;
 

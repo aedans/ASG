@@ -9,6 +9,12 @@ package acklib.utils.distribution;
 
 public class Distributions {
 
+    /*
+        Distributions is a static class. Do not construct it.
+     */
+    private Distributions() {
+    }
+
     /**
      * Creates a 1-dimensional distribution given a distribution depth, the maximum
      * value, and a list of tends.
@@ -66,12 +72,6 @@ public class Distributions {
             }
         }
         return randoms;
-    }
-
-    /*
-        Distributions is a static class. Do not construct it.
-     */
-    private Distributions() {
     }
 
 }

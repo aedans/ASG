@@ -1,17 +1,17 @@
 package game.gamestates.inclientgamestate;
 
 import game.gamestates.inclientgamestate.entities.Entity;
-import game.renderer.lights.Light;
-import game.renderer.lights.LightList;
 import game.gamestates.inclientgamestate.entities.terrain.Tile;
 import game.renderer.data.RenderList;
+import game.renderer.lights.Light;
+import game.renderer.lights.LightList;
 import game.renderer.textures.Textures;
 
 import java.util.ArrayList;
 
 /**
  * Created by Aedan Smith on 7/6/2016.
- *
+ * <p>
  * The World that the Game is played on.
  */
 
@@ -30,7 +30,7 @@ public class World extends RenderList<Entity> {
     /**
      * Default World constructor.
      *
-     * @param width: The width of the World.
+     * @param width:  The width of the World.
      * @param height: The height of the World.
      */
     public World(int width, int height) {

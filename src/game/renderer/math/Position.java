@@ -4,7 +4,7 @@ import game.renderer.DisplayManager;
 
 /**
  * Created by Aedan Smith on 8/2/2016.
- *
+ * <p>
  * Class used to track the position of a sprite on the OpenGL and Pixel coordinate planes.
  */
 
@@ -26,7 +26,7 @@ public class Position {
      * @param px: The X position on the Pixel coordinate plane.
      * @param py: The Y position on the Pixel coordinate plane.
      */
-    public Position(int px, int py){
+    public Position(int px, int py) {
         this(
                 px,
                 py,
@@ -41,7 +41,7 @@ public class Position {
      * @param ox: The X position on the OpenGL coordinate plane.
      * @param oy: The Y position on the OpenGL coordinate plane.
      */
-    public Position(float ox, float oy){
+    public Position(float ox, float oy) {
         this(
                 (int) (ox / DisplayManager.ppX / 2),
                 (int) (oy / DisplayManager.ppY / 2),
@@ -58,7 +58,7 @@ public class Position {
      * @param ox: The X position on the OpenGL coordinate plane.
      * @param oy: The Y position on the OpenGL coordinate plane.
      */
-    private Position(int px, int py, float ox, float oy){
+    private Position(int px, int py, float ox, float oy) {
         this.px = px;
         this.py = py;
         this.ox = ox;
@@ -71,7 +71,7 @@ public class Position {
      * @param px: The amount to translate horizontally on the Pixel coordinate plane.
      * @param py: The amount to translate vetically on the Pixel coordinate plane.
      */
-    public Position translate(int px, int py){
+    public Position translate(int px, int py) {
         this.px += px;
         this.py += py;
         this.ox = DisplayManager.ppX * this.px * 2;
@@ -105,23 +105,23 @@ public class Position {
         return Math.sqrt(px * px + py * py);
     }
 
-    public int getPixelX(){
+    public int getPixelX() {
         return px;
     }
 
-    public int getPixelY(){
+    public int getPixelY() {
         return py;
     }
 
-    public float getOpenGLX(){
+    public float getOpenGLX() {
         return ox;
     }
 
-    public float getOpenGLY(){
+    public float getOpenGLY() {
         return oy;
     }
 
-    public Position deepClone(){
+    public Position deepClone() {
         return new Position(px, py, ox, oy);
     }
 

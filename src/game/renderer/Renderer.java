@@ -3,16 +3,16 @@ package game.renderer;
 import game.gamestates.inclientgamestate.World;
 import game.gamestates.inclientgamestate.entities.Entity;
 import game.renderer.annotations.AlwaysLit;
-import game.renderer.lights.LightList;
-import game.renderer.annotations.Invisible;
 import game.renderer.annotations.ConstRender;
+import game.renderer.annotations.Invisible;
 import game.renderer.data.RenderList;
 import game.renderer.data.Renderable;
+import game.renderer.lights.LightList;
 import game.renderer.math.Position;
 import game.renderer.math.Viewport;
-import game.renderer.textures.Textures;
 import game.renderer.shaders.CompositeShader;
 import game.renderer.shaders.LightShader;
+import game.renderer.textures.Textures;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL13;
 import org.lwjgl.opengl.GL20;
@@ -57,10 +57,10 @@ public class Renderer {
      * <p>
      *
      * @param toRender: The RenderList to render.
-     * @param type:   The ShaderType to render the RenderList with.
+     * @param type:     The ShaderType to render the RenderList with.
      */
     public static void render(RenderList<? extends Renderable> toRender, ShaderType type) {
-        switch (type){
+        switch (type) {
             case COMPOSITE:
                 renderComposite(toRender);
                 break;
@@ -133,6 +133,7 @@ public class Renderer {
      * Renders an ArrayList of Renderables to the Display with lighting.
      * <p>
      * TODO: Comment.
+     * TODO: Stop rendering things behind Black Bars.
      *
      * @param toRender: The ArrayList of Renderables to Render.
      */
@@ -179,7 +180,7 @@ public class Renderer {
     /**
      * Cleans up the Renderer
      */
-    public static void cleanup(){
+    public static void cleanup() {
         Renderer.compositeShader.cleanUp();
         Renderer.lightShader.cleanUp();
     }

@@ -10,8 +10,8 @@ import game.renderer.textures.TexturedModel;
 
 public abstract class MoveableEntity extends Entity {
 
-    private long lastTranslated = System.currentTimeMillis();
     public float xVel, yVel;
+    private long lastTranslated = System.currentTimeMillis();
 
     public MoveableEntity(Position position, int texture, int width, int height) {
         super(position, texture, width, height);

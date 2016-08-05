@@ -12,31 +12,31 @@ import org.lwjgl.opengl.*;
 public final class DisplayManager {
 
     /**
+     * The x and y resolution of the Display.
+     */
+    public static int xRes, yRes;
+    /**
+     * The factor to translate between OpenGL and Pixel Coordinate Systems.
+     */
+    public static float ppX, ppY;
+    /**
+     * The ratio between the current resolution and the target resolution.
+     */
+    public static double targetResXRatio, targetResYRatio;
+    /**
      * The target resolution for the game.
      */
     @SuppressWarnings("FieldCanBeLocal")
     private static int targetResolutionX = 900,
-                        targetResolutionY = 900;
-
+            targetResolutionY = 900;
     /**
      * The Display's maximum fps.
      */
     private static int fpscap = Display.getDesktopDisplayMode().getFrequency() * 2;
 
-    /**
-     * The x and y resolution of the Display.
-     */
-    public static int xRes, yRes;
-
-    /**
-     * The factor to translate between OpenGL and Pixel Coordinate Systems.
-     */
-    public static float ppX, ppY;
-
-    /**
-     * The ratio between the current resolution and the target resolution.
-     */
-    public static double targetResXRatio, targetResYRatio;
+    // Do not construct DisplayManager.
+    private DisplayManager() {
+    }
 
     /**
      * Creates a display.
@@ -88,10 +88,6 @@ public final class DisplayManager {
      */
     public static void closeDisplay() {
         Display.destroy();
-    }
-
-    // Do not construct DisplayManager.
-    private DisplayManager() {
     }
 
 }

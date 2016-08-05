@@ -1,19 +1,19 @@
 package game.gamestates.inclientgamestate;
 
+import game.gamestates.GameState;
+import game.gamestates.inclientgamestate.entities.player.Player;
+import game.gamestates.inclientgamestate.entities.player.controller.AIController;
+import game.gamestates.inclientgamestate.entities.player.controller.HostController;
+import game.gamestates.inclientgamestate.entities.structures.Base;
 import game.gui.GUIList;
+import game.renderer.Renderer;
 import game.renderer.data.RenderList;
 import game.renderer.data.Renderable;
 import game.renderer.math.Viewport;
-import game.renderer.Renderer;
-import game.gamestates.GameState;
-import game.gamestates.inclientgamestate.entities.player.controller.AIController;
-import game.gamestates.inclientgamestate.entities.player.controller.HostController;
-import game.gamestates.inclientgamestate.entities.player.Player;
-import game.gamestates.inclientgamestate.entities.structures.Base;
 
 /**
  * Created by Aedan Smith on 7/6/2016.
- *
+ * <p>
  * The Client GameState for Player vs. AI Games.
  */
 
@@ -102,7 +102,7 @@ public class InClientGameState extends GameState {
      */
     @Override
     @SuppressWarnings("unchecked")
-    public RenderList findContainer(Renderable r){
+    public RenderList findContainer(Renderable r) {
         if (world.contains(r))
             return world;
         if (guis.contains(r))

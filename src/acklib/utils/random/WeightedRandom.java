@@ -10,6 +10,12 @@ import java.util.Random;
 
 public class WeightedRandom {
 
+    /*
+       WeightedRandom is a static class. Do not construct it.
+     */
+    private WeightedRandom() {
+    }
+
     /**
      * Resets the Random to reduce patterns in random generation.
      *
@@ -95,12 +101,6 @@ public class WeightedRandom {
 
         // Returns if the random int is within the true or false bounds
         return !(randInt >= trueWeight);
-    }
-
-    /*
-       WeightedRandom is a static class. Do not construct it.
-     */
-    private WeightedRandom() {
     }
 
 }

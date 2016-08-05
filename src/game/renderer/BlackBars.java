@@ -1,5 +1,6 @@
 package game.renderer;
 
+import game.Sprite;
 import game.renderer.annotations.ConstRender;
 import game.renderer.data.RenderList;
 import game.renderer.data.Renderable;
@@ -7,7 +8,6 @@ import game.renderer.math.MatrixMath;
 import game.renderer.math.Position;
 import game.renderer.textures.TexturedModel;
 import game.renderer.textures.Textures;
-import game.Sprite;
 import org.lwjgl.util.vector.Matrix4f;
 
 /**
@@ -18,7 +18,7 @@ public class BlackBars extends RenderList<Renderable> {
 
     /**
      * Default BlackBars constructor
-     *
+     * <p>
      * TODO: Nicer looking Black Bars. (Holding GUIs)
      */
     public BlackBars() {
@@ -26,22 +26,22 @@ public class BlackBars extends RenderList<Renderable> {
         if (DisplayManager.xRes > DisplayManager.yRes) {
             add(new BlackBar(
                     new Position(-1f, 0f),
-                    TexturedModel.getTexturedModel(DisplayManager.xRes-DisplayManager.yRes, DisplayManager.yRes, Textures.blackTextureID)
+                    TexturedModel.getTexturedModel(DisplayManager.xRes - DisplayManager.yRes, DisplayManager.yRes, Textures.blackTextureID)
             ));
             add(new BlackBar(
                     new Position(1f, 0f),
-                    TexturedModel.getTexturedModel(DisplayManager.xRes-DisplayManager.yRes, DisplayManager.yRes, Textures.blackTextureID)
+                    TexturedModel.getTexturedModel(DisplayManager.xRes - DisplayManager.yRes, DisplayManager.yRes, Textures.blackTextureID)
             ));
         }
 
         if (DisplayManager.xRes < DisplayManager.yRes) {
             add(new BlackBar(
                     new Position(0f, -1f),
-                    TexturedModel.getTexturedModel(DisplayManager.xRes, DisplayManager.yRes-DisplayManager.xRes, Textures.blackTextureID)
+                    TexturedModel.getTexturedModel(DisplayManager.xRes, DisplayManager.yRes - DisplayManager.xRes, Textures.blackTextureID)
             ));
             add(new BlackBar(
                     new Position(0f, 1f),
-                    TexturedModel.getTexturedModel(DisplayManager.xRes, DisplayManager.yRes-DisplayManager.xRes, Textures.blackTextureID)
+                    TexturedModel.getTexturedModel(DisplayManager.xRes, DisplayManager.yRes - DisplayManager.xRes, Textures.blackTextureID)
             ));
         }
         update();

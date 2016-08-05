@@ -42,43 +42,6 @@ public class TexturedModel {
     }
 
     /**
-     * @return The Texture ID to be used by the Game.
-     */
-    @SuppressWarnings("WeakerAccess")
-    public int getGameTextureID() {
-        if (textureID <= Textures.entityTextures.size())
-            return textureID;
-        else
-            return textureID - Textures.entityTextures.size();
-    }
-
-    /**
-     * @return The Texture ID to be used by the Renderer.
-     */
-    @SuppressWarnings("WeakerAccess")
-    public int getTrueTextureID() {
-        return textureID;
-    }
-
-    @SuppressWarnings("WeakerAccess")
-    public int getModelID() {
-        return modelID;
-    }
-
-    public float getWidth() {
-        return width;
-    }
-
-    public float getHeight() {
-        return height;
-    }
-
-    @Override
-    public String toString() {
-        return "TexturedModel(ModelID: " + modelID + ", TexureID: " + textureID + ")";
-    }
-
-    /**
      * Creates a TexturedModel that covers the screen with the given Texture ID
      *
      * @param textureID: The Texture ID.
@@ -155,8 +118,8 @@ public class TexturedModel {
                 (vps[3] > vps[5]) ? vps[3] : vps[5]
         );
         return new TexturedModel(
-                (topRight.x - bottomLeft.x)/2,
-                (topRight.y - bottomLeft.y)/2,
+                (topRight.x - bottomLeft.x) / 2,
+                (topRight.y - bottomLeft.y) / 2,
                 Loader.loadToVAO(
                         new float[]{
                                 vps[0], vps[1], 0,
@@ -170,6 +133,43 @@ public class TexturedModel {
                         }
                 ), textureID
         );
+    }
+
+    /**
+     * @return The Texture ID to be used by the Game.
+     */
+    @SuppressWarnings("WeakerAccess")
+    public int getGameTextureID() {
+        if (textureID <= Textures.entityTextures.size())
+            return textureID;
+        else
+            return textureID - Textures.entityTextures.size();
+    }
+
+    /**
+     * @return The Texture ID to be used by the Renderer.
+     */
+    @SuppressWarnings("WeakerAccess")
+    public int getTrueTextureID() {
+        return textureID;
+    }
+
+    @SuppressWarnings("WeakerAccess")
+    public int getModelID() {
+        return modelID;
+    }
+
+    public float getWidth() {
+        return width;
+    }
+
+    public float getHeight() {
+        return height;
+    }
+
+    @Override
+    public String toString() {
+        return "TexturedModel(ModelID: " + modelID + ", TexureID: " + textureID + ")";
     }
 
 }

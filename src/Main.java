@@ -1,8 +1,8 @@
 import acklib.utils.misc.ArgumentParseException;
-import game.renderer.DisplayManager;
-import game.renderer.data.Loader;
 import game.Game;
+import game.renderer.DisplayManager;
 import game.renderer.Renderer;
+import game.renderer.data.Loader;
 
 /**
  * Created by Aedan Smith on 5/23/2016.
@@ -14,7 +14,7 @@ public class Main {
 
     /**
      * VM Options: -Djava.library.path=[LWJGL Path here]
-     *
+     * <p>
      * TODO: Add fullscreen to args.
      * TODO: .info files.
      * TODO: Implement better Debugging systems

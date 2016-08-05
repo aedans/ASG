@@ -7,13 +7,6 @@ package acklib.utils.math;
  */
 public interface Vector {
     /**
-     * Returns the magnitude of the vector (size)
-     *
-     * @return length of the vector
-     */
-    double getLength();
-
-    /**
      * Returns the length of a vector given components
      *
      * @param components x, y, z...
@@ -27,4 +20,11 @@ public interface Vector {
         }
         return Math.sqrt(componentsSquared);
     }
+
+    /**
+     * Returns the magnitude of the vector (size)
+     *
+     * @return length of the vector
+     */
+    double getLength();
 }

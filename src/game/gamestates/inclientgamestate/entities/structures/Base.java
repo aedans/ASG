@@ -1,9 +1,9 @@
 package game.gamestates.inclientgamestate.entities.structures;
 
+import game.gamestates.inclientgamestate.entities.Entity;
 import game.renderer.lights.Light;
 import game.renderer.math.Position;
 import game.renderer.textures.Textures;
-import game.gamestates.inclientgamestate.entities.Entity;
 
 /**
  * Created by Aedan Smith on 7/7/2016.

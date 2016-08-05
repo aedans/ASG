@@ -1,7 +1,5 @@
 package acklib.utils.random;
 
-import acklib.utils.random.SmartRandom;
-
 /**
  * Created by Aedan Smith on 5/15/2016.
  * <p>
@@ -10,6 +8,12 @@ import acklib.utils.random.SmartRandom;
  */
 
 public class DistributionRandom {
+
+    /*
+        DistributionRandom is a static class. Do not construct it.
+     */
+    private DistributionRandom() {
+    }
 
     /**
      * Randomizes a 1-dimensional distribution.
@@ -57,12 +61,6 @@ public class DistributionRandom {
             }
         }
         return randoms;
-    }
-
-    /*
-        DistributionRandom is a static class. Do not construct it.
-     */
-    private DistributionRandom() {
     }
 
 }

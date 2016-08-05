@@ -1,9 +1,9 @@
 package game.gamestates.mainmenugamestate;
 
+import game.gamestates.GameState;
+import game.renderer.Renderer;
 import game.renderer.data.RenderList;
 import game.renderer.data.Renderable;
-import game.renderer.Renderer;
-import game.gamestates.GameState;
 
 /**
  * Created by Aedan Smith on 7/6/2016.

@@ -1,7 +1,7 @@
 package game.gamestates.inclientgamestate.entities.projectiles;
 
-import game.gamestates.inclientgamestate.entities.MoveableEntity;
 import game.Game;
+import game.gamestates.inclientgamestate.entities.MoveableEntity;
 import game.renderer.math.Position;
 
 /**

@@ -1,8 +1,8 @@
 package game.gamestates.inclientgamestate.entities;
 
+import game.Sprite;
 import game.renderer.math.Position;
 import game.renderer.textures.TexturedModel;
-import game.Sprite;
 
 /**
  * Created by Aedan Smith on 7/4/2016.

@@ -1,8 +1,8 @@
 package game.renderer.shaders;
 
 import game.gamestates.inclientgamestate.entities.Entity;
-import game.renderer.lights.Light;
 import game.renderer.DisplayManager;
+import game.renderer.lights.Light;
 import org.lwjgl.util.vector.Matrix4f;
 
 public class LightShader extends Shader {
