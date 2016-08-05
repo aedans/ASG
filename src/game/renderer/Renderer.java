@@ -13,6 +13,7 @@ import game.renderer.math.Viewport;
 import game.renderer.textures.Textures;
 import game.renderer.shaders.CompositeShader;
 import game.renderer.shaders.LightShader;
+import game.renderer.shaders.Shader;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL13;
 import org.lwjgl.opengl.GL20;
@@ -57,39 +58,21 @@ public class Renderer {
      * <p>
      *
      * @param toRender: The RenderList to render.
-     * @param shader:   The shader to render the RenderList with.
+     * @param type:   The type of shader to render the RenderList with.
      */
-    public static void render(RenderList toRender, Shader shader) {
-        switch (shader){
+    public static void render(RenderList toRender, ShaderType type) {
+        switch (type){
             case COMPOSITE:
-                renderComposite(toRender);
+                for (int i = toRender.numTextures - 1; i >= 0; i--)
+                    Renderer.renderComposite(toRender.get(i));
                 break;
             case LIGHT:
-                renderLight(toRender);
+                for (int i = toRender.numTextures - 1; i >= 0; i--)
+                    Renderer.renderLight(toRender.get(i), ((Map) toRender).getLightList());
                 break;
             default:
                 break;
         }
-    }
-
-    /**
-     * Renders a RenderList to the Display.
-     *
-     * @param toRender: The RenderList to Render
-     */
-    private static void renderComposite(RenderList toRender) {
-        for (int i = toRender.numTextures - 1; i >= 0; i--)
-            Renderer.renderComposite(toRender.get(i));
-    }
-
-    /**
-     * Renders a RenderList to the Display with lighting.
-     *
-     * @param toRender: The RenderList to Render
-     */
-    private static void renderLight(RenderList toRender) {
-        for (int i = toRender.numTextures - 1; i >= 0; i--)
-            Renderer.renderLight(toRender.get(i), ((Map) toRender).getLightList());
     }
 
     /**
@@ -170,7 +153,7 @@ public class Renderer {
      * Renders BlackBars.
      */
     public static void drawBlackBars() {
-        renderComposite(blackBars);
+        render(blackBars, ShaderType.COMPOSITE);
     }
 
     /**
@@ -184,7 +167,7 @@ public class Renderer {
     /**
      * Enum containing valid Shaders.
      */
-    public enum Shader {
+    public enum ShaderType {
         COMPOSITE, LIGHT
     }
 

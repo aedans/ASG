@@ -1,5 +1,6 @@
 package game.gamestates.inclientgamestate;
 
+import com.sun.org.apache.regexp.internal.RE;
 import game.gui.GUIList;
 import game.renderer.data.RenderList;
 import game.renderer.data.Renderable;
@@ -93,15 +94,15 @@ public class InClientGameState extends GameState {
     @Override
     public void render() {
         Renderer.prepare();
-        Renderer.render(map, Renderer.Shader.LIGHT);
+        Renderer.render(map, Renderer.ShaderType.LIGHT);
         Renderer.drawBlackBars();
-        Renderer.render(guis, Renderer.Shader.COMPOSITE);
+        Renderer.render(guis, Renderer.ShaderType.COMPOSITE);
     }
 
     /**
      * See game.gamestates.GameState documentation.
      */
-    @Override
+    @Override @SuppressWarnings("unchecked")
     public RenderList findContainer(Renderable r){
         if (map.contains(r))
             return map;
