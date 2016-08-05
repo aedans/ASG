@@ -11,7 +11,7 @@ import game.renderer.math.Position;
 import game.renderer.math.Viewport;
 import game.renderer.shaders.composite.CompositeShader;
 import game.renderer.shaders.lightshader.LightShader;
-import game.sprites.SpriteList;
+import game.sprites.EntityList;
 import game.renderer.textures.Textures;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL13;
@@ -87,7 +87,7 @@ public class Renderer {
      */
     private static void renderLight(RenderList toRender) {
         for (int i = toRender.numTextures - 1; i >= 0; i--)
-            Renderer.renderLight(toRender.get(i), ((SpriteList) toRender).getLightList());
+            Renderer.renderLight(toRender.get(i), ((EntityList) toRender).getLightList());
     }
 
     /**

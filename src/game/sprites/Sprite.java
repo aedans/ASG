@@ -62,29 +62,25 @@ public abstract class Sprite implements Renderable {
 
     /**
      * Removes the Sprite from the game.
-     * <p>
-     * TODO: Add support for other GameStates.
      */
     @SuppressWarnings("WeakerAccess")
     public void destroy() {
-        Game.inClientGameState.sprites.remove(this);
+        Game.getActiveGameState().findContainer(this).remove(this);
     }
 
     /**
      * Changes the Sprite's texture.
      *
-     * TODO: Add support for other GameStates.
-     *
      * @param newTextureID: The ID of the Texture to change to.
      */
     public void changeTexture(int newTextureID){
-        Game.inClientGameState.sprites.remove(this);
+        Game.getActiveGameState().findContainer(this).remove(this);
         texturedModel = new TexturedModel(texturedModel.getModelID(), newTextureID);
-        Game.inClientGameState.sprites.add(this);
+        Game.getActiveGameState().findContainer(this).add(this);
     }
 
     /**
-     * Abstract function called every frame if the Sprite is in a SpriteList.
+     * Abstract function called every frame if the Sprite is in a EntityList.
      */
     public abstract void update();
 

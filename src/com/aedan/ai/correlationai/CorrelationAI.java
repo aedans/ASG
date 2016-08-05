@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Created by Aedan Smith.
  * <p>
- * An abstract AI class that uses decision trees to find the best possible action.
+ * An abstract AI class that uses decision trees to findContainer the best possible action.
  */
 
 public abstract class CorrelationAI {

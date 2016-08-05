@@ -1,5 +1,6 @@
 package game.sprites;
 
+import game.gamestates.inclientgamestate.entities.Entity;
 import game.gamestates.inclientgamestate.entities.lights.Light;
 import game.gamestates.inclientgamestate.entities.lights.LightList;
 import game.renderer.data.RenderList;
@@ -13,7 +14,7 @@ import java.util.ArrayList;
  * A list of Sprites to be used by the Renderer.
  */
 
-public class SpriteList extends RenderList<Sprite> {
+public class EntityList extends RenderList<Entity> {
 
     /**
      * The LightList that affects the Sprites
@@ -21,9 +22,9 @@ public class SpriteList extends RenderList<Sprite> {
     private LightList lightList = new LightList();
 
     /**
-     * Default SpriteList constructor.
+     * Default EntityList constructor.
      */
-    public SpriteList() {
+    public EntityList() {
         super(Textures.spriteTextures.size());
     }
 
@@ -31,7 +32,7 @@ public class SpriteList extends RenderList<Sprite> {
      * See game.sprites.RenderList documentation
      */
     @Override
-    protected void onAdd(Sprite sprite) {
+    protected void onAdd(Entity sprite) {
         if (sprite.isLight)
             lightList.addLight((Light) sprite);
     }
@@ -40,7 +41,7 @@ public class SpriteList extends RenderList<Sprite> {
      * See game.sprites.RenderList documentation
      */
     @Override
-    protected void onRemove(Sprite sprite) {
+    protected void onRemove(Entity sprite) {
         if (sprite.isLight)
             lightList.removeLight((Light) sprite);
         sprite.onDestruction();

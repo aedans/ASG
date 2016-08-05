@@ -1,6 +1,8 @@
 package game.gamestates.mainmenugamestate;
 
-import game.sprites.SpriteList;
+import game.renderer.data.RenderList;
+import game.renderer.data.Renderable;
+import game.sprites.EntityList;
 import game.renderer.Renderer;
 import game.gamestates.GameState;
 
@@ -10,21 +12,23 @@ import game.gamestates.GameState;
 
 public class MainMenuGameState extends GameState {
 
-    public SpriteList spriteList = new SpriteList();
-
     public MainMenuGameState() {
 
     }
 
     @Override
     public void update() {
-        spriteList.update();
+
     }
 
     @Override
     public void render() {
         Renderer.prepare();
-        Renderer.render(spriteList, Renderer.Shader.LIGHT);
+    }
+
+    @Override
+    public RenderList<Renderable> findContainer(Renderable sprite) {
+        return null;
     }
 
 }

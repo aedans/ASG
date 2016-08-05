@@ -117,6 +117,16 @@ public abstract class RenderList<T extends Renderable> {
         return renderables[textureID];
     }
 
+    public boolean contains(Renderable r){
+        for (int i = 0; i < numTextures; i++) {
+            for (T t : get(i)) {
+                if (t == r)
+                    return true;
+            }
+        }
+        return false;
+    }
+
     /**
      * Function called upon adding a Renderable to the RenderList.
      *

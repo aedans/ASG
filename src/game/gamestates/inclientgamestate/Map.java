@@ -36,8 +36,8 @@ public class Map {
         }
     }
 
-    public ArrayList<Sprite> getSprites() {
-        ArrayList<Sprite> entities = new ArrayList<>();
+    public ArrayList<Entity> getEntities() {
+        ArrayList<Entity> entities = new ArrayList<>();
         for (int i = 0; i < width; i++) {
             for (int j = 0; j < height; j++) {
                 entities.add(terrain[i][j]);

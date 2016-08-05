@@ -1,10 +1,11 @@
 package game.gamestates.inclientgamestate;
 
 import game.gamestates.inclientgamestate.guis.PlayerInventory;
-import game.gamestates.inclientgamestate.items.TestItem;
 import game.gui.GUIList;
+import game.renderer.data.RenderList;
+import game.renderer.data.Renderable;
 import game.renderer.math.Viewport;
-import game.sprites.SpriteList;
+import game.sprites.EntityList;
 import game.renderer.Renderer;
 import game.gamestates.GameState;
 import game.gamestates.inclientgamestate.entities.player.controller.AIController;
@@ -20,7 +21,7 @@ public class InClientGameState extends GameState {
 
     public Map map;
 
-    public SpriteList sprites = new SpriteList();
+    public EntityList sprites = new EntityList();
     public GUIList guis = new GUIList();
 
     public Base redBase, blueBase;
@@ -51,7 +52,7 @@ public class InClientGameState extends GameState {
         sprites.add(redBase);
         sprites.add(blueBase);
         sprites.add(players);
-        sprites.add(map.getSprites());
+        sprites.add(map.getEntities());
 
         guis.add(playerInventory);
 
@@ -71,6 +72,21 @@ public class InClientGameState extends GameState {
         Renderer.render(sprites, Renderer.Shader.LIGHT);
         Renderer.drawBlackBars();
         Renderer.render(guis, Renderer.Shader.COMPOSITE);
+    }
+
+    /**
+     * Returns the RenderList that contains the given Renderable.
+     *
+     * @param r: The Renderable to find.
+     * @return RenderList: The containing Renderable.
+     */
+    @Override
+    public RenderList findContainer(Renderable r){
+        if (sprites.contains(r))
+            return sprites;
+        if (guis.contains(r))
+            return guis;
+        return null;
     }
 
 }
