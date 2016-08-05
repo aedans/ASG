@@ -17,6 +17,8 @@ import org.newdawn.slick.opengl.TextureLoader;
 
 public class Loader {
 
+    private static String RES_DIR = "imgs/";
+
     /**
      * List of Vertex Attribute Objects.
      */
