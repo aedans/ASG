@@ -172,12 +172,18 @@ public class Renderer {
     }
 
     /**
+     * cleans up all the renderers resources
+     */
+    public static void cleanUp(){
+        compositeShader.cleanUp();
+        lightShader.cleanUp();
+    }
+
+    /**
      * Enum containing valid Shaders.
      */
     public enum Shader {
-
         COMPOSITE, LIGHT
-
     }
 
 }

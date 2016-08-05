@@ -52,8 +52,7 @@ public class Main {
 
         // Cleans up OpenGL stuff
         Loader.cleanUp();
-        Renderer.compositeShader.cleanUp();
-        Renderer.lightShader.cleanUp();
+        Renderer.cleanUp();
         DisplayManager.closeDisplay();
     }
 
