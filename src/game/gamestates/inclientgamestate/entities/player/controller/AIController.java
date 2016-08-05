@@ -11,6 +11,7 @@ public class AIController implements Controller {
 
     private AI ai = new AI();
     private int bestAction;
+    @SuppressWarnings("FieldCanBeLocal")
     private int playerID;
 
     public AIController(int playerID) {

@@ -75,7 +75,12 @@ public abstract class Sprite implements Renderable {
      */
     public void changeTexture(int newTextureID){
         Game.getActiveGameState().findContainer(this).remove(this);
-        texturedModel = new TexturedModel(texturedModel.getModelID(), newTextureID);
+        texturedModel = new TexturedModel(
+                texturedModel.getWidth(),
+                texturedModel.getHeight(),
+                texturedModel.getModelID(),
+                newTextureID
+        );
         Game.getActiveGameState().findContainer(this).add(this);
     }
 

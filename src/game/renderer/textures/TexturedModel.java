@@ -3,6 +3,8 @@ package game.renderer.textures;
 import game.renderer.DisplayManager;
 import game.renderer.data.Loader;
 
+import java.awt.geom.Point2D;
+
 /**
  * Created by Aedan Smith on 7/5/2016.
  * <p>
@@ -22,12 +24,19 @@ public class TexturedModel {
     private int textureID;
 
     /**
+     * The Width and Height of the Model on the OpenGL coordinate plane.
+     */
+    private float width, height;
+
+    /**
      * Default TexturedModel constructor.
      *
      * @param modelID:   The ID of the Model.
      * @param textureID: The ID of the Texture. (See game.renderer.textures.Textures).
      */
-    public TexturedModel(int modelID, int textureID) {
+    public TexturedModel(float width, float height, int modelID, int textureID) {
+        this.width = width;
+        this.height = height;
         this.modelID = modelID;
         this.textureID = textureID;
     }
@@ -56,6 +65,14 @@ public class TexturedModel {
         return modelID;
     }
 
+    public float getWidth() {
+        return width;
+    }
+
+    public float getHeight() {
+        return height;
+    }
+
     @Override
     public String toString() {
         return "TexturedModel(ModelID: " + modelID + ", TexureID: " + textureID + ")";
@@ -82,8 +99,8 @@ public class TexturedModel {
     /**
      * Creates a TexturedModel with the given width, height, and Texture ID.
      *
-     * @param width:     The width of the TexturedModel.
-     * @param height:    The height of the TexturedModel.
+     * @param width:     The Width of the TexturedModel.
+     * @param height:    The Height of the TexturedModel.
      * @param textureID: The Texture ID.
      * @return TexturedModel: The created TexturedModel.
      */
@@ -102,7 +119,7 @@ public class TexturedModel {
     /**
      * Creates a TexturedModel with the given Vertices and Texture ID.
      *
-     * @param vps:       The Vertexes of the Model.
+     * @param vps:       The Vertices of the Model.
      * @param textureID: The Texture ID.
      * @return TexturedModel: The created TexturedModel.
      */
@@ -128,7 +145,18 @@ public class TexturedModel {
      */
     @SuppressWarnings("WeakerAccess")
     public static TexturedModel getTexturedModel(float[] vps, int textureID) {
+        // Width and Height detection possibly bugged, needs to be checked.
+        Point2D.Float bottomLeft = new Point2D.Float(
+                (vps[0] < vps[2]) ? vps[0] : vps[2],
+                (vps[1] < vps[7]) ? vps[1] : vps[7]
+        );
+        Point2D.Float topRight = new Point2D.Float(
+                (vps[4] > vps[6]) ? vps[4] : vps[6],
+                (vps[3] > vps[5]) ? vps[3] : vps[5]
+        );
         return new TexturedModel(
+                (topRight.x - bottomLeft.x)/2,
+                (topRight.y - bottomLeft.y)/2,
                 Loader.loadToVAO(
                         new float[]{
                                 vps[0], vps[1], 0,

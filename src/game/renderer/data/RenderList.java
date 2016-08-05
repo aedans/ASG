@@ -34,7 +34,7 @@ public abstract class RenderList<T extends Renderable> {
     /**
      * An Array of Renderables, one ArrayList for each Texture.
      */
-    protected ArrayList[] renderables;
+    protected ArrayList<T>[] renderables;
 
     /**
      * Default RenderList constructor
@@ -43,9 +43,10 @@ public abstract class RenderList<T extends Renderable> {
      */
     public RenderList(int numTextures) {
         this.numTextures = numTextures;
+        //noinspection unchecked
         this.renderables = new ArrayList[numTextures];
         for (int i = 0; i < numTextures; i++)
-            renderables[i] = new ArrayList();
+            renderables[i] = new ArrayList<>();
     }
 
     /**

@@ -25,12 +25,12 @@ public class Renderer {
     /**
      * The Composite ShaderType to be used with GUIs.
      */
-    public static CompositeShader compositeShader = new CompositeShader();
+    private static CompositeShader compositeShader = new CompositeShader();
 
     /**
      * The Light ShaderType to be used with in-game Entities.
      */
-    public static LightShader lightShader = new LightShader();
+    private static LightShader lightShader = new LightShader();
 
     /**
      * The RenderList of BlackBars to be rendered.
@@ -97,7 +97,6 @@ public class Renderer {
      * Renders an ArrayList of Renderables to the Display.
      * <p>
      * TODO: Comment.
-     * TODO: Improve offscreen detection.
      *
      * @param toRender: The ArrayList of Renderables to Render.
      */
@@ -115,8 +114,10 @@ public class Renderer {
                 continue;
             Position relativePos = Viewport.getRelativePosition(r.getPosition());
             if (r.getClass().isAnnotationPresent(ConstRender.class) ||
-                    (!(relativePos.getPixelX() > 1.3) && !(relativePos.getOpenGLX() < -1.3)
-                            && !(relativePos.getOpenGLY() > 1.3) && !(relativePos.getOpenGLY() < -1.3))) {
+                    !(relativePos.getOpenGLX() > 1f + r.getTexturedModel().getWidth())
+                            && !(relativePos.getOpenGLX() < -1f - r.getTexturedModel().getWidth())
+                            && !(relativePos.getOpenGLY() > 1f + r.getTexturedModel().getHeight())
+                            && !(relativePos.getOpenGLY() < -1f - r.getTexturedModel().getHeight())) {
                 r.onRender();
                 compositeShader.loadTransformationMatrix(r.getTransformationMatrix());
                 GL11.glDrawElements(GL11.GL_TRIANGLES, 8, GL11.GL_UNSIGNED_INT, 0);
@@ -132,7 +133,6 @@ public class Renderer {
      * Renders an ArrayList of Renderables to the Display with lighting.
      * <p>
      * TODO: Comment.
-     * TODO: Improve offscreen detection.
      *
      * @param toRender: The ArrayList of Renderables to Render.
      */
@@ -148,8 +148,10 @@ public class Renderer {
         for (Renderable r : toRender) {
             Position relativePos = Viewport.getRelativePosition(r.getPosition());
             if (r.getClass().isAnnotationPresent(ConstRender.class) ||
-                    !(relativePos.getOpenGLX() > 1.3) && !(relativePos.getOpenGLX() < -1.3)
-                            && !(relativePos.getOpenGLY() > 1.3) && !(relativePos.getOpenGLY() < -1.3)) {
+                    !(relativePos.getOpenGLX() > 1f + r.getTexturedModel().getWidth())
+                            && !(relativePos.getOpenGLX() < -1f - r.getTexturedModel().getWidth())
+                            && !(relativePos.getOpenGLY() > 1f + r.getTexturedModel().getHeight())
+                            && !(relativePos.getOpenGLY() < -1f - r.getTexturedModel().getHeight())) {
                 r.onRender();
                 if (r.getClass().isAnnotationPresent(Invisible.class))
                     continue;

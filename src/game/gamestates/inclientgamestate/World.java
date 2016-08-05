@@ -8,7 +8,6 @@ import game.renderer.data.RenderList;
 import game.renderer.textures.Textures;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 /**
  * Created by Aedan Smith on 7/6/2016.

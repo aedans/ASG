@@ -1,7 +1,6 @@
 package game.renderer;
 
 import org.lwjgl.LWJGLException;
-import org.lwjgl.Sys;
 import org.lwjgl.opengl.*;
 
 /**
@@ -15,6 +14,7 @@ public final class DisplayManager {
     /**
      * The target resolution for the game.
      */
+    @SuppressWarnings("FieldCanBeLocal")
     private static int targetResolutionX = 900,
                         targetResolutionY = 900;
 
