@@ -28,7 +28,6 @@ import org.lwjgl.opengl.GL13;
 import org.lwjgl.opengl.GL20;
 import org.lwjgl.opengl.GL30;
 
-import java.awt.geom.Point2D;
 import java.util.ArrayList;
 
 public class Renderer {
