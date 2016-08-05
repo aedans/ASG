@@ -51,7 +51,6 @@ public class InClientGameState extends GameState {
         map.add(redBase);
         map.add(blueBase);
         map.add(players);
-        map.add(map.getEntities());
 
         guis.add(playerInventory);
 

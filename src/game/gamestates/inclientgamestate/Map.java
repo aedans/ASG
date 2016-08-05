@@ -22,9 +22,23 @@ public class Map extends RenderList<Entity> {
      * The LightList that affects the Entities.
      */
     private LightList lightList = new LightList();
+
+    /**
+     * The width and height of the Map.
+     */
     private int width, height;
+
+    /**
+     * The array of Terrain that makes up the Map.
+     */
     private Terrain[][] terrain;
 
+    /**
+     * Default Map constructor.
+     *
+     * @param width: The width of the Map.
+     * @param height: The height of the Map.
+     */
     public Map(int width, int height) {
         super(Textures.entityTextures.size());
         this.width = width;
@@ -32,34 +46,36 @@ public class Map extends RenderList<Entity> {
         this.terrain = new Terrain[width][height];
     }
 
+    /**
+     * Generates the Map.
+     *
+     * TODO: Implement better Map generation.
+     */
     public void generate() {
-        int[][] terrain = Distributions.get2dDistribution(width, height, 100, new Tend2D[]{
+        int[][] terrainID = Distributions.get2dDistribution(width, height, 100, new Tend2D[]{
                 new GroupTend2D(width / 2, height / 2, 80),
         });
-//        DistributionRandom.randomize2dDistribution(terrain,2);
+//        DistributionRandom.randomize2dDistribution(terrainID,2);
         for (int i = 0; i < width; i++) {
             for (int j = 0; j < height; j++) {
-                this.terrain[i][j] = Terrain.get(i * 64, j * 64, terrain[i][j]);
+                terrain[i][j] = Terrain.get(i * 64, j * 64, terrainID[i][j]);
+                add(terrain[i][j]);
             }
         }
     }
 
-    public ArrayList<Entity> getEntities() {
-        ArrayList<Entity> entities = new ArrayList<>();
-        for (int i = 0; i < width; i++) {
-            for (int j = 0; j < height; j++) {
-                entities.add(terrain[i][j]);
-            }
-        }
-        return entities;
-    }
-
+    /**
+     * See game.renderer.data.RenderList documentation
+     */
     @Override
     protected void onAdd(Entity entity) {
         if (entity.isLight)
             lightList.addLight((Light) entity);
     }
 
+    /**
+     * See game.renderer.data.RenderList documentation
+     */
     @Override
     protected void onRemove(Entity entity) {
         if (entity.isLight)
@@ -67,6 +83,9 @@ public class Map extends RenderList<Entity> {
         entity.onDestruction();
     }
 
+    /**
+     * See game.renderer.data.RenderList documentation
+     */
     @Override
     protected void onUpdate() {
         for (ArrayList<Entity> es : renderables)
