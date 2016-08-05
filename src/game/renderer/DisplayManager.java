@@ -1,5 +1,6 @@
 package game.renderer;
 
+import game.util.Logger;
 import org.lwjgl.LWJGLException;
 import org.lwjgl.opengl.*;
 
@@ -83,6 +84,7 @@ public final class DisplayManager {
         Display.create(new PixelFormat(), attributes);
         Display.setTitle(title);
         GL11.glViewport(0, 0, xRes, yRes);
+        Logger.println(GL11.glGetString(GL11.GL_VERSION));
     }
 
     /**

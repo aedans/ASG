@@ -1,4 +1,4 @@
-package game.renderer.shaders.lightshader;
+package game.renderer.shaders;
 
 import game.gamestates.inclientgamestate.entities.Entity;
 import game.gamestates.inclientgamestate.entities.lights.Light;
@@ -7,7 +7,7 @@ import org.lwjgl.util.vector.Matrix4f;
 
 public class LightShader extends game.renderer.shaders.Shader {
 
-    private static final String SHADER_PATH = ".\\src\\game\\renderer\\shaders\\lightshader\\";
+    private static final String SHADER_PATH = "assets/shaders/light/";
     private static final String VERTEX_FILE = SHADER_PATH + "light.vsh";
     private static final String FRAGMENT_FILE = SHADER_PATH + "light.fsh";
 

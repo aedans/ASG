@@ -7,8 +7,8 @@ import game.gui.Invisible;
 import game.gui.OverlaidSprite;
 import game.renderer.shaders.Shader;
 import math.MatrixMath;
-import game.renderer.shaders.composite.CompositeShader;
-import game.renderer.shaders.lightshader.LightShader;
+import game.renderer.shaders.CompositeShader;
+import game.renderer.shaders.LightShader;
 import game.sprites.SpriteList;
 import game.sprites.Textures;
 import org.lwjgl.opengl.GL11;
@@ -16,7 +16,6 @@ import org.lwjgl.opengl.GL13;
 import org.lwjgl.opengl.GL20;
 import org.lwjgl.opengl.GL30;
 
-import java.awt.geom.Point2D;
 import java.util.ArrayList;
 
 public class Renderer {
