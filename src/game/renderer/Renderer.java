@@ -1,6 +1,6 @@
 package game.renderer;
 
-import game.gamestates.inclientgamestate.Map;
+import game.gamestates.inclientgamestate.World;
 import game.gamestates.inclientgamestate.entities.Entity;
 import game.renderer.annotations.AlwaysLit;
 import game.renderer.lights.LightList;
@@ -87,7 +87,7 @@ public class Renderer {
      */
     private static void renderLight(RenderList toRender) {
         for (int i = toRender.numTextures - 1; i >= 0; i--)
-            Renderer.renderLight(toRender.get(i), ((Map) toRender).getLightList());
+            Renderer.renderLight(toRender.get(i), ((World) toRender).getLightList());
     }
 
     /**

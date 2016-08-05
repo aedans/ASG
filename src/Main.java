@@ -1,10 +1,8 @@
+import acklib.utils.misc.ArgumentParseException;
 import game.renderer.DisplayManager;
 import game.renderer.data.Loader;
 import game.Game;
 import game.renderer.Renderer;
-import game.util.Logger;
-
-import java.util.IntSummaryStatistics;
 
 /**
  * Created by Aedan Smith on 5/23/2016.
@@ -20,41 +18,36 @@ public class Main {
      * TODO: Add fullscreen to args.
      * TODO: .info files.
      *
-     * Current 'best' resolution: 1540x900.
-     *
      * @param args: 'xRes yRes'
      */
-    public static void main(String[] args) throws Exception {
-        Logger.addOutputStream(System.err);
-        if(args.length != 2){
-            Logger.println("usage: ./asg width height");
-            return;
-        }
-        int width;
-        int height;
-        try{
-            width = Integer.parseInt(args[0]);
-            height = Integer.parseInt(args[1]);
-        }catch (NumberFormatException nfe){
-            Logger.println(nfe.getMessage());
-            return;
-        }
-        // Initializes the game
-        DisplayManager.createDisplay(width, height, false, "ASG");
-        Game.initialize();
+    public static void main(String[] args) {
+        try {
+            if (args.length != 2) {
+                throw new ArgumentParseException("Usage: width height");
+            }
+            int width = Integer.parseInt(args[0]);
+            int height = Integer.parseInt(args[1]);
 
-        // Main game loop
-        while (!DisplayManager.isCloseRequested()) {
-            DisplayManager.updateDisplay();
-            Game.update();
-            Game.render();
-        }
+            // Initializes the game
+            DisplayManager.createDisplay(width, height, false, "ASG");
+            Game.initialize();
 
-        // Cleans up OpenGL stuff
-        Loader.cleanUp();
-        Renderer.compositeShader.cleanUp();
-        Renderer.lightShader.cleanUp();
-        DisplayManager.closeDisplay();
+            // Main game loop
+            while (!DisplayManager.isCloseRequested()) {
+                DisplayManager.updateDisplay();
+                Game.update();
+                Game.render();
+            }
+
+            // Cleans up OpenGL stuff
+            Loader.cleanUp();
+            Renderer.compositeShader.cleanUp();
+            Renderer.lightShader.cleanUp();
+            DisplayManager.closeDisplay();
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.exit(-1);
+        }
     }
 
 }

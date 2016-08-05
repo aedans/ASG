@@ -10,7 +10,7 @@ import game.renderer.math.Position;
 
 public abstract class Projectile extends MoveableEntity {
 
-    // TODO: Fix Projectile's map-edge destruction.
+    // TODO: Fix Projectile's world-edge destruction.
 
     public Projectile(Position position, int texture, int width, int height) {
         super(position, texture, width, height);
@@ -25,16 +25,16 @@ public abstract class Projectile extends MoveableEntity {
             destroy();
             return;
         }
-        if (getGridX() >= Game.inClientGameState.map.getWidth()) {
+        if (getGridX() >= Game.inClientGameState.world.getTileWidth()) {
             destroy();
             return;
         }
-        if (getGridY() >= Game.inClientGameState.map.getHeight()) {
+        if (getGridY() >= Game.inClientGameState.world.getTileHeight()) {
             destroy();
             return;
         }
         try {
-            if (Game.inClientGameState.map.getTileAt(getGridX(), getGridY()).isAirCollidable()) {
+            if (Game.inClientGameState.world.getTileMap().getTileAt(getGridX(), getGridY()).isAirCollidable()) {
                 destroy();
             }
         } catch (ArrayIndexOutOfBoundsException e) {

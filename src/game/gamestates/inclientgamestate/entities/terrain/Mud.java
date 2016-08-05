@@ -7,7 +7,7 @@ import game.renderer.textures.Textures;
  * Created by Aedan Smith on 7/7/2016.
  */
 
-public class Mud extends Terrain {
+public class Mud extends Tile {
 
     public Mud(int x, int y) {
         super(new Position(x, y), Textures.mudTextureID, 64, 64);

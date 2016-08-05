@@ -35,7 +35,8 @@ public class Player extends MoveableEntity {
         this.yVel = 0;
         lastShot++;
 
-        if (Game.inClientGameState.map.getTileAt(getGridX(), getGridY()).getClass() == Mud.class || Game.inClientGameState.map.getTileAt(getGridX(), getGridY()).getClass() == Water.class)
+        if (Game.inClientGameState.world.getTileMap().getTileAt(getGridX(), getGridY()).getClass() == Mud.class
+                || Game.inClientGameState.world.getTileMap().getTileAt(getGridX(), getGridY()).getClass() == Water.class)
             this.speed = .48f;
         else
             this.speed = .65f;
@@ -50,7 +51,7 @@ public class Player extends MoveableEntity {
             this.yVel = -speed;
 
         if (controller.wantsToShoot() && canShoot()) {
-            Game.inClientGameState.map.add(new Fireball(controller.getShotDirection(), getPosition().deepClone()));
+            Game.inClientGameState.world.add(new Fireball(controller.getShotDirection(), getPosition().deepClone()));
             lastShot = 0;
         }
 
@@ -69,25 +70,25 @@ public class Player extends MoveableEntity {
     public boolean canMoveLeft() {
         if (getPosition().getPixelX() <= 0)
             return false;
-        return !Game.inClientGameState.map.getTileAt((getPosition().getPixelX() / 64), (32 + getPosition().getPixelY()) / 64).isGroundCollidable();
+        return !Game.inClientGameState.world.getTileMap().getTileAt((getPosition().getPixelX() / 64), (32 + getPosition().getPixelY()) / 64).isGroundCollidable();
     }
 
     public boolean canMoveRight() {
-        if (getPosition().getPixelX() + 64 >= Game.inClientGameState.map.getPixelWidth())
+        if (getPosition().getPixelX() + 64 >= Game.inClientGameState.world.getPixelWidth())
             return false;
-        return !Game.inClientGameState.map.getTileAt((getPosition().getPixelX() / 64) + 1, (32 + getPosition().getPixelY()) / 64).isGroundCollidable();
+        return !Game.inClientGameState.world.getTileMap().getTileAt((getPosition().getPixelX() / 64) + 1, (32 + getPosition().getPixelY()) / 64).isGroundCollidable();
     }
 
     public boolean canMoveUp() {
-        if (getPosition().getPixelY() + 64 >= Game.inClientGameState.map.getPixelHeight())
+        if (getPosition().getPixelY() + 64 >= Game.inClientGameState.world.getPixelHeight())
             return false;
-        return !Game.inClientGameState.map.getTileAt((32 + getPosition().getPixelX()) / 64, ((getPosition().getPixelY()) / 64) + 1).isGroundCollidable();
+        return !Game.inClientGameState.world.getTileMap().getTileAt((32 + getPosition().getPixelX()) / 64, ((getPosition().getPixelY()) / 64) + 1).isGroundCollidable();
     }
 
     public boolean canMoveDown() {
         if (getPosition().getPixelY() <= 0)
             return false;
-        return !Game.inClientGameState.map.getTileAt((32 + getPosition().getPixelX()) / 64, ((getPosition().getPixelY()) / 64)).isGroundCollidable();
+        return !Game.inClientGameState.world.getTileMap().getTileAt((32 + getPosition().getPixelX()) / 64, ((getPosition().getPixelY()) / 64)).isGroundCollidable();
     }
 
     @Override

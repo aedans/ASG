@@ -7,7 +7,7 @@ import game.renderer.textures.Textures;
  * Created by Aedan Smith on 7/6/2016.
  */
 
-public class Grass extends Terrain {
+public class Grass extends Tile {
 
     public Grass(int x, int y) {
         super(new Position(x, y), Textures.grassTextureID, 64, 64);

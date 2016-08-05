@@ -8,13 +8,13 @@ import game.renderer.textures.TexturedModel;
  * Created by Aedan Smith on 7/6/2016.
  */
 
-public abstract class Terrain extends Entity {
+public abstract class Tile extends Entity {
 
-    public Terrain(Position position, int texture, int width, int height) {
+    public Tile(Position position, int texture, int width, int height) {
         super(position, texture, width, height);
     }
 
-    public Terrain(Position position, TexturedModel texturedModel) {
+    public Tile(Position position, TexturedModel texturedModel) {
         super(position, texturedModel);
     }
 
@@ -27,7 +27,7 @@ public abstract class Terrain extends Entity {
 
     }
 
-    public static Terrain get(int x, int y, int id) {
+    public static Tile get(int x, int y, int id) {
         if (id <= 90)
             return new Grass(x, y);
         else if (id <= 93)

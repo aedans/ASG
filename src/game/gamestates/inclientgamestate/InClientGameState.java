@@ -21,9 +21,9 @@ import game.gamestates.inclientgamestate.entities.structures.Base;
 public class InClientGameState extends GameState {
 
     /**
-     * The Map and RenderList for the InClientGameState.
+     * The World and RenderList for the InClientGameState.
      */
-    public Map map;
+    public World world;
 
     /**
      * The RenderList for all the GUIs of the InClientGameState.
@@ -44,9 +44,8 @@ public class InClientGameState extends GameState {
      * Default InClientGameState constructor
      */
     public InClientGameState() {
-        // Creates a new Map
-        map = new Map(75, 75);
-        map.generate();
+        // Creates a new World
+        world = new World(75, 75);
 
         // Creates the rad and blue base.
         redBase = new Base(true, 288, 288);
@@ -68,10 +67,10 @@ public class InClientGameState extends GameState {
         for (int i = 1; i < players.length; i++)
             ((AIController) players[i].getController()).getAI().ai = players[i];
 
-        // Adds Bases and Players to the Map.
-        map.add(redBase);
-        map.add(blueBase);
-        map.add(players);
+        // Adds Bases and Players to the World.
+        world.add(redBase);
+        world.add(blueBase);
+        world.add(players);
 
         // Tells the Viewport to focus on the human player.
         Viewport.focusOn(players[0]);
@@ -82,7 +81,7 @@ public class InClientGameState extends GameState {
      */
     @Override
     public void update() {
-        map.update();
+        world.update();
         guis.update();
         Viewport.update();
     }
@@ -93,7 +92,7 @@ public class InClientGameState extends GameState {
     @Override
     public void render() {
         Renderer.prepare();
-        Renderer.render(map, Renderer.Shader.LIGHT);
+        Renderer.render(world, Renderer.Shader.LIGHT);
         Renderer.drawBlackBars();
         Renderer.render(guis, Renderer.Shader.COMPOSITE);
     }
@@ -103,8 +102,8 @@ public class InClientGameState extends GameState {
      */
     @Override
     public RenderList findContainer(Renderable r){
-        if (map.contains(r))
-            return map;
+        if (world.contains(r))
+            return world;
         if (guis.contains(r))
             return guis;
         return null;
