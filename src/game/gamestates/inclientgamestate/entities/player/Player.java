@@ -18,7 +18,7 @@ import org.lwjgl.input.Keyboard;
 @SuppressWarnings("Duplicates")
 public class Player extends MoveableEntity {
 
-    public float speed = 1f;
+    public float speed = .65f;
     public boolean red;
     private int lastShot = 0;
     private Controller controller;
@@ -37,9 +37,9 @@ public class Player extends MoveableEntity {
         lastShot++;
 
         if (Game.inClientGameState.map.getTileAt(getGridX(), getGridY()).getClass() == Mud.class || Game.inClientGameState.map.getTileAt(getGridX(), getGridY()).getClass() == Water.class)
-            this.speed = .68f;
+            this.speed = .48f;
         else
-            this.speed = 1.0f;
+            this.speed = .65f;
 
         if (controller.wantsToMoveLeft() && canMoveLeft())
             this.xVel = -speed;

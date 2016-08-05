@@ -2,7 +2,6 @@ package game.gamestates.inclientgamestate.guis;
 
 import game.gui.GUI;
 import game.gui.GUIHub;
-import game.item.Item;
 
 /**
  * Created by Aedan Smith on 7/30/2016.

@@ -43,7 +43,10 @@ public class HostController implements Controller {
 
     @Override
     public Vector2f getShotDirection() {
-        return new Vector2f(Mouse.getX() - DisplayManager.xRes / 2, Mouse.getY() - DisplayManager.yRes / 2).normalise(new Vector2f(1, 1));
+        return new Vector2f(
+                Mouse.getX() - (DisplayManager.xRes / 2),
+                Mouse.getY() - (DisplayManager.yRes / 2)
+        ).normalise(new Vector2f(1, 1));
     }
 
 }
