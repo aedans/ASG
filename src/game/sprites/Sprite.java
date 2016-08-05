@@ -71,6 +71,19 @@ public abstract class Sprite implements Renderable {
     }
 
     /**
+     * Changes the Sprite's texture.
+     *
+     * TODO: Add support for other GameStates.
+     *
+     * @param newTextureID: The ID of the Texture to change to.
+     */
+    public void changeTexture(int newTextureID){
+        Game.inClientGameState.sprites.remove(this);
+        texturedModel = new TexturedModel(texturedModel.getModelID(), newTextureID);
+        Game.inClientGameState.sprites.add(this);
+    }
+
+    /**
      * Abstract function called every frame if the Sprite is in a SpriteList.
      */
     public abstract void update();

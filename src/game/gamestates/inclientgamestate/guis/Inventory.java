@@ -26,13 +26,4 @@ public class Inventory extends GUIHub {
         return inventorySlots;
     }
 
-    public boolean add(Item item, int num) {
-//        for (int i = 0; i < inventorySlots.length; i++) {
-//            if (inventorySlots[i].getItemStack().add(item, num)) {
-//                return true;
-//            }
-//        }
-        return false;
-    }
-
 }

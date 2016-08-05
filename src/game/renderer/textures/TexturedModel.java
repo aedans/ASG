@@ -27,8 +27,7 @@ public class TexturedModel {
      * @param modelID:   The ID of the Model.
      * @param textureID: The ID of the Texture. (See game.renderer.textures.Textures).
      */
-    private TexturedModel(int modelID, int textureID) {
-        System.out.println(modelID);
+    public TexturedModel(int modelID, int textureID) {
         this.modelID = modelID;
         this.textureID = textureID;
     }

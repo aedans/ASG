@@ -17,7 +17,7 @@ public class Main {
      * TODO: Add fullscreen to args.
      * TODO: .info files.
      *
-     * Current 'best' resolution, 1540x900.
+     * Current 'best' resolution: 1540x900.
      *
      * @param args: 'xRes yRes'
      */

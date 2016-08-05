@@ -9,6 +9,7 @@ import game.gamestates.inclientgamestate.entities.player.controller.Controller;
 import game.gamestates.inclientgamestate.entities.projectiles.Fireball;
 import game.gamestates.inclientgamestate.entities.terrain.Mud;
 import game.gamestates.inclientgamestate.entities.terrain.Water;
+import org.lwjgl.input.Keyboard;
 
 /**
  * Created by Aedan Smith on 7/6/2016.

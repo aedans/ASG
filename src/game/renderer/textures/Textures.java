@@ -25,6 +25,8 @@ public final class Textures {
     public static int grassTextureID = Loader.loadJPGTexture("green_square");
     public static int mudTextureID = Loader.loadJPGTexture("brown_square");
     public static int waterTextureID = Loader.loadJPGTexture("blue_square");
+    public static int testTextureID = Loader.loadPNGTexture("test");
+
 
     /**
      * List of Textures for GUIs.
@@ -33,7 +35,6 @@ public final class Textures {
 
     public static int blackTextureID = Loader.loadPNGTexture("black");
     public static int blankTextureID = Loader.loadPNGTexture("blank");
-    public static int testTextureID = Loader.loadPNGTexture("test");
     public static int inventorySlotTexture = Loader.loadJPGTexture("grey_square");
 
     // Loads all Textures.
@@ -44,6 +45,7 @@ public final class Textures {
 
         // Projectiles
         spriteTextures.add(fireballTextureID);
+        spriteTextures.add(testTextureID);
 
         // Structures
         spriteTextures.add(redBaseTextureID);
@@ -56,7 +58,6 @@ public final class Textures {
 
         //GUI
         GUITextures.add(blankTextureID);
-        GUITextures.add(testTextureID);
         GUITextures.add(inventorySlotTexture);
         GUITextures.add(blackTextureID);
     }

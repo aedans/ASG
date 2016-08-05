@@ -94,7 +94,7 @@ public class Position {
     }
 
     /**
-     * Gets the distance between this and another position.
+     * Gets the distance between this and another position (in OpenGL).
      *
      * @param position: The position to get the distance to.
      * @return double: The distance to the position.
