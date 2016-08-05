@@ -63,10 +63,12 @@ public class Renderer {
         switch (shader){
             case COMPOSITE:
                 renderComposite(toRender);
-                return;
+                break;
             case LIGHT:
                 renderLight(toRender);
-                return;
+                break;
+            default:
+                break;
         }
     }
 
@@ -172,12 +174,18 @@ public class Renderer {
     }
 
     /**
+     * cleans up all the renderers resources
+     */
+    public static void cleanUp(){
+        compositeShader.cleanUp();
+        lightShader.cleanUp();
+    }
+
+    /**
      * Enum containing valid Shaders.
      */
     public enum Shader {
-
         COMPOSITE, LIGHT
-
     }
 
 }
