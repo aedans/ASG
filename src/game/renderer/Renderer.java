@@ -60,7 +60,7 @@ public class Renderer {
      * @param toRender: The RenderList to render.
      * @param type:   The type of shader to render the RenderList with.
      */
-    public static void render(RenderList toRender, ShaderType type) {
+    public static void render(RenderList<? extends Renderable> toRender, ShaderType type) {
         switch (type){
             case COMPOSITE:
                 for (int i = toRender.numTextures - 1; i >= 0; i--)
@@ -83,7 +83,7 @@ public class Renderer {
      *
      * @param toRender: The ArrayList of Renderables to Render.
      */
-    private static void renderComposite(ArrayList<Renderable> toRender) {
+    private static void renderComposite(ArrayList<? extends Renderable> toRender) {
         compositeShader.start();
         if (toRender.size() == 0)
             return;
@@ -118,7 +118,7 @@ public class Renderer {
      *
      * @param toRender: The ArrayList of Renderables to Render.
      */
-    private static void renderLight(ArrayList<Renderable> toRender, LightList lightList) {
+    private static void renderLight(ArrayList<? extends Renderable> toRender, LightList lightList) {
         lightShader.start();
         if (toRender.size() == 0)
             return;
