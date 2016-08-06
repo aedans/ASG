@@ -3,7 +3,7 @@ package game.gamestates.inclientgamestate.entities;
 import game.Sprite;
 import game.gamestates.inclientgamestate.entities.terrain.Tile;
 import game.renderer.math.Position;
-import game.renderer.textures.TexturedModel;
+import game.renderer.resources.TexturedModel;
 
 /**
  * Created by Aedan Smith on 7/4/2016.

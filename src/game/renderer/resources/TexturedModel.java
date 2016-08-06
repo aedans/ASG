@@ -1,4 +1,4 @@
-package game.renderer.textures;
+package game.renderer.resources;
 
 import game.renderer.DisplayManager;
 import game.renderer.data.Loader;
@@ -32,7 +32,7 @@ public class TexturedModel {
      * Default TexturedModel constructor.
      *
      * @param modelID:   The ID of the Model.
-     * @param textureID: The ID of the Texture. (See game.renderer.textures.Textures).
+     * @param textureID: The ID of the Texture. (See game.renderer.resources.Textures).
      */
     public TexturedModel(float width, float height, int modelID, int textureID) {
         this.width = width;

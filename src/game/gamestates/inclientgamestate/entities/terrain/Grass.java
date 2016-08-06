@@ -1,7 +1,7 @@
 package game.gamestates.inclientgamestate.entities.terrain;
 
 import game.renderer.math.Position;
-import game.renderer.textures.Textures;
+import game.renderer.resources.Textures;
 
 /**
  * Created by Aedan Smith on 7/6/2016.

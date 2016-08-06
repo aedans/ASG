@@ -13,7 +13,7 @@ import java.util.List;
 public abstract class RenderList<T extends Renderable> {
 
     /**
-     * The number of possible textures.
+     * The number of possible resources.
      */
     public int numTextures;
 
@@ -39,7 +39,7 @@ public abstract class RenderList<T extends Renderable> {
     /**
      * Default RenderList constructor
      *
-     * @param numTextures: The number of textures the RenderList should support.
+     * @param numTextures: The number of resources the RenderList should support.
      */
     public RenderList(int numTextures) {
         this.numTextures = numTextures;

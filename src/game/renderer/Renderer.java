@@ -12,7 +12,7 @@ import game.renderer.math.Position;
 import game.renderer.math.Viewport;
 import game.renderer.shaders.CompositeShader;
 import game.renderer.shaders.LightShader;
-import game.renderer.textures.Textures;
+import game.renderer.resources.Textures;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL13;
 import org.lwjgl.opengl.GL20;

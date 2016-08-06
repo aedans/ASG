@@ -9,7 +9,7 @@ import game.gamestates.inclientgamestate.entities.terrain.Mud;
 import game.gamestates.inclientgamestate.entities.terrain.Tile;
 import game.gamestates.inclientgamestate.entities.terrain.Water;
 import game.renderer.math.Position;
-import game.renderer.textures.Textures;
+import game.renderer.resources.Textures;
 
 /**
  * Created by Aedan Smith on 7/6/2016.

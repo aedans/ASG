@@ -5,7 +5,7 @@ import game.renderer.data.Renderable;
 import game.renderer.math.MatrixMath;
 import game.renderer.math.Position;
 import game.renderer.math.Viewport;
-import game.renderer.textures.TexturedModel;
+import game.renderer.resources.TexturedModel;
 import org.lwjgl.util.vector.Matrix4f;
 
 /**

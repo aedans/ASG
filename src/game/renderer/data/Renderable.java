@@ -1,7 +1,7 @@
 package game.renderer.data;
 
 import game.renderer.math.Position;
-import game.renderer.textures.TexturedModel;
+import game.renderer.resources.TexturedModel;
 import org.lwjgl.util.vector.Matrix4f;
 
 /**

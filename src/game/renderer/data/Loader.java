@@ -1,5 +1,6 @@
 package game.renderer.data;
 
+import game.renderer.resources.Models;
 import org.lwjgl.BufferUtils;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL15;
@@ -45,15 +46,22 @@ public class Loader {
      */
     @SuppressWarnings("WeakerAccess")
     public static int loadToVAO(float[] positions, int[] indices) {
-        float[] textures = new float[]{
-                0, 0, 0, 1, 1, 1, 1, 0
-        };
-        int vaoID = createVAO();
-        bindIndicesBuffer(indices);
-        storeDataInAttributeList(0, 3, positions);
-        storeDataInAttributeList(1, 2, textures);
-        unbindVAO();
-        return vaoID;
+        int i = Models.contains(positions, indices);
+        if (i == -1) {
+            float[] textures = new float[]{
+                    0, 0, 0, 1, 1, 1, 1, 0
+            };
+            int vaoID = createVAO();
+            bindIndicesBuffer(indices);
+            storeDataInAttributeList(0, 3, positions);
+            storeDataInAttributeList(1, 2, textures);
+            unbindVAO();
+            Models.add(positions, indices);
+            return vaoID;
+        } else {
+            // OpenGL's VAOs and VBO IDs are not 0-based.
+            return i + 1;
+        }
     }
 
     /**

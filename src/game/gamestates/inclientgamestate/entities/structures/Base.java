@@ -4,7 +4,7 @@ import game.gamestates.inclientgamestate.entities.Entity;
 import game.renderer.DisplayManager;
 import game.renderer.lights.Light;
 import game.renderer.math.Position;
-import game.renderer.textures.Textures;
+import game.renderer.resources.Textures;
 
 /**
  * Created by Aedan Smith on 7/7/2016.

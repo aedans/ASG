@@ -1,4 +1,4 @@
-package game.renderer.textures;
+package game.renderer.resources;
 
 import game.renderer.data.Loader;
 

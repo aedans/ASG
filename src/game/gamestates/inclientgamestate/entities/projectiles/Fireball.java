@@ -2,7 +2,7 @@ package game.gamestates.inclientgamestate.entities.projectiles;
 
 import game.renderer.lights.Light;
 import game.renderer.math.Position;
-import game.renderer.textures.Textures;
+import game.renderer.resources.Textures;
 import org.lwjgl.util.vector.Vector2f;
 
 /**
