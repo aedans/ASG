@@ -18,6 +18,8 @@ public interface Renderable {
 
     Position getPosition();
 
+    float getScale();
+
     void onRender();
 
 }

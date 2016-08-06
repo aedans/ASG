@@ -1,6 +1,7 @@
 package game.gamestates.inclientgamestate.entities;
 
 import game.Sprite;
+import game.gamestates.inclientgamestate.entities.terrain.Tile;
 import game.renderer.math.Position;
 import game.renderer.textures.TexturedModel;
 
@@ -20,12 +21,12 @@ public abstract class Entity extends Sprite {
 
     @SuppressWarnings("WeakerAccess")
     public int getGridX() {
-        return ((32 + getPosition().getPixelX()) / 64);
+        return (int) (((Tile.size/2) + getPosition().getPixelX()) / Tile.size);
     }
 
     @SuppressWarnings("WeakerAccess")
     public int getGridY() {
-        return ((32 + getPosition().getPixelY()) / 64);
+        return (int) (((Tile.size/2) + getPosition().getPixelY()) / Tile.size);
     }
 
 }

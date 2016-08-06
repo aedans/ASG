@@ -68,7 +68,8 @@ public abstract class GUI extends Sprite {
     @Override
     public Matrix4f getTransformationMatrix() {
         return MatrixMath.createTransformationMatrix(
-                getPosition().deepClone().translate(-1f, -1f)
+                getPosition().deepClone().translate(-1f, -1f),
+                getScale()
         );
     }
 

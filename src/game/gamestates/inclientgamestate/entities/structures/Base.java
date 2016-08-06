@@ -1,6 +1,7 @@
 package game.gamestates.inclientgamestate.entities.structures;
 
 import game.gamestates.inclientgamestate.entities.Entity;
+import game.renderer.DisplayManager;
 import game.renderer.lights.Light;
 import game.renderer.math.Position;
 import game.renderer.textures.Textures;
@@ -12,7 +13,7 @@ import game.renderer.textures.Textures;
 public class Base extends Entity implements Light {
 
     public Base(boolean red, int x, int y) {
-        super(new Position(x, y), red ? Textures.redBaseTextureID : Textures.blueBaseTextureID, 256, 256);
+        super(new Position(x, y).multiply(DisplayManager.scale), red ? Textures.redBaseTextureID : Textures.blueBaseTextureID, 256, 256);
         this.isLight = true;
     }
 

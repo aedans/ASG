@@ -1,6 +1,7 @@
 package game.gamestates.inclientgamestate.entities.terrain;
 
 import game.gamestates.inclientgamestate.entities.Entity;
+import game.renderer.DisplayManager;
 import game.renderer.math.Position;
 import game.renderer.textures.TexturedModel;
 
@@ -10,12 +11,14 @@ import game.renderer.textures.TexturedModel;
 
 public abstract class Tile extends Entity {
 
+    public static float size = (64*DisplayManager.scale);
+
     public Tile(Position position, int texture, int width, int height) {
-        super(position, texture, width, height);
+        super(position.multiply(DisplayManager.scale), texture, width, height);
     }
 
     public Tile(Position position, TexturedModel texturedModel) {
-        super(position, texturedModel);
+        super(position.multiply(DisplayManager.scale), texturedModel);
     }
 
     public static Tile get(int x, int y, int id) {

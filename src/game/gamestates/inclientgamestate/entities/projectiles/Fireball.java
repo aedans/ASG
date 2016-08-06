@@ -36,7 +36,7 @@ public class Fireball extends Projectile implements Light {
 
     @Override
     public float getStrength() {
-        return .75f;
+        return 1.75f;
     }
 
 }

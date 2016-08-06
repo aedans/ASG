@@ -15,20 +15,29 @@ public final class DisplayManager {
      * The x and y resolution of the Display.
      */
     public static int xRes, yRes;
+
     /**
      * The factor to translate between OpenGL and Pixel Coordinate Systems.
      */
     public static float ppX, ppY;
+
     /**
      * The ratio between the current resolution and the target resolution.
      */
-    public static double targetResXRatio, targetResYRatio;
+    public static float targetResXRatio, targetResYRatio;
+
     /**
      * The target resolution for the game.
      */
     @SuppressWarnings("FieldCanBeLocal")
     private static int targetResolutionX = 900,
             targetResolutionY = 900;
+
+    /**
+     * The amount to scale all Renderables by.
+     */
+    public static float scale;
+
     /**
      * The Display's maximum fps.
      */
@@ -53,8 +62,11 @@ public final class DisplayManager {
         DisplayManager.yRes = yRes;
         ppX = 1.0f / (float) DisplayManager.xRes;
         ppY = 1.0f / (float) DisplayManager.yRes;
-        targetResXRatio = (float) xRes / (float) targetResolutionX;
-        targetResYRatio = (float) yRes / (float) targetResolutionY;
+        targetResXRatio = (float) xRes / targetResolutionX;
+        targetResYRatio = (float) yRes / targetResolutionY;
+        System.out.println(targetResXRatio);
+        System.out.println(targetResYRatio);
+        scale = (xRes < yRes) ? targetResXRatio : targetResYRatio ;
 
         ContextAttribs attributes = new ContextAttribs(3, 2)
                 .withForwardCompatible(true)

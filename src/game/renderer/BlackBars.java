@@ -87,7 +87,7 @@ public class BlackBars extends RenderList<Renderable> {
         @Override
         public Matrix4f getTransformationMatrix() {
             return MatrixMath.createTransformationMatrix(
-                    getPosition()
+                    getPosition(), 1
             );
         }
 

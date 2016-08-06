@@ -108,7 +108,7 @@ public class TexturedModel {
      */
     @SuppressWarnings("WeakerAccess")
     public static TexturedModel getTexturedModel(float[] vps, int textureID) {
-        // Width and Height detection possibly bugged, needs to be checked.
+        // Width and Height detection possibly bugged for non-square Models, needs to be checked.
         Point2D.Float bottomLeft = new Point2D.Float(
                 (vps[0] < vps[2]) ? vps[0] : vps[2],
                 (vps[1] < vps[7]) ? vps[1] : vps[7]

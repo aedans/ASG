@@ -1,5 +1,6 @@
 package game;
 
+import game.renderer.DisplayManager;
 import game.renderer.data.Renderable;
 import game.renderer.math.MatrixMath;
 import game.renderer.math.Position;
@@ -102,7 +103,8 @@ public abstract class Sprite implements Renderable {
     @Override
     public Matrix4f getTransformationMatrix() {
         return MatrixMath.createTransformationMatrix(
-                Viewport.getRelativePosition(getPosition())
+                Viewport.getRelativePosition(getPosition()),
+                getScale()
         );
     }
 
@@ -114,6 +116,11 @@ public abstract class Sprite implements Renderable {
     @Override
     public Position getPosition() {
         return position;
+    }
+
+    @Override
+    public float getScale(){
+        return DisplayManager.scale;
     }
 
 }
