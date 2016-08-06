@@ -11,14 +11,14 @@ import game.renderer.resources.TexturedModel;
 
 public abstract class Tile extends Entity {
 
-    public static float size = (64*DisplayManager.scale);
+    public static float size = (64*DisplayManager.getScale());
 
     public Tile(Position position, int texture, int width, int height) {
-        super(position.multiply(DisplayManager.scale), texture, width, height);
+        super(position.multiply(DisplayManager.getScale()), texture, width, height);
     }
 
     public Tile(Position position, TexturedModel texturedModel) {
-        super(position.multiply(DisplayManager.scale), texturedModel);
+        super(position.multiply(DisplayManager.getScale()), texturedModel);
     }
 
     public static Tile get(int x, int y, int id) {

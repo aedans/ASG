@@ -6,7 +6,7 @@ import acklib.utils.distribution.Tend2D;
  * Created by Aedan Smith on 5/15/2016.
  * <p>
  * A 2-dimensional tend used to create a 2-dimensional integer distribution
- * centered around a 2-dimensional point with influence lessening as distance
+ * centered around a 2-dimensional point with influence lessening as openGLDistance
  * increases.
  */
 

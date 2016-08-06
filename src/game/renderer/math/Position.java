@@ -110,15 +110,27 @@ public class Position {
     }
 
     /**
-     * Gets the distance between this and another position (in OpenGL).
+     * Gets the distance between this and another position in the Pixel coordinate system.
      *
      * @param position: The position to get the distance to.
-     * @return double: The distance to the position.
+     * @return double: The distance to the position in the Pixel coordinate system.
      */
-    public double distance(Position position) {
-        double px = position.getOpenGLX() - this.getOpenGLX();
-        double py = position.getOpenGLY() - this.getOpenGLY();
-        return Math.sqrt(px * px + py * py);
+    public double pixelDistance(Position position) {
+        double px = position.getPixelX() - this.getPixelX();
+        double py = position.getPixelY() - this.getPixelY();
+        return Math.sqrt(px * px + py * py)/DisplayManager.getScale();
+    }
+
+    /**
+     * Gets the distance between this and another position in the OpenGL coordinate system.
+     *
+     * @param position: The position to get the distance to.
+     * @return double: The distance to the position in the OpenGL coordinate system.
+     */
+    public double openGLDistance(Position position) {
+        double ox = position.getOpenGLX() - this.getOpenGLX();
+        double oy = position.getOpenGLY() - this.getOpenGLY();
+        return Math.sqrt(ox * ox + oy * oy);
     }
 
     public int getPixelX() {

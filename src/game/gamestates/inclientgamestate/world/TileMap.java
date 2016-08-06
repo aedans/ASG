@@ -1,4 +1,4 @@
-package game.gamestates.inclientgamestate;
+package game.gamestates.inclientgamestate.world;
 
 import acklib.utils.distribution.Distributions;
 import acklib.utils.distribution.Tend2D;

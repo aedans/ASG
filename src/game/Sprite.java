@@ -120,7 +120,7 @@ public abstract class Sprite implements Renderable {
 
     @Override
     public float getScale(){
-        return DisplayManager.scale;
+        return DisplayManager.getScale();
     }
 
 }

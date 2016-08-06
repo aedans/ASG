@@ -1,6 +1,6 @@
 package game.renderer;
 
-import game.gamestates.inclientgamestate.World;
+import game.gamestates.inclientgamestate.world.World;
 import game.gamestates.inclientgamestate.entities.Entity;
 import game.renderer.annotations.AlwaysLit;
 import game.renderer.annotations.ConstRender;

@@ -36,7 +36,7 @@ public final class DisplayManager {
     /**
      * The amount to scale all Renderables by.
      */
-    public static float scale;
+    private static float scale;
 
     /**
      * The Display's maximum fps.
@@ -64,8 +64,6 @@ public final class DisplayManager {
         ppY = 1.0f / (float) DisplayManager.yRes;
         targetResXRatio = (float) xRes / targetResolutionX;
         targetResYRatio = (float) yRes / targetResolutionY;
-        System.out.println(targetResXRatio);
-        System.out.println(targetResYRatio);
         scale = (xRes < yRes) ? targetResXRatio : targetResYRatio ;
 
         ContextAttribs attributes = new ContextAttribs(3, 2)
@@ -100,6 +98,10 @@ public final class DisplayManager {
      */
     public static void closeDisplay() {
         Display.destroy();
+    }
+
+    public static float getScale() {
+        return scale;
     }
 
 }

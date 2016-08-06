@@ -5,6 +5,7 @@ import game.gamestates.inclientgamestate.entities.player.Player;
 import game.gamestates.inclientgamestate.entities.player.controller.AIController;
 import game.gamestates.inclientgamestate.entities.player.controller.HostController;
 import game.gamestates.inclientgamestate.entities.structures.Base;
+import game.gamestates.inclientgamestate.world.World;
 import game.gui.GUIList;
 import game.renderer.Renderer;
 import game.renderer.data.RenderList;
@@ -45,7 +46,7 @@ public class InClientGameState extends GameState {
      */
     public InClientGameState() {
         // Creates a new World
-        world = new World(75, 75);
+        world = new World(100, 100);
 
         // Creates the rad and blue base.
         redBase = new Base(true, 288, 288);

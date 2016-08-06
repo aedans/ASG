@@ -27,10 +27,10 @@ public class LightList {
     public Light getMostImportantLight(Entity e) {
         Light l = lights.get(0);
         int importantLightPointer = 0;
-        double importantLightBrightness = (1 / (l.getPosition().distance(e.getPosition()) + .2f)) * l.getStrength() / 10 - .1f, brightness;
+        double importantLightBrightness = (1 / (l.getPosition().pixelDistance(e.getPosition())/400 + .2f)) * l.getStrength() / 10 - .1f, brightness;
         for (int i = 0; i < lights.size(); i++) {
             l = lights.get(i);
-            brightness = (1 / (l.getPosition().distance(e.getPosition()) + .2f)) * l.getStrength() / 10 - .1f;
+            brightness = (1 / (l.getPosition().pixelDistance(e.getPosition())/400 + .2f)) * l.getStrength() / 10 - .1f;
             if (brightness > importantLightBrightness) {
                 importantLightPointer = i;
                 importantLightBrightness = brightness;

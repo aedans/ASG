@@ -1,4 +1,4 @@
-package game.gamestates.inclientgamestate;
+package game.gamestates.inclientgamestate.world;
 
 import game.gamestates.inclientgamestate.entities.Entity;
 import game.gamestates.inclientgamestate.entities.terrain.Tile;

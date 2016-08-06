@@ -32,12 +32,8 @@ public class LightShader extends Shader {
         super.bindAttribute(1, "textureCoords");
     }
 
-    public void loadBlackBars(float width, float height) {
-        loadFloat(xBlackBarsLocation, width * 2 / DisplayManager.xRes);
-    }
-
     public void loadLightDistance(Light l, Entity e) {
-        float brightness = (float) (1 / (l.getPosition().distance(e.getPosition()) + .2f)) * l.getStrength() / 10 - .1f;
+        float brightness = (float) (1 / (l.getPosition().pixelDistance(e.getPosition())/400 + .2f)) * l.getStrength() / 10 - .1f;
         loadLightDistance(brightness);
     }
 

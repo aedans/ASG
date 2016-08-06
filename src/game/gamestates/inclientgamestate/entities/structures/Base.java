@@ -13,7 +13,7 @@ import game.renderer.resources.Textures;
 public class Base extends Entity implements Light {
 
     public Base(boolean red, int x, int y) {
-        super(new Position(x, y).multiply(DisplayManager.scale), red ? Textures.redBaseTextureID : Textures.blueBaseTextureID, 256, 256);
+        super(new Position(x, y).multiply(DisplayManager.getScale()), red ? Textures.redBaseTextureID : Textures.blueBaseTextureID, 256, 256);
         this.isLight = true;
     }
 
