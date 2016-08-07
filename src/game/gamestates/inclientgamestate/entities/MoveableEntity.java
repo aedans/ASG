@@ -24,8 +24,8 @@ public abstract class MoveableEntity extends Entity {
     public void translate() {
         float m = (float) (System.currentTimeMillis() - lastTranslated) / 1000;
         getPosition().translate(
-                xVel * m * DisplayManager.targetResYRatio / getScale(),
-                yVel * m * DisplayManager.targetResXRatio / getScale()
+                xVel * m * DisplayManager.targetResYRatio * getScale(),
+                yVel * m * DisplayManager.targetResXRatio * getScale()
         );
         this.lastTranslated = System.currentTimeMillis();
     }
