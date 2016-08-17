@@ -50,7 +50,7 @@ public class InClientGameState extends GameState {
 
         // Creates the rad and blue base.
         redBase = new Base(true, 288, 288);
-        blueBase = new Base(false, world.getPixelWidth()-288, world.getPixelHeight()-288);
+        blueBase = new Base(false, world.getPixelWidth()-352, world.getPixelHeight()-352);
 
         // Creates the human and AI Players.
         players = new Player[]{

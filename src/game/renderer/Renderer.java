@@ -114,10 +114,10 @@ public class Renderer {
                 continue;
             Position relativePos = Viewport.getRelativePosition(r.getPosition());
             if (r.getClass().isAnnotationPresent(ConstRender.class) ||
-                    !(relativePos.getOpenGLX() > 1f + r.getTexturedModel().getWidth())
-                            && !(relativePos.getOpenGLX() < -1f - r.getTexturedModel().getWidth())
-                            && !(relativePos.getOpenGLY() > 1f + r.getTexturedModel().getHeight())
-                            && !(relativePos.getOpenGLY() < -1f - r.getTexturedModel().getHeight())) {
+                    !(relativePos.getOpenGLX() > 1f + r.getTexturedModel().getWidth() * DisplayManager.getScale())
+                            && !(relativePos.getOpenGLX() < -1f - r.getTexturedModel().getWidth() * DisplayManager.getScale())
+                            && !(relativePos.getOpenGLY() > 1f + r.getTexturedModel().getHeight() * DisplayManager.getScale())
+                            && !(relativePos.getOpenGLY() < -1f - r.getTexturedModel().getHeight() * DisplayManager.getScale())) {
                 r.onRender();
                 compositeShader.loadTransformationMatrix(r.getTransformationMatrix());
                 GL11.glDrawElements(GL11.GL_TRIANGLES, 8, GL11.GL_UNSIGNED_INT, 0);
@@ -149,10 +149,10 @@ public class Renderer {
         for (Renderable r : toRender) {
             Position relativePos = Viewport.getRelativePosition(r.getPosition());
             if (r.getClass().isAnnotationPresent(ConstRender.class) ||
-                    !(relativePos.getOpenGLX() > 1f + r.getTexturedModel().getWidth())
-                            && !(relativePos.getOpenGLX() < -1f - r.getTexturedModel().getWidth())
-                            && !(relativePos.getOpenGLY() > 1f + r.getTexturedModel().getHeight())
-                            && !(relativePos.getOpenGLY() < -1f - r.getTexturedModel().getHeight())) {
+                    !(relativePos.getOpenGLX() > 1f + r.getTexturedModel().getWidth() * DisplayManager.getScale())
+                            && !(relativePos.getOpenGLX() < -1f - r.getTexturedModel().getWidth() * DisplayManager.getScale())
+                            && !(relativePos.getOpenGLY() > 1f + r.getTexturedModel().getHeight() * DisplayManager.getScale())
+                            && !(relativePos.getOpenGLY() < -1f - r.getTexturedModel().getHeight() * DisplayManager.getScale())) {
                 r.onRender();
                 if (r.getClass().isAnnotationPresent(Invisible.class))
                     continue;

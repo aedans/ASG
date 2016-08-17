@@ -66,7 +66,7 @@ public final class DisplayManager {
         targetResXRatio = (float) xRes / targetResolutionX;
         targetResYRatio = (float) yRes / targetResolutionY;
         scale = (xRes < yRes) ? targetResXRatio : targetResYRatio;
-        scale /= 1.5;
+        scale /= 4;
 
         ContextAttribs attributes = new ContextAttribs(3, 2)
                 .withForwardCompatible(true)
