@@ -69,7 +69,7 @@ public class Player extends MoveableEntity {
     }
 
     public boolean canMoveLeft() {
-        if (getPosition().getPixelX() <= 0)
+        if (getGridX() <= 0)
             return false;
         return !Game.inClientGameState.world.getTileMap().getTileAt(
                 (int) (getPosition().getPixelX() / Tile.size),
@@ -78,7 +78,7 @@ public class Player extends MoveableEntity {
     }
 
     public boolean canMoveRight() {
-        if (getPosition().getPixelX() + Tile.size >= Game.inClientGameState.world.getPixelWidth())
+        if (getGridX() >= Game.inClientGameState.world.getTileWidth()-1)
             return false;
         return !Game.inClientGameState.world.getTileMap().getTileAt(
                 (int) (getPosition().getPixelX() / Tile.size) + 1,
@@ -87,7 +87,7 @@ public class Player extends MoveableEntity {
     }
 
     public boolean canMoveUp() {
-        if (getPosition().getPixelY() + Tile.size >= Game.inClientGameState.world.getPixelHeight())
+        if (getGridY() >= Game.inClientGameState.world.getTileHeight()-1)
             return false;
         return !Game.inClientGameState.world.getTileMap().getTileAt(
                 (int) ((Tile.size/2 + getPosition().getPixelX()) / Tile.size),
@@ -96,7 +96,7 @@ public class Player extends MoveableEntity {
     }
 
     public boolean canMoveDown() {
-        if (getPosition().getPixelY() <= 0)
+        if (getGridY() <= 0)
             return false;
         return !Game.inClientGameState.world.getTileMap().getTileAt(
                 (int) ((Tile.size/2 + getPosition().getPixelX()) / Tile.size),
