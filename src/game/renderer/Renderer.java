@@ -54,7 +54,6 @@ public class Renderer {
 
     /**
      * Renders a RenderList to the Display.
-     * <p>
      *
      * @param toRender: The RenderList to render.
      * @param type:     The ShaderType to render the RenderList with.
